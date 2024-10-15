@@ -55,7 +55,7 @@ body {
   justify-content:space-between;
   padding:0px 80px;
   background:#edeff8;
-  box-shadow:0 5px 15px rgba(0,0,0,0.06);
+  box-shadow:0 5px 15px rgba(0,0,0,0.05);
 } 
 
 #nav{
