@@ -19,6 +19,12 @@ h2 {
     color: black;
 }
 
+h3 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    text-align: center;
+} 
+
 h5 {
     font-size: 20px;
     color: black;
@@ -54,8 +60,8 @@ body {
   align-items:center;
   justify-content:space-between;
   padding:0px 80px;
-  background:#edeff8;
-  box-shadow:0 5px 15px rgba(0,0,0,0.05);
+  background:white;
+  box-shadow:0 6px 15px rgba(0,0,0,0.05);
   position:sticky;
   top:0;
   left:0;
@@ -63,17 +69,17 @@ body {
 } 
 
 #nav{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    
+    display: flex; 
+    align-items: center; 
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+    flex-grow: 1; 
 }
 
 #nav li{
     list-style: none;
-    padding: 0 20px;
-
-    
+    padding: 0 20px;    
 }
 
 #nav li a{
@@ -86,8 +92,39 @@ body {
 }
 
 #nav li a:hover{
-    color:rgba(128, 0, 0, 0.842);
+    color: rgb(0, 238, 255);
 }
+
+.user-actions {
+    display: flex;
+    margin-left: auto;
+    gap: 10px; 
+}
+
+.log, .sign{
+    padding: 10px 15px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.log {
+    background-color: transparent;
+    color:#333;
+    border: 2px solid ;
+}
+
+.sign {
+    background-color: #343434;
+    color: white;
+}
+
+.log:hover {
+    background-color:#343434;
+    color: white;
+}
+
+
 
 #herobanner{
     background-image: url("");
@@ -123,4 +160,97 @@ body {
     background: #315cfd;
     color: white;
     font-size: 1.5em;
+}
+
+footer  { 
+    background: #343434;
+    padding-top: 50px;  
+    color: white;
+}
+
+.container {
+    width: 1140px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+   
+}
+
+.footer-content {
+    width: 33.3%;
+    
+}
+ .footer-content p{
+    width: 190px;
+    margin:auto;
+    padding: 7px;
+    color: white;
+ }
+
+.footer-content ul {
+    text-align: center;
+   
+}
+
+.footer-content a {
+    text-align: center;
+    color: white;
+}
+
+.list {
+    padding: 0;
+   
+}
+
+.list li {
+    width: auto;
+    text-align: center;
+    list-style-type: none;
+    padding: 7px;
+    position: relative;
+    
+}
+  
+.list li::before {
+    content: '';
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 100%;
+    width: 0;
+    height: 2px;
+    background: rgb(0, 238, 255);
+    transition-duration: .5s;
+}
+  
+.list li:hover::before {
+    width: 80px;
+}
+
+.media-icons {
+    text-align: center;
+    padding: 0;
+}
+  
+.media-icons li {
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+}
+  
+.media-icons i {
+    color: white;
+    font-size: 25px;
+}
+  
+a {
+    text-decoration:none;
+}
+  
+a:hover {
+    color: rgb(0, 238, 255);
+}
+  
+.media-icons i:hover {
+    color:rgb(0, 238, 255);
 }
