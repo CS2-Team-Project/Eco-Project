@@ -320,4 +320,68 @@ a:hover {
     transition: background-color 0.3s ease;
 }
 
+.sign-form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 50px;
+    padding: 20px;
+    border-radius: 8px;
+}
 
+.sign-form h1 {
+    text-align: center;
+    font-size: 26px;
+    color: #000;
+    
+}
+
+.sign-form p {
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+
+.sign-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+.sign-form #email,
+.sign-form #Password,
+.sign-form input[type="Log In"],
+.sign-form input[type="Forgot Password"],
+.sign-form textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+.sign-form #email:focus,
+.sign-form #Password:focus,
+ 
+.sign-form input[type="Log In"] {
+    background-color:black;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+}
+
+.sign-form input[type="Forgot Password"] {
+    background-color:black;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+}
