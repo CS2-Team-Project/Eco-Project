@@ -320,6 +320,7 @@ a:hover {
     transition: background-color 0.3s ease;
 }
 
+/*product page*/ 
 
 #products {
     text-align: center;
@@ -381,4 +382,33 @@ a:hover {
 .product-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+.size-buttons {
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.size {
+    padding: 8px 16px;
+    border: 2px solid #315cfd !important;
+    border-radius: 20px;
+    background-color: white !important;
+    color: #315cfd !important; /* Button text color */
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.size:hover {
+    background-color: rgb(232, 232, 232)  !important; /* Button background on hover */
+    color: white; /* Button text color on hover */
+}
+
+.size.selected {
+    background-color: #315cfd !important; /* Highlighted background */
+    color: white !important; /* Text color when selected */
+    border: 2px solid #315cfd !important; /* Consistent border */
 }
