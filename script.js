@@ -12,3 +12,10 @@ document.querySelectorAll('.size-buttons').forEach(buttonGroup => {
         }
     });
 });
+
+
+// Use querySelector to target the first button on the page
+document.querySelector("button").addEventListener("click", function () {
+    // When the button is clicked, open the 'products.html' page in a new tab
+    window.open('products.html', '_blank');
+});
