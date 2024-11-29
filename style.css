@@ -311,8 +311,76 @@ a:hover {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+/* Login in form*/
 
-<<<<<<< HEAD
+.log-form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 50px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.log-form h1 {
+    text-align: center;
+    font-size: 26px;
+    color: #000;
+    
+}
+
+.log-form p {
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+
+.log-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+.log-form #email,
+.log-form #Password,
+.log-form input[type="Log In"],
+.log-form input[type="Forgot Password"],
+.log-form textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+.log-form #email:focus,
+.log-form #Password:focus,
+ 
+.log-form input[type="Log In"] {
+    background-color:black;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+}
+
+.log-form input[type="Forgot Password"] {
+    background-color:black;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+}
+
+/*sighn up form*/
+
 .sign-form {
     width: 100%;
     max-width: 600px;
@@ -325,93 +393,39 @@ a:hover {
     text-align: center;
     font-size: 26px;
     color: #000;
-    
 }
 
 .sign-form p {
-=======
-/*login*/
-
-.log-form {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto 50px;
-    padding: 20px;
-    border-radius: 8px;
-}
- 
-.log-form h1 {
-    text-align: center;
-    font-size: 26px;
-    color: #000;
-}
- 
-.log-form p {
->>>>>>> 98218d1c29e7148bdba52a3c29c770a582e214a5
     text-align: center;
     font-size: 14px;
     color: #555;
     margin-bottom: 20px;
     margin-top: 0px;
 }
-<<<<<<< HEAD
 
 .sign-form form {
-=======
- 
-.log-form form {
->>>>>>> 98218d1c29e7148bdba52a3c29c770a582e214a5
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
-<<<<<<< HEAD
 
+.sign-form #FirstName,
+.sign-form #LastName,
+.sign-form #Email,
 
-.sign-form #email,
 .sign-form #Password,
-.sign-form input[type="Log In"],
-.sign-form input[type="Forgot Password"],
+.sign-form input[type="Sign Up"],
+
 .sign-form textarea {
-=======
- 
- 
-.log-form #email,
-.log-form #Password,
-.log-form input[type="Log In"],
-.log-form input[type="Forgot Password"],
-.log-form textarea {
->>>>>>> 98218d1c29e7148bdba52a3c29c770a582e214a5
     width: 100%;
     padding: 12px;
     font-size: 14px;
     border: 1px solid #ddd;
     background-color: #f9f9f9;
-    transition: border-color 0.3s ease;
-}
-<<<<<<< HEAD
-
-.sign-form #email:focus,
-.sign-form #Password:focus,
- 
-.sign-form input[type="Log In"] {
-=======
- 
-.log-form #email:focus,
-.log-form #Password:focus,
-.log-form input[type="Log In"] {
->>>>>>> 98218d1c29e7148bdba52a3c29c770a582e214a5
-    background-color:black;
-    color: white;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-<<<<<<< HEAD
+    transition: border-color 0.3
 
 }
-
-.sign-form input[type="Forgot Password"] {
+.sign-form input[type="Sign Up"] {
     background-color:black;
     color: white;
     font-size: 16px;
@@ -419,20 +433,7 @@ a:hover {
     cursor: pointer;
     transition: background-color 0.3s ease;
 
-=======
- 
 }
- 
-.log-form input[type="Forgot Password"] {
-    background-color:black;
-    color: white;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
- 
-}
-
 /*product page*/ 
 
 #products {
@@ -524,5 +525,4 @@ a:hover {
     background-color: #315cfd !important; /* Highlighted background */
     color: white !important; /* Text color when selected */
     border: 2px solid #315cfd !important; /* Consistent border */
->>>>>>> 98218d1c29e7148bdba52a3c29c770a582e214a5
 }
