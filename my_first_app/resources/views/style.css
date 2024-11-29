@@ -36,13 +36,12 @@ h6 {
 }
 
 p {
-    font-size: 16px;
+    font-size: 19px;
     margin: 15px 0 20px 0;
 }
   
 .section-p1 {
     padding: 40px 80px;
-  
 }
   
 .section-m1 {
@@ -54,7 +53,7 @@ body {
 }
 
 
-  
+ /*navigation bar*/  
 #header{
   display: flex;
   align-items:center;
@@ -65,7 +64,6 @@ body {
   position:sticky;
   top:0;
   left:0;
- 
 } 
 
 #nav{
@@ -124,15 +122,13 @@ body {
     color: white;
 }
 
-
+/*herobanner*/ 
 
 #herobanner{
-    color: white;
     background-image: url("img/hero1.png");
-    height: 80vh;
+    height: 90vh;
     width:100%;
-    background-size:cover;
-    background-position: top 25% right 0;
+    background-size: cover;
     padding:0 80px;
     display:flex;
     flex-direction:column;
@@ -140,10 +136,12 @@ body {
     justify-content: center;
 }
 
+
+
 #herobanner button{
   width: 160px;
   height: 60px;
-  border: 3px solid #315cfd;
+  border: 3px solid black;
   border-radius: 50px;
   transition: all 0.3s;
   cursor: pointer;
@@ -153,7 +151,7 @@ body {
 }
 
 #herobanner button:hover{
-    background: #315cfd;
+    background:lightskyblue;
     color: white;
     font-size: 1.5em;
 }
@@ -169,7 +167,6 @@ footer  {
     margin: auto;
     display: flex;
     justify-content: center;
-   
 }
 
 .footer-content {
@@ -195,7 +192,6 @@ footer  {
 
 .list {
     padding: 0;
-   
 }
 
 .list li {
@@ -251,6 +247,7 @@ a:hover {
     color:rgb(0, 238, 255);
 }
 
+/*contact page*/ 
 .contact-form {
     width: 100%;
     max-width: 600px;
@@ -313,6 +310,72 @@ a:hover {
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
+}
+
+/*login*/
+
+.log-form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 50px;
+    padding: 20px;
+    border-radius: 8px;
+}
+ 
+.log-form h1 {
+    text-align: center;
+    font-size: 26px;
+    color: #000;
+}
+ 
+.log-form p {
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+ 
+.log-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+ 
+ 
+.log-form #email,
+.log-form #Password,
+.log-form input[type="Log In"],
+.log-form input[type="Forgot Password"],
+.log-form textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+ 
+.log-form #email:focus,
+.log-form #Password:focus,
+.log-form input[type="Log In"] {
+    background-color:black;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+ 
+}
+ 
+.log-form input[type="Forgot Password"] {
+    background-color:black;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+ 
 }
 
 /*product page*/ 
