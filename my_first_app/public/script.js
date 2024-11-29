@@ -1,5 +1,4 @@
-
-//size button selected
+// Select size button
 document.querySelectorAll('.size-buttons').forEach(buttonGroup => {
     buttonGroup.addEventListener('click', event => {
         if (event.target.classList.contains('size')) {
@@ -10,5 +9,33 @@ document.querySelectorAll('.size-buttons').forEach(buttonGroup => {
             // Add 'selected' class to the clicked button
             event.target.classList.add('selected');
         }
+    });
+});
+
+// Add to Basket button
+document.querySelectorAll('.add-to-basket').forEach((button, index) => {
+    button.addEventListener('click', () => {
+        const productCard = button.closest('.product-card'); // Get parent card
+        const productName = productCard.querySelector('h3').innerText; // Product name
+        const productPrice = productCard.querySelector('.price').innerText; // Product price
+        const productImage = productCard.querySelector('img').src; // Product image
+        const selectedSize = productCard.querySelector('.size.selected'); // Selected size
+
+        if (!selectedSize) {
+            alert('Please select a size before adding to the basket!');
+            return;
+        }
+
+        // Store the product data
+        const basket = JSON.parse(localStorage.getItem('basket')) || [];
+        basket.push({
+            name: productName,
+            price: productPrice,
+            image: productImage,
+            size: selectedSize.innerText
+        });
+
+        localStorage.setItem('basket', JSON.stringify(basket));
+        alert('Product added to basket!');
     });
 });

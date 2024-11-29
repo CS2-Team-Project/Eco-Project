@@ -30,6 +30,42 @@
       
     </section>
 
+    <section id="basket" class="section-p1">
+        <h1>Your Basket</h1>
+        <div id="basket-container"></div>
+    </section>
+    
+
+    <script>
+        // get basket items
+        const basketContainer = document.getElementById('basket-container');
+        const basket = JSON.parse(localStorage.getItem('basket')) || [];
+    
+        if (basket.length === 0) {
+            basketContainer.innerHTML = '<p>Your basket is empty!</p>';
+        } else {
+            basket.forEach(item => {
+                const productHTML = `
+                    <div class="basket-item">
+                        <img src="${item.image}" alt="${item.name}" />
+                        <h3>${item.name}</h3>
+                        <p>Size: ${item.size}</p>
+                        <p>Price: ${item.price}</p>
+                    </div>
+                `;
+                basketContainer.innerHTML += productHTML;
+            });
+        }
+    </script>
+
+    <button id="clear-basket">Clear Basket</button>
+    <script>
+        document.getElementById('clear-basket').addEventListener('click', () => {
+            localStorage.removeItem('basket');
+            alert('Basket has been cleared!');
+            location.reload(); // Refresh page for changes
+        });
+    </script>
 
     
 </html>

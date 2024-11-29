@@ -407,3 +407,32 @@ a:hover {
     color: white !important; /* Text color when selected */
     border: 2px solid #315cfd !important; /* Consistent border */
 }
+
+/*basket page*/
+#basket-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.basket-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.basket-item img {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.basket-item h3 {
+    margin: 0;
+    font-size: 20px;
+}
