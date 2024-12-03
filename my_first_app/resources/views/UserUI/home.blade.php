@@ -15,14 +15,21 @@
     <section id="header">
         <a href="#"><img src="img/logo1.png" class="logo" alt=""></a>
         <nav id="nav">
-            <li><a href="home.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="about.html">About Us</a></li>
+            <li><a href="{{url('/home')}}">Home</a></li>
+            <li><a href="{{url('/products')}}">Products</a></li>
+            <li><a href="{{url('/contact')}}">Contact</a></li>
+            <li><a href="{{url('/about')}}">About Us</a></li>
             <div class="user-actions">
+                @if (Route::has('login'))
+                @auth
+                <li><a href="{{url('/dashboard')}}">ACCOUNT</a></li>
+                @else
                 <a href="{{ route('login') }}" class="log">LOGIN</a>
                 <a href="{{ route('register') }}" class="sign">SIGN UP</a>
+                @endif
+                @endauth 
             </div>
+        <!--above is functionality to switch the login and sign up button with dashboard when logged in-->
             <li><a href="basket.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
         </nav>
     </section>

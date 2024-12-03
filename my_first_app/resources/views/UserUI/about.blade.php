@@ -17,16 +17,24 @@
 
        <div>
            <ul id="nav">
-               <li><a href="home.html">Home</a></li>
-               <li><a href="products.html">Products</a></li>
-               <li><a href="contact.html">Contact Us</a></li>
-               <li><a href="about.html">About Us</a></li>
-               <li><a href="basket.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+               <li><a href="{{url('/home')}}">Home</a></li>
+               <li><a href="{{url('/products')}}">Products</a></li>
+               <li><a href="{{url('/contact')}}">Contact Us</a></li>
+               <li><a href="{{url('/about')}}">About Us</a></li>
+               <li><a href="{{url('/basket')}}"><i class="fa-solid fa-cart-shopping"></i></a></li>
+               @if (Route::has('login'))
+                @auth
+                <li><a href="{{url('/dashboard')}}">ACCOUNT</a></li>
+                @else
+                <a href="{{ route('login') }}" class="log">LOGIN</a>
+                <a href="{{ route('register') }}" class="sign">SIGN UP</a>
+                @endif
+                @endauth 
            </ul>
        </div>
     </section>
 
-    <section id="herobanner">
+    <section id="textarea">
         <h2>About Us</h2><br>
         <h1>Made in the UK</h1>
         <pr>At Concept we take pride in keeping the design and production of our merchandise at home in the UK.
@@ -35,8 +43,6 @@
             crucial to the quality of our products.
         </pr>
 
-
-    </section>
 
 
     <script src="script.js"></script>

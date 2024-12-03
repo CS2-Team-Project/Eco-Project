@@ -1,5 +1,5 @@
 <?php
-
+//controls direction of site when logging in as user or admin
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -18,7 +18,7 @@ class HomeController extends Controller
         }
             else
             {
-                return view('dashboard');
+                return view('UserUI.home');
             }
         
     }
