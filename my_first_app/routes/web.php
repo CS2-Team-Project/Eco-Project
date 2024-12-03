@@ -17,7 +17,9 @@ Route::get('/redirect',[HomeController::class,'redirect']);
 
 Route::get('/',[HomeController::class,'home']);
 
-Route::get('/home',[HomeController::class,'home']);
+Route::get('/home', function(){
+    return view('UserUI.home');
+});
 
 Route::get('/products', function(){
     return view('UserUI.products');
