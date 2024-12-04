@@ -398,15 +398,37 @@ a:hover {
 }
 
 .size:hover {
-    background-color: rgb(232, 232, 232)  !important; /* Button background on hover */
-    color: white; /* Button text color on hover */
+    background-color: rgb(232, 232, 232)  !important; 
+    color: white; 
 }
 
 .size.selected {
-    background-color: #315cfd !important; /* Highlighted background */
-    color: white !important; /* Text color when selected */
-    border: 2px solid #315cfd !important; /* Consistent border */
+    background-color: #315cfd !important; 
+    color: white !important; 
+    border: 2px solid #315cfd !important;
 }
+
+.product-details {
+    margin-top: 10px;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #ffffff;
+    font-size: 14px;
+    text-align: left;
+}
+
+.product-details summary {
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #315cfd;
+}
+
+.product-details summary:hover {
+    text-decoration: underline;
+}
+
 
 /*basket page*/
 #basket-container {

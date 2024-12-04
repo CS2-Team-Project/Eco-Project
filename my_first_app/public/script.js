@@ -15,18 +15,17 @@ document.querySelectorAll('.size-buttons').forEach(buttonGroup => {
 // Add to Basket button
 document.querySelectorAll('.add-to-basket').forEach((button, index) => {
     button.addEventListener('click', () => {
-        const productCard = button.closest('.product-card'); // Get parent card
-        const productName = productCard.querySelector('h3').innerText; // Product name
-        const productPrice = productCard.querySelector('.price').innerText; // Product price
-        const productImage = productCard.querySelector('img').src; // Product image
-        const selectedSize = productCard.querySelector('.size.selected'); // Selected size
-
+        const productCard = button.closest('.product-card'); 
+        const productName = productCard.querySelector('h3').innerText; 
+        const productPrice = productCard.querySelector('.price').innerText; 
+        const productImage = productCard.querySelector('img').src; 
+        const selectedSize = productCard.querySelector('.size.selected'); 
         if (!selectedSize) {
             alert('Please select a size before adding to the basket!');
             return;
         }
 
-        // Store the product data
+        // Store product data
         const basket = JSON.parse(localStorage.getItem('basket')) || [];
         basket.push({
             name: productName,
