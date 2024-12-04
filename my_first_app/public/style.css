@@ -430,35 +430,6 @@ a:hover {
 }
 
 
-/*basket page*/
-#basket-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-}
-
-.basket-item {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.basket-item img {
-    width: 100px;
-    height: auto;
-    border-radius: 8px;
-}
-
-.basket-item h3 {
-    margin: 0;
-    font-size: 20px;
-}
-
 /* Checkout page */
  
 #checkout-head h3
@@ -528,3 +499,56 @@ a:hover {
 #checkout-body #details-info button:hover {
     background-color: lightgrey;  
 }
+
+/*basket page*/
+
+/*
+.basketTabButtons button{
+    background-color: #315cfd;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}*/
+
+
+.basket-container .item img{
+    width: 100%;
+    border: 3px solid;
+    border-color: #343434;
+}
+
+.basket-container .item{
+    display: grid;
+    grid-template-columns: 70px 100px 50px 1fr;
+    gap: 10px;
+    text-align: center;
+    align-items: center;
+    background-color: #315cfd;
+    color: white;
+}
+
+.basket-container .quantity span{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    color: #343434;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.basket-container .quantity span:nth-child(2){
+    background-color: transparent;
+    color: white;
+}
+
+.basket-container .item:nth-child(even){
+    background-color: #797979;
+    color: #ffffff;
+}
+
+.basket-container {
+    overflow: auto;
+}
+
