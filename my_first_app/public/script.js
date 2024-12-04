@@ -59,6 +59,16 @@ document.getElementById("submit-btn").addEventListener("click", function () {
     }
 });
 
+//shahzaib's basket page functionality
 
+let listProducts = []
 
-
+ const initApp = () => {   
+    //function to get data from products.json
+    fetch('products.json') 
+    .then(response => response.json()) //opens/decodes as json
+    .then(data => {
+        listProducts = data;  //assigns data to listProducts
+    })
+ }
+ initApp();
