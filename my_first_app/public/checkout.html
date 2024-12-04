@@ -3,8 +3,9 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Checkout</title>
+  <title>CS2TP</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -17,111 +18,42 @@
       <li><a href="products.html">Products</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><a href="about.html">About Us</a></li>
+      <div class="user-actions">
+        <a href="log.html" class="log">LOGIN</a>
+        <a href="signup.html" class="sign">SIGN UP</a>
+      </div>
       <li><a href="basket.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
     </nav>
   </section>
 
-  <section id="checkout" class="section-p1">
-    <h1>Checkout</h1>
-
-    <div class="checkout-container">
-      <!-- Order Summary -->
-      <div id="order-summary">
-        <h2>Order Summary</h2>
-        <div id="basket-items"></div>
-        <div class="summary">
-          <p>Total Items: <span id="summary-total-items">0</span></p>
-          <p>Total Price: £<span id="summary-total-price">0.00</span></p>
-        </div>
-      </div>
-
-      <!-- Billing Details -->
-      <div id="billing-details">
-        <h2>Billing Details</h2>
-        <form id="checkout-form">
-          <label for="name">Full Name:</label>
-          <input type="text" id="name" name="name" placeholder="John Doe" required>
-
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" placeholder="john.doe@example.com" required>
-
-          <label for="address">Address:</label>
-          <input type="text" id="address" name="address" placeholder="123 Main Street" required>
-
-          <label for="payment">Payment Method:</label>
-          <select id="payment" name="payment" required>
-            <option value="credit-card">Credit Card</option>
-            <option value="paypal">PayPal</option>
-          </select>
-
-          <button type="submit" class="checkout-button">Place Order</button>
-        </form>
-      </div>
-    </div>
+  <section id="checkout-head">
+    <h3>Checkout</h3>
   </section>
 
-  <script>
-    // Render basket summary on the checkout page
-    const renderCheckoutBasket = () => {
-      let basket = JSON.parse(localStorage.getItem('basket')) || [];
-      const basketItems = document.getElementById('basket-items');
-      const totalItems = document.getElementById('summary-total-items');
-      const totalPrice = document.getElementById('summary-total-price');
+  <div class="faint-line"></div>
 
-      if (basket.length === 0) {
-        basketItems.innerHTML = '<p>Your basket is empty!</p>';
-        totalItems.textContent = 0;
-        totalPrice.textContent = "0.00";
-        return;
-      }
+  <section id="checkout-body">
+    <h3>Enter Shipping Address</h3>
+    <section id="details-info">
+      <form id="checkout-form">
+        <label for="name">Full Name:</label>
+        <input type="text" id="fullName" name="user_name" required>
 
-      basketItems.innerHTML = ''; // Clear previous contents
-      let totalQuantity = 0;
-      let totalCost = 0;
+        <label for="address">Street Address:</label>
+        <input type="text" id="address" name="address" required>
 
-      basket.forEach((item) => {
-        totalQuantity += item.quantity;
-        totalCost += item.quantity * item.price;
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" required>
 
-        const itemHTML = `
-          <div class="basket-item">
-            <img src="${item.image}" alt="${item.name}">
-            <div>
-              <h3>${item.name}</h3>
-              <p>Size: ${item.size}</p>
-              <p>Quantity: ${item.quantity}</p>
-              <p>Price: £${(item.quantity * item.price).toFixed(2)}</p>
-            </div>
-          </div>
-        `;
-        basketItems.innerHTML += itemHTML;
-      });
+        <label for="zip">PostCode</label>
+        <input type="text" id="zip" name="zip" required>
 
-      totalItems.textContent = totalQuantity;
-      totalPrice.textContent = totalCost.toFixed(2);
-    };
-
-    // Form submission handler
-    document.getElementById('checkout-form').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const address = document.getElementById('address').value;
-      const payment = document.getElementById('payment').value;
-
-      if (!name || !email || !address || !payment) {
-        alert('Please fill in all required fields.');
-        return;
-      }
-
-      alert('Order placed successfully!');
-      localStorage.removeItem('basket'); // Clear the basket after checkout
-      window.location.href = 'thankyou.html'; // Redirect to a thank-you page
-    });
-
-    // Initial render
-    renderCheckoutBasket();
-  </script>
+        <button type="button" id="submit-btn">Submit</button>
+      </form>
+      <p id="confirmation-message" style="color: green; margin-top: 20px; font-weight: bold;"></p>
+    </section>
+  </section>
 </body>
 
+<script src="script.js"></script>
 </html>
