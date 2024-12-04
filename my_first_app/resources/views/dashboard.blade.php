@@ -8,9 +8,9 @@
         </h2>
     </x-slot>
 
-    <div class="log">
-        <div class="log">
-            <div class="log">
+    <div class="#">
+        <div class="#">
+            <div class="#">
             </div>
         </div>
     </div>
