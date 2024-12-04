@@ -1,0 +1,20 @@
+[
+    {
+        "id":1,
+        "name":"Canada Goose Bomber",
+        "price":1375,
+        "image":"img/product1grey.png"
+    },
+    {
+        "id":2,
+        "name":"Moncler Jacket",
+        "price":765,
+        "image":"img/product2black.png"
+    },
+    {
+        "id":3,
+        "name":"The North Face Puffer",
+        "price":315,
+        "image":"img/product3cream.png"
+    }
+]
