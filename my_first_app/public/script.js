@@ -15,28 +15,6 @@ document.querySelectorAll('.size-buttons').forEach(buttonGroup => {
 });
 
 
-/*
-// submit order button function
-document.getElementById("submit-btn").addEventListener("click", function () {
-    const confirmationMessage = document.getElementById("confirmation-message");
-
-    
-    const fullName = document.getElementById("fullName").value.trim();
-    const address = document.getElementById("address").value.trim();
-    const city = document.getElementById("city").value.trim();
-    const zip = document.getElementById("zip").value.trim();
-
-    if (fullName && address && city && zip) {
-        // If all fields are filled, show the confirmation message
-        confirmationMessage.textContent = "Order Confirmed.";
-    } else {
-        // If any field is missing, show an error
-        confirmationMessage.textContent = "Please fill in all fields.";
-        confirmationMessage.style.color = "red";
-    }
-});
-*/
-
 //shahzaib's basket page functionality
 
 
@@ -213,6 +191,26 @@ let basketItems = JSON.parse(localStorage.getItem("basketItems")) || [];
     })
 } 
 
+
+// submit order button function
+document.getElementById("submit-btn").addEventListener("click", function () {
+    const confirmationMessage = document.getElementById("confirmation-message");
+
+    
+    const fullName = document.getElementById("fullName").value.trim();
+    const address = document.getElementById("address").value.trim();
+    const city = document.getElementById("city").value.trim();
+    const zip = document.getElementById("zip").value.trim();
+
+    if (fullName && address && city && zip) {
+        // If all fields are filled, show the confirmation message
+        confirmationMessage.textContent = "Order Confirmed.";
+    } else {
+        // If any field is missing, show an error
+        confirmationMessage.textContent = "Please fill in all fields.";
+        confirmationMessage.style.color = "red";
+    }
+});
 
 
  
