@@ -15,7 +15,7 @@ document.querySelectorAll('.size-buttons').forEach(buttonGroup => {
 });
 
 
-
+/*
 // submit order button function
 document.getElementById("submit-btn").addEventListener("click", function () {
     const confirmationMessage = document.getElementById("confirmation-message");
@@ -35,7 +35,7 @@ document.getElementById("submit-btn").addEventListener("click", function () {
         confirmationMessage.style.color = "red";
     }
 });
-
+*/
 
 //shahzaib's basket page functionality
 
@@ -62,26 +62,29 @@ let listProducts = [
 
 
 //getting items from local storage so they are retained if the page is refreshed whether on product or basket page
-let basketItems = JSON.parse(localStorage.getItem("basketItems")) || [];
+//JSON.parrse() is needed to convert from local storage stringify format back to array format to be used as an array 
+let basketItems = JSON.parse(localStorage.getItem("basketItems")) || []; 
 
- const addToCart = (productName) => {
-    let positionThisProductInBasket = basketItems.findIndex((value) => value.productName == productName) //iterates each item (value) and compares the name, returns the index or -1
+ const addToCart = (productName, size) => {
+    let positionThisProductInBasket = basketItems.findIndex((value) => value.productName == productName && value.size == size) //iterates each item (value) and compares the name, returns the index or -1
     if(basketItems.length <= 0){ //basket is empty
         basketItems = [{
             productName: productName,
-            quantity: 1
+            quantity: 1,
+            size: size
         }]
     }else if(positionThisProductInBasket < 0){ //basket isnt empty but product doesnt exist
         basketItems.push({
             productName: productName,
-            quantity: 1
+            quantity: 1,
+            size: size
         })
     }else{    //basket isnt empty and product exists in it already
-        basketItems[positionThisProductInBasket].quantity = basketItems[positionThisProductInBasket].quantity + 1
+        basketItems[positionThisProductInBasket].quantity = basketItems[positionThisProductInBasket].quantity + 1;
     } 
     //addCartToHTML(); this will give an error as we are not on the basket page so cannot access the basket-container
     //save to local storage each time
-    localStorage.setItem("basketItems", JSON.stringify(basketItems));
+    addCartToMemory();
     console.log(basketItems);
 }
 
@@ -91,6 +94,8 @@ let basketItems = JSON.parse(localStorage.getItem("basketItems")) || [];
         basketItems.forEach(basketItem => {
             let newBasket = document.createElement('div');
             newBasket.classList.add('item');
+            newBasket.dataset.productName = basketItem.productName; //for the eventlistener that calls the changeQuantity() function. to be able to identify which product is clicked
+            newBasket.dataset.size = basketItem.size; //same point as above line
             //getting the product information from the products table, as right now we are in the basket table which only has productName and quantity
             console.log(listProducts);
             let positionProduct = listProducts.findIndex((value) => value.name == basketItem.productName);
@@ -103,6 +108,9 @@ let basketItems = JSON.parse(localStorage.getItem("basketItems")) || [];
             <div class="price">
                 £${info.price * basketItem.quantity}
             </div>
+            <div>
+                ${basketItem.size}
+            </div>
             <div class="quantity">
                 <span class="minus"> < </span>
                 <span>${basketItem.quantity}</span>
@@ -110,11 +118,39 @@ let basketItems = JSON.parse(localStorage.getItem("basketItems")) || [];
             </div>  
             `;
             listBasketHTML.appendChild(newBasket);
-            console.log("running append child");
         })
+    } else if(basketItems.length == 0){
+        document.querySelector('.section-p1').innerHTML +=`
+        <h8 class = "empty-basket-message">Your basket is empty!</h8>
+        `;
     }
  } 
 
+ const changeQuantity = (productName, size, type) => {
+    let positionItemInBasket = basketItems.findIndex((value) => value.productName == productName && value.size == size)
+    if(positionItemInBasket >= 0){
+        switch (type){
+            case 'plus':
+                basketItems[positionItemInBasket].quantity = basketItems[positionItemInBasket].quantity + 1;
+                break;
+            default:
+                let valueChange = basketItems[positionItemInBasket].quantity - 1; //if the result is 0 we want to remove the item
+                if(valueChange > 0){
+                    basketItems[positionItemInBasket].quantity = valueChange;
+                }else{
+                    basketItems.splice(positionItemInBasket, 1); //parameters: the index and how many u want to delete starting from that index
+                }
+                break;
+        }
+    }
+    addCartToMemory();
+    addCartToHTML(); //to refresh the data on the screen
+ }
+
+ //save to local storage
+ const addCartToMemory = () => {
+    localStorage.setItem('basketItems', JSON.stringify(basketItems));
+ }
 
   //if statement is required as this should all only run after the user goes on to the products page, as the product-container only exists on that page
  if (window.location.pathname.includes("products.html")) {
@@ -126,8 +162,19 @@ let basketItems = JSON.parse(localStorage.getItem("basketItems")) || [];
         if(positionClick.classList.contains('add-to-basket')){
             let productCard = positionClick.closest('.product-card');           //gets the closest product from the click 
             let productName = productCard.querySelector('h3').textContent.trim(); //gets the name of that closest product
+            
+            // Get the size selection for this product
+            let sizeButton = productCard.querySelector('.size.selected');
+            // Check if a size is selected
+            if (!sizeButton) {
+                alert('Please select a size before adding to the basket.');
+                return;      //Exit the function if no size is selected
+            }
+            //if it is:
+            let size = sizeButton.dataset.size;
+
             alert(`Product added: ${productName}`);
-            addToCart(productName);
+            addToCart(productName, size);
         }
     }) 
  }
@@ -139,6 +186,31 @@ let basketItems = JSON.parse(localStorage.getItem("basketItems")) || [];
     
     addCartToHTML(); // Call addCartToHTML after data is fetched
 
+    listBasketHTML.addEventListener('click', (event) => {
+        let positionClick = event.target;
+        if(positionClick.classList.contains('minus') || positionClick.classList.contains('plus')){
+            let productName = positionClick.parentElement.parentElement.dataset.productName; //we can do this because of line 94 we added
+            let size = positionClick.parentElement.parentElement.dataset.size; //same point as above line
+            let type = 'minus';
+            if(positionClick.classList.contains('plus')){
+                type = 'plus';
+            }
+            changeQuantity(productName, size, type)
+        }
+    })
+    console.log(basketItems)
+    document.querySelector('.check-out-button').addEventListener('click', (event) => {
+        let positionClick = event.target;
+        console.log(basketItems)
+        if(positionClick.classList.contains('check-out-button')){
+            if(basketItems.length == 0){
+            alert('Your Basket is Empty, Navigate Back to the Products Page');
+            }
+            else {
+            window.location.href = "checkout.html";
+            }
+        }
+    })
 } 
 
 
