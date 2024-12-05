@@ -514,8 +514,8 @@ a:hover {
     gap: 10px;
     text-align: center;
     align-items: center;
-    background-color: #315cfd;
-    color: white;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
     font-size: 18px;
 }
 
@@ -556,12 +556,12 @@ a:hover {
 
 .basket-container .quantity span:nth-child(2){
     background-color: transparent;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .basket-container .item:nth-child(even){
-    background-color: #797979;
-    color: #ffffff;
+    background-color: #f0f0f0;
+    color: #000000;
 }
 
 .basket-container {
