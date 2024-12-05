@@ -212,5 +212,58 @@ document.getElementById("submit-btn").addEventListener("click", function () {
     }
 });
 
+if (window.location.pathname.includes("checkout.html")) {
+    const orderSummaryContainer = document.querySelector('.order-summary-container');
+    const totalPriceElement = document.getElementById('total-price');
+
+    // Retrieve basket items from local storage
+    const basketItems = JSON.parse(localStorage.getItem("basketItems")) || [];
+    const listProducts = [
+        {
+            "name": "Canada Goose Bomber",
+            "price": 1375,
+            "image": "img/product1grey.png"
+        },
+        {
+            "name": "Moncler Jacket",
+            "price": 765,
+            "image": "img/product2black.png"
+        },
+        {
+            "name": "The North Face Puffer",
+            "price": 315,
+            "image": "img/product3cream.png"
+        }
+    ];
+
+    let total = 0;
+
+    // fill the summary part
+    if (basketItems.length > 0) {
+        basketItems.forEach(item => {
+            const product = listProducts.find(product => product.name === item.productName);
+            if (product) {
+                const itemTotal = product.price * item.quantity;
+                total += itemTotal;
+
+                const itemElement = document.createElement('div');
+                itemElement.classList.add('order-item');
+                itemElement.innerHTML = `
+                    <div class="order-item-details">
+                        <img src="${product.image}" alt="${product.name}" style="width: 50px; height: auto;">
+                        <p>${product.name} (${item.size})</p>
+                    </div>
+                    <div class="order-item-quantity">Qty: ${item.quantity}</div>
+                    <div class="order-item-price">£${itemTotal}</div>
+                `;
+                orderSummaryContainer.appendChild(itemElement);
+            }
+        });
+        totalPriceElement.textContent = `Total: £${total}`;
+    } else {
+        // Show empty order summary 
+        orderSummaryContainer.innerHTML = `<p>Your basket is empty.</p>`;
+    }
+}
 
  

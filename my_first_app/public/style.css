@@ -522,7 +522,7 @@ a:hover {
 /*For tablets and phones*/
 @media (max-width: 768px) {
     .basket-container .item {
-        grid-template-columns: 1fr; /*single column layout*/
+        grid-template-columns: 1fr; 
         font-size: 14px; 
         padding: 10px; 
     }
@@ -550,7 +550,7 @@ a:hover {
     border-radius: 50%;
     cursor: pointer;
     font-weight: 700;
-    box-shadow: 4px 10px 20px rgba(41, 41, 41, 0.63); /* Darker and more blurry shadow on hover */
+    box-shadow: 4px 10px 20px rgba(41, 41, 41, 0.63); 
 
 }
 
@@ -602,3 +602,47 @@ a:hover {
     font-size: 1.5em;
 }
 
+
+/*order summary*/
+
+#order-summary {
+    margin: 20px 50px;
+}
+
+.order-summary-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.order-item:last-child {
+    border-bottom: none;
+}
+
+.order-item img {
+    margin-right: 10px;
+    border-radius: 8px;
+}
+
+.order-item-details {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.order-item-quantity,
+.order-item-price {
+    font-weight: bold;
+}
