@@ -39,4 +39,6 @@ document.querySelectorAll('.size-buttons').forEach(buttonGroup => {
 document.querySelector("#herobanner button").addEventListener("click", function () {
     // Open 'products.html' page in a new tab
     window.open('products.html', '_blank');
+    
 });
+ 
