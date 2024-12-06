@@ -619,17 +619,3 @@ a:hover {
     align-items: center;
 }
 
-.home-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50px; /* Make this the same width as the logo */
-    height: 50px; /* Make this the same height as the logo */
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    visibility: hidden; /* Hide the button */
-    z-index: -1; /* Send it behind the logo */
-    
-}

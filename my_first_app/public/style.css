@@ -22,7 +22,7 @@
     --navbar-color: #282828;
 }
 
-/* Universal reset for margin, padding, and font */
+/* Universal reset */
 * {
     margin: 0;
     padding: 0;
@@ -30,73 +30,69 @@
     font-family: Arial, sans-serif;
 }
 
-/* Header text styles */
+/* Text styles */
+h1, h2, h3, h5, h6, p {
+    color: var(--text-color);
+}
+
 h1 {
     font-size: 50px;
     line-height: 64px;
-    color: var(--text-color);
 }
 
 h2 {
     font-size: 46px;
     line-height: 54px;
-    color: var(--text-color);
 }
 
 h3 {
     font-size: 28px;
     margin-bottom: 15px;
     text-align: center;
-    color: var(--text-color);
 }
 
 h5 {
     font-size: 20px;
-    color: var(--text-color);
 }
 
 h6 {
     font-weight: 700;
     font-size: 14px;
-    color: var(--text-color);
 }
 
-/* Paragraph styles */
 p {
-    font-size: 19px;
+    font-size: 16px;
     margin: 15px 0 20px 0;
-    color: var(--text-color);
 }
 
-/* Section padding and background color */
+/* Section padding */
 .section-p1 {
     padding: 40px 80px;
-    background-color: var(--base-color);
 }
 
 .section-m1 {
     margin: 40px 0;
 }
 
-/* Body background color */
 body {
     width: 100%;
     background-color: var(--background-color);
 }
 
-/* Navigation bar styles */
+/* Header styles */
 #header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0px 80px;
     background-color: var(--navbar-color);
-    box-shadow: 0 0px 15px var(--primary-color); /* Shadow effect */
+    box-shadow: 0 6px 15px var(--primary-color);
     position: sticky;
     top: 0;
     left: 0;
 }
 
+/* Navigation */
 #nav {
     display: flex;
     align-items: center;
@@ -104,6 +100,7 @@ body {
     padding: 0;
     margin: 0;
     flex-grow: 1;
+    position: relative;
 }
 
 #nav li {
@@ -116,14 +113,14 @@ body {
     color: var(--text-color);
     font-weight: 700;
     font-size: 15px;
-    transition: 0.8s ease; /* Smooth transition on hover */
+    transition: 0.8s ease;
 }
 
 #nav li a:hover {
-    color: var(--accent-color); /* Accent color on hover */
+    color: var(--accent-color);
 }
 
-/* User action buttons (Login/Signup) */
+/* User actions */
 .user-actions {
     display: flex;
     margin-left: auto;
@@ -149,19 +146,19 @@ body {
     border: 2px solid var(--accent-color);
 }
 
-.log:hover {
-    background-color:#343434;
-    color: white;
+.log:hover, .sign:hover {
+    background-color: var(--primary-color);
+    color: var(--base-color);
 }
 
-
-
-#herobanner{
-    color: white;
+/* Hero banner */
+#herobanner {
+    color: var(--text-color);
     background-image: url("img/hero1.png");
-    height: 90vh;
+    height: 80vh;
     width: 100%;
     background-size: cover;
+    background-position: top 25% right 0;
     padding: 0 80px;
     display: flex;
     flex-direction: column;
@@ -172,19 +169,19 @@ body {
 #herobanner button {
     width: 160px;
     height: 60px;
-    border: 2px solid black;
+    border: 3px solid var(--accent-color);
     border-radius: 50px;
     transition: all 0.3s;
     cursor: pointer;
-    background: var(--primary-color);
+    background: var(--base-color);
     font-size: 1.2em;
     font-weight: 350;
 }
 
 #herobanner button:hover {
     background: var(--accent-color);
-    color: var(--text-color);
-    font-size: 1.5em; /* Enlarges button on hover */
+    color: var(--base-color);
+    font-size: 1.5em;
 }
 
 /* Footer styles */
@@ -205,20 +202,8 @@ footer {
     width: 33.3%;
 }
 
-.footer-content p {
-    width: 190px;
-    margin: auto;
-    padding: 7px;
-    color: var(--text-color);
-}
-
 .footer-content ul {
     text-align: center;
-}
-
-.footer-content a {
-    text-align: center;
-    color: var(--text-color);
 }
 
 .list {
@@ -233,7 +218,6 @@ footer {
     position: relative;
 }
 
-/* Underline effect on list items */
 .list li::before {
     content: '';
     position: absolute;
@@ -247,10 +231,9 @@ footer {
 }
 
 .list li:hover::before {
-    width: 80px; /* Expands underline on hover */
+    width: 80px;
 }
 
-/* Social media icons in footer */
 .media-icons {
     text-align: center;
     padding: 0;
@@ -258,21 +241,12 @@ footer {
 
 .media-icons li {
     display: inline-block;
-    text-align: center;
     padding: 5px;
 }
 
 .media-icons i {
     color: var(--text-color);
     font-size: 25px;
-}
-
-a {
-    text-decoration: none;
-}
-
-a:hover {
-    color: var(--accent-color);
 }
 
 .media-icons i:hover {
@@ -286,13 +260,47 @@ a:hover {
     margin: 0 auto 50px;
     padding: 20px;
     border-radius: 8px;
-    background-color: grey;
+    background-color: var(--base-variant);
 }
 
 .contact-form h1 {
     text-align: center;
     font-size: 26px;
-    color: var(--text-color);
+}
+
+/* Theme switch button */
+#theme-switch {
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#theme-switch:hover {
+    background-color: var(--primary-color);
+}
+
+#theme-switch svg {
+    fill: var(--text-color);
+    transition: fill 0.3s ease;
+}
+
+.darkmode #theme-switch svg:first-child {
+    display: none;
+}
+
+.darkmode #theme-switch svg:last-child {
+    display: block;
 }
 
 .contact-form p {
@@ -342,7 +350,6 @@ a:hover {
     transition: background-color 0.3s ease;
 }
 
-/* Login form styles */
 .log-form {
     width: 100%;
     max-width: 600px;
@@ -405,7 +412,6 @@ a:hover {
     transition: background-color 0.3s ease; /* Forgot password button styling */
 }
 
-/* Sign up form styles */
 .sign-form {
     width: 100%;
     max-width: 600px;
@@ -458,7 +464,6 @@ a:hover {
     transition: background-color 0.3s ease; /* Sign up button hover effect */
 }
 
-/* Product page styles */
 #products {
     text-align: center;
     color: var(--text-color);
@@ -524,7 +529,6 @@ a:hover {
     box-shadow: 0 8px 12px var(--text-color); /* Deepens shadow on hover */
 }
 
-/* Size selection buttons */
 .size-buttons {
     margin: 10px 0;
     display: flex;
@@ -545,41 +549,86 @@ a:hover {
 }
 
 .size:hover {
-    background-color: rgb(232, 232, 232)  !important; /* Button background on hover */
-    color: white; /* Button text color on hover */
+    background-color: var(--base-color);
+    color: var(--base-color); /* Inverts colors on hover */
 }
 
 .size.selected {
-    background-color: #315cfd !important; /* Highlighted background */
-    color: white !important; /* Text color when selected */
-    border: 2px solid #315cfd !important; /* Consistent border */
+    background-color: var(--accent-color);
+    color: var(--base-color);
+    border: 2px solid var(--accent-color); /* Styles selected size button */
 }
 
-/*basket page*/
-#basket-container {
+#theme-switch {
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: var(--background-color);
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; /* Adds pointer cursor for better UX */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+    position: absolute; /* Position it absolute to the navbar */
+    right: -40px; 
+    top: 50%; /* Vertically center it inside the navbar */
+    transform: translateY(-50%); /* Adjust for exact vertical centering */
 }
 
-.basket-item {
+#theme-switch:hover {
+    background-color: var(--primary-color); /* Changes to accent color on hover */
+}
+
+#theme-switch svg {
+    fill: var(--text-color); /* Default icon color */
+    transition: fill 0.3s ease; /* Smooth icon color change on hover */
+}
+
+#theme-switch:hover svg {
+    fill: var(--text-color); /* Changes icon color on hover */
+}
+
+#theme-switch svg:last-child {
+    display: none; /* Hides dark mode icon in light mode */
+}
+
+.darkmode #theme-switch svg:first-child {
+    display: none; /* Hides light mode icon in dark mode */
+}
+
+.darkmode #theme-switch svg:last-child {
+    display: block; /* Shows dark mode icon when dark mode is active */
+}
+
+/* Ensure that navbar items don't move */
+#nav {
+    display: flex;
+    justify-content: space-between; /* Spread out the items */
+    align-items: center; /* Vertically center the items */
+    position: relative; /* Needed for the absolute positioning of the theme switch button */
+}
+
+#nav li {
+    list-style-type: none;
+    margin-right: 20px;
+}
+
+.user-actions {
     display: flex;
     align-items: center;
-    gap: 20px;
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.basket-item img {
-    width: 100px;
-    height: auto;
-    border-radius: 8px;
-}
-
-.basket-item h3 {
-    margin: 0;
-    font-size: 20px;
+.home-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px; /* Make this the same width as the logo */
+    height: 50px; /* Make this the same height as the logo */
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    visibility: hidden; /* Hide the button */
+    z-index: -1; /* Send it behind the logo */
 }
