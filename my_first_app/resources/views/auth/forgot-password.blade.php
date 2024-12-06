@@ -1,10 +1,13 @@
-<x-guest-layout>
+
+<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+ 
     <x-authentication-card>
         <x-slot name="logo">
-            <x-authentication-card-logo />
+            <img src="{{ asset('img/logo1.png') }}" alt="Logo" class="w-32 h-auto">
         </x-slot>
-
-        <div class="mb-4 text-sm text-gray-600">
+    
+        <div class="mb-4 text-sm text-gray-600" >
             {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
         </div>
 
@@ -16,7 +19,7 @@
 
         <x-validation-errors class="mb-4" />
 
-        <form method="POST" action="{{ route('password.email') }}">
+        <form class = "sign-form" method="POST" action="{{ route('password.email') }}">
             @csrf
 
             <div class="block">
@@ -31,4 +34,3 @@
             </div>
         </form>
     </x-authentication-card>
-</x-guest-layout>

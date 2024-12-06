@@ -7,7 +7,8 @@
         <img src="{{ asset('img/logo1.png') }}" alt="Logo" class="w-32 h-auto">
         </x-slot>
 
-
+ 
+        <div class="sign-form">
         <x-validation-errors class="mb-4" />
 
         <form method="POST" action="{{ route('register') }}">
@@ -55,10 +56,10 @@
                     {{ __('Already registered?') }}
                 </a>
 
-                <x-button class="ms-4">
+                <button class="a">
                     {{ __('Register') }}
-                </x-button>
+                </button>
+                </form>
             </div>
-        </form>
     </x-authentication-card>
 

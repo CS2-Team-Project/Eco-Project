@@ -8,10 +8,5 @@
         </h2>
     </x-slot>
 
-    <div class="log">
-        <div class="log">
-            <div class="log">
-            </div>
-        </div>
-    </div>
+
 </x-app-layout>
