@@ -1,105 +1,136 @@
-*
-{
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
-    font-family:Arial,sans-serif;
-    
+/* Root variables for light and dark modes */
+:root {
+    --base-color: white; /* Background color for light mode */
+    --base-variant: #e8e9ed; /* Lighter variant for light mode */
+    --text-color: black; /* Text color for light mode */
+    --primary-color: rgb(210, 210, 210); /* Default primary color */
+    --accent-color: #315cfd; /* Accent color for highlights */
+    --accent2-color: rgb(210, 210, 210);
+    --background-color: white;
+    --navbar-color: white;
 }
 
+/* Dark mode variables */
+.darkmode {
+    --base-color: #070b1d; /* Background color for dark mode */
+    --base-variant: #101425; /* Lighter variant for dark mode */
+    --text-color: white; /* Text color for dark mode */
+    --primary-color: rgb(210, 210, 210); /* Default primary color */
+    --accent-color: #315cfd; /* Accent color for dark mode */
+    --accent2-color: #070b1d;
+    --background-color: #121212;
+    --navbar-color: #282828;
+}
+
+/* Universal reset for margin, padding, and font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Header text styles */
 h1 {
     font-size: 50px;
-    line-height:64px;
- 
+    line-height: 64px;
+    color: var(--text-color);
 }
 
 h2 {
     font-size: 46px;
-    line-height:54px;
-  
+    line-height: 54px;
+    color: var(--text-color);
 }
 
 h3 {
     font-size: 28px;
     margin-bottom: 15px;
     text-align: center;
-} 
+    color: var(--text-color);
+}
 
 h5 {
     font-size: 20px;
-   
+    color: var(--text-color);
 }
 
 h6 {
-    font-weight:700;
+    font-weight: 700;
     font-size: 14px;
+    color: var(--text-color);
 }
 
+/* Paragraph styles */
 p {
     font-size: 19px;
     margin: 15px 0 20px 0;
+    color: var(--text-color);
 }
-  
+
+/* Section padding and background color */
 .section-p1 {
     padding: 40px 80px;
+    background-color: var(--base-color);
 }
-  
+
 .section-m1 {
     margin: 40px 0;
 }
-  
+
+/* Body background color */
 body {
     width: 100%;
+    background-color: var(--background-color);
 }
 
-
- /*navigation bar*/  
-#header{
-  display: flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0px 80px;
-  background:white;
-  box-shadow:0 6px 15px rgba(0,0,0,0.05);
-  position:sticky;
-  top:0;
-  left:0;
-} 
-
-#nav{
-    display: flex; 
-    align-items: center; 
-    list-style: none; 
-    padding: 0; 
-    margin: 0; 
-    flex-grow: 1; 
+/* Navigation bar styles */
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 80px;
+    background-color: var(--navbar-color);
+    box-shadow: 0 0px 15px var(--primary-color); /* Shadow effect */
+    position: sticky;
+    top: 0;
+    left: 0;
 }
 
-#nav li{
+#nav {
+    display: flex;
+    align-items: center;
     list-style: none;
-    padding: 0 20px;    
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
 }
 
-#nav li a{
+#nav li {
+    list-style: none;
+    padding: 0 20px;
+}
+
+#nav li a {
     text-decoration: none;
-    color: rgba(0, 0, 0, 0.589);
-    font-weight:700;
-    font-size:15px;
-    transition:0.8s ease;
-   
+    color: var(--text-color);
+    font-weight: 700;
+    font-size: 15px;
+    transition: 0.8s ease; /* Smooth transition on hover */
 }
 
-#nav li a:hover{
-    color: rgb(0, 238, 255);
+#nav li a:hover {
+    color: var(--accent-color); /* Accent color on hover */
 }
 
+/* User action buttons (Login/Signup) */
 .user-actions {
     display: flex;
     margin-left: auto;
-    gap: 10px; 
+    gap: 10px;
 }
 
-.log, .sign{
+.log, .sign {
     padding: 10px 15px;
     border-radius: 30px;
     font-weight: bold;
@@ -108,58 +139,61 @@ body {
 
 .log {
     background-color: transparent;
-    color:#333;
-    border: 2px solid ;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
 }
 
 .sign {
-    background-color: #343434;
-    color: white;
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
 }
 
 .log:hover {
-    background-color:#343434;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--base-color); /* Reverse colors on hover */
+}
+.sign:hover {
+    background-color: var(--primary-color);
+    color: var(--base-color); /* Reverse colors on hover */
 }
 
-/*herobanner*/ 
-
-#herobanner{
+/* Hero banner with background image */
+#herobanner {
     background-image: url("img/hero1.png");
     height: 90vh;
-    width:100%;
+    width: 100%;
     background-size: cover;
-    padding:0 80px;
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: center;
 }
 
-
-
-#herobanner button{
-  width: 160px;
-  height: 60px;
-  border: 3px solid black;
-  border-radius: 50px;
-  transition: all 0.3s;
-  cursor: pointer;
-  background: white;
-  font-size: 1.2em;
-  font-weight: 350;
+#herobanner button {
+    width: 160px;
+    height: 60px;
+    border: 2px solid black;
+    border-radius: 50px;
+    transition: all 0.3s;
+    cursor: pointer;
+    background: var(--primary-color);
+    font-size: 1.2em;
+    font-weight: 350;
 }
 
-#herobanner button:hover{
-    background:lightskyblue;
-    color: white;
-    font-size: 1.5em;
+#herobanner button:hover {
+    background: var(--accent-color);
+    color: var(--text-color);
+    font-size: 1.5em; /* Enlarges button on hover */
 }
 
-footer  { 
-    background: #343434;
-    padding-top: 50px;  
-    color: white;
+/* Footer styles */
+footer {
+    background: var(--navbar-color);
+    padding-top: 50px;
+    color: var(--base-color);
 }
 
 .container {
@@ -171,23 +205,22 @@ footer  {
 
 .footer-content {
     width: 33.3%;
-    
 }
- .footer-content p{
+
+.footer-content p {
     width: 190px;
-    margin:auto;
+    margin: auto;
     padding: 7px;
-    color: white;
- }
+    color: var(--text-color);
+}
 
 .footer-content ul {
     text-align: center;
-   
 }
 
 .footer-content a {
     text-align: center;
-    color: white;
+    color: var(--text-color);
 }
 
 .list {
@@ -200,9 +233,9 @@ footer  {
     list-style-type: none;
     padding: 7px;
     position: relative;
-    
 }
-  
+
+/* Underline effect on list items */
 .list li::before {
     content: '';
     position: absolute;
@@ -211,62 +244,63 @@ footer  {
     top: 100%;
     width: 0;
     height: 2px;
-    background: rgb(0, 238, 255);
+    background: var(--accent-color);
     transition-duration: .5s;
 }
-  
+
 .list li:hover::before {
-    width: 80px;
+    width: 80px; /* Expands underline on hover */
 }
 
+/* Social media icons in footer */
 .media-icons {
     text-align: center;
     padding: 0;
 }
-  
+
 .media-icons li {
     display: inline-block;
     text-align: center;
     padding: 5px;
 }
-  
+
 .media-icons i {
-    color: white;
+    color: var(--text-color);
     font-size: 25px;
 }
-  
+
 a {
-    text-decoration:none;
-}
-  
-a:hover {
-    color: rgb(0, 238, 255);
-}
-  
-.media-icons i:hover {
-    color:rgb(0, 238, 255);
+    text-decoration: none;
 }
 
-/*contact page*/ 
+a:hover {
+    color: var(--accent-color);
+}
+
+.media-icons i:hover {
+    color: var(--accent-color);
+}
+
+/* Contact form styles */
 .contact-form {
     width: 100%;
     max-width: 600px;
     margin: 0 auto 50px;
     padding: 20px;
     border-radius: 8px;
+    background-color: grey;
 }
 
 .contact-form h1 {
     text-align: center;
     font-size: 26px;
-    color: #000;
-    
+    color: var(--text-color);
 }
 
 .contact-form p {
     text-align: center;
     font-size: 14px;
-    color: #555;
+    color: var(--text-color);
     margin-bottom: 20px;
     margin-top: 0px;
 }
@@ -285,16 +319,14 @@ a:hover {
     padding: 12px;
     font-size: 14px;
     border: 1px solid #ddd;
-    background-color: #f9f9f9;
+    background-color: var(--primary-color);
     transition: border-color 0.3s ease;
 }
-
-
 
 .contact-form #Name:focus,
 .contact-form #email:focus,
 .contact-form textarea:focus {
-    border-color: black;
+    border-color: var(--text-color); /* Focus border color */
     outline: none;
 }
 
@@ -304,34 +336,34 @@ a:hover {
 }
 
 .contact-form input[type="submit"] {
-    background-color:black;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--base-color);
     font-size: 16px;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-/* Login in form*/
 
+/* Login form styles */
 .log-form {
     width: 100%;
     max-width: 600px;
     margin: 0 auto 50px;
     padding: 20px;
     border-radius: 8px;
+    background-color: var(--base-variant);
 }
 
 .log-form h1 {
     text-align: center;
     font-size: 26px;
-    color: #000;
-    
+    color: var(--text-color);
 }
 
 .log-form p {
     text-align: center;
     font-size: 14px;
-    color: #555;
+    color: var(--primary-color);
     margin-bottom: 20px;
     margin-top: 0px;
 }
@@ -342,7 +374,6 @@ a:hover {
     gap: 15px;
 }
 
-
 .log-form #email,
 .log-form #Password,
 .log-form input[type="Log In"],
@@ -352,53 +383,50 @@ a:hover {
     padding: 12px;
     font-size: 14px;
     border: 1px solid #ddd;
-    background-color: #f9f9f9;
+    background-color: var(--base-variant);
     transition: border-color 0.3s ease;
 }
 
 .log-form #email:focus,
 .log-form #Password:focus,
- 
 .log-form input[type="Log In"] {
-    background-color:black;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--base-color);
     font-size: 16px;
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-
+    transition: background-color 0.3s ease; /* Button hover effect */
 }
 
 .log-form input[type="Forgot Password"] {
-    background-color:black;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--base-color);
     font-size: 16px;
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-
+    transition: background-color 0.3s ease; /* Forgot password button styling */
 }
 
-/*sighn up form*/
-
+/* Sign up form styles */
 .sign-form {
     width: 100%;
     max-width: 600px;
     margin: 0 auto 50px;
     padding: 20px;
     border-radius: 8px;
+    background-color: var(--base-variant);
 }
 
 .sign-form h1 {
     text-align: center;
     font-size: 26px;
-    color: #000;
+    color: var(--text-color);
 }
 
 .sign-form p {
     text-align: center;
     font-size: 14px;
-    color: #555;
+    color: var(--primary-color);
     margin-bottom: 20px;
     margin-top: 0px;
 }
@@ -412,32 +440,31 @@ a:hover {
 .sign-form #FirstName,
 .sign-form #LastName,
 .sign-form #Email,
-
 .sign-form #Password,
 .sign-form input[type="Sign Up"],
-
 .sign-form textarea {
     width: 100%;
     padding: 12px;
     font-size: 14px;
     border: 1px solid #ddd;
-    background-color: #f9f9f9;
-    transition: border-color 0.3
-
+    background-color: var(--base-variant);
+    transition: border-color 0.3s ease; /* Input focus effect */
 }
+
 .sign-form input[type="Sign Up"] {
-    background-color:black;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--base-color);
     font-size: 16px;
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-
+    transition: background-color 0.3s ease; /* Sign up button hover effect */
 }
-/*product page*/ 
 
+/* Product page styles */
 #products {
     text-align: center;
+    color: var(--text-color);
+    background-color: var(--background-color);
 }
 
 .product-container {
@@ -450,11 +477,11 @@ a:hover {
 .product-card {
     width: 300px;
     padding: 20px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--navbar-color);
     border-radius: 8px;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 1px rgba(0, 0, 0, 0.1); /* Card shadow effect */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover animation */
 }
 
 .product-card img {
@@ -466,37 +493,40 @@ a:hover {
 .product-card h3 {
     margin: 10px 0;
     font-size: 20px;
+    color: var(--text-color);
 }
 
 .product-card p {
-    color: #555;
+    color: var(--accent-color);
     margin: 10px 0;
 }
 
 .product-card .price {
     font-weight: bold;
-    color: #315cfd;
+    color: var(--text-color); /* Price text in accent color */
 }
 
 .product-card button {
     padding: 10px 20px;
     border: none;
     border-radius: 20px;
-    background-color: #315cfd;
-    color: white;
+    background-color: var(--accent-color);
+    color: var(--base-color);
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s; /* Button hover effect */
 }
 
 .product-card button:hover {
-    background-color: #2a4dc7;
+    background-color: var(--accent-color); /* Keeps accent color on hover */
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px); /* Slight lift effect on hover */
+    box-shadow: 0 8px 12px var(--text-color); /* Deepens shadow on hover */
 }
+
+/* Size selection buttons */
 .size-buttons {
     margin: 10px 0;
     display: flex;
@@ -506,24 +536,100 @@ a:hover {
 
 .size {
     padding: 8px 16px;
-    border: 2px solid #315cfd !important;
+    border: 2px solid var(--accent-color);
     border-radius: 20px;
-    background-color: white !important;
-    color: #315cfd !important; /* Button text color */
+    background-color: var(--base-color);
+    color: var(--accent-color);
     font-size: 14px;
     font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; /* Smooth transition for size button */
 }
 
 .size:hover {
-    background-color: rgb(232, 232, 232)  !important; /* Button background on hover */
-    color: white; /* Button text color on hover */
+    background-color: var(--base-color);
+    color: var(--base-color); /* Inverts colors on hover */
 }
 
 .size.selected {
-    background-color: #315cfd !important; /* Highlighted background */
-    color: white !important; /* Text color when selected */
-    border: 2px solid #315cfd !important; /* Consistent border */
+    background-color: var(--accent-color);
+    color: var(--base-color);
+    border: 2px solid var(--accent-color); /* Styles selected size button */
 }
 
+/* Theme switch button (light/dark mode toggle) */
+/* Theme switch button (light/dark mode toggle) */
+#theme-switch {
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; /* Adds pointer cursor for better UX */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+    position: absolute; /* Position it absolute to the navbar */
+    right: -40px; 
+    top: 50%; /* Vertically center it inside the navbar */
+    transform: translateY(-50%); /* Adjust for exact vertical centering */
+}
+
+#theme-switch:hover {
+    background-color: var(--primary-color); /* Changes to accent color on hover */
+}
+
+#theme-switch svg {
+    fill: var(--text-color); /* Default icon color */
+    transition: fill 0.3s ease; /* Smooth icon color change on hover */
+}
+
+#theme-switch:hover svg {
+    fill: var(--text-color); /* Changes icon color on hover */
+}
+
+#theme-switch svg:last-child {
+    display: none; /* Hides dark mode icon in light mode */
+}
+
+.darkmode #theme-switch svg:first-child {
+    display: none; /* Hides light mode icon in dark mode */
+}
+
+.darkmode #theme-switch svg:last-child {
+    display: block; /* Shows dark mode icon when dark mode is active */
+}
+
+/* Ensure that navbar items don't move */
+#nav {
+    display: flex;
+    justify-content: space-between; /* Spread out the items */
+    align-items: center; /* Vertically center the items */
+    position: relative; /* Needed for the absolute positioning of the theme switch button */
+}
+
+#nav li {
+    list-style-type: none;
+    margin-right: 20px;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+}
+
+.home-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px; /* Make this the same width as the logo */
+    height: 50px; /* Make this the same height as the logo */
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    visibility: hidden; /* Hide the button */
+    z-index: -1; /* Send it behind the logo */
+    
+}
