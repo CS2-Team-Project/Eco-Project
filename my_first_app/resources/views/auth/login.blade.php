@@ -1,5 +1,4 @@
 
-<x-guest-layout>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
@@ -45,12 +44,11 @@
                             {{ __('Forgot your password?') }}
                         </a>
                     @endif
-
-                    <x-button id="log-form" class="ms-4">
-                        {{ __('Log in') }}
-                    </x-button>
+                    <button id="submit" type="submit" class="input">
+    {{ __('Log in') }}
+</button>
                 </div>
             </form>
         </div>
     </x-authentication-card>
-</x-guest-layout>
+

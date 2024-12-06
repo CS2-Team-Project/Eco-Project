@@ -1,7 +1,6 @@
-<x-guest-layout>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <x-authentication-card>
         <x-slot name="logo">
             <img src="{{ asset('img/logo1.png') }}" alt="Logo" class="w-32 h-auto">
@@ -63,4 +62,3 @@
             </form>
         </div>
     </x-authentication-card>
-</x-guest-layout>
