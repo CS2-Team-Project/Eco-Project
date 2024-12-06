@@ -127,7 +127,7 @@ body {
 
 
 #herobanner{
-    color: black;
+    color: white;
     background-image: url("img/hero1.png");
     height: 80vh;
     width:100%;
@@ -143,7 +143,7 @@ body {
 #herobanner button{
   width: 160px;
   height: 60px;
-  border: 3px solid black;
+  border: 3px solid #315cfd;
   border-radius: 50px;
   transition: all 0.3s;
   cursor: pointer;
@@ -408,6 +408,126 @@ a:hover {
     border: 2px solid #315cfd !important; /* Consistent border */
 }
 
+.log-form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 50px;
+    padding: 20px;
+    border-radius: 8px;
+}
+ 
+.log-form h1 {
+    text-align: center;
+    font-size: 26px;
+    color: #000;
+}
+ 
+.log-form p {
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+ 
+.log-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+ 
+ 
+.log-form #email,
+.log-form #Password,
+.log-form input[type="Log In"],
+.log-form input[type="Forgot Password"],
+.log-form textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+ 
+.log-form #email:focus,
+.log-form #Password:focus,
+.log-form input[type="Log In"] {
+    background-color:black;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+ 
+}
+ 
+.log-form [type="Forgot Password"] {
+    background-color:black;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+ 
+}
+
+/*sighn up form*/
+
+.sign-form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 50px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.sign-form h1 {
+    text-align: center;
+    font-size: 26px;
+    color: #000;
+}
+
+.sign-form p {
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+
+.sign-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sign-form #FirstName,
+.sign-form #LastName,
+.sign-form #Email,
+
+.sign-form #Password,
+.sign-form input[type="Sign Up"],
+
+.sign-form textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    transition: border-color 0.3
+
+}
+.sign-form input[type="Sign Up"] {
+    background-color:black;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+ 
+}
+
 /*basket page*/
 #basket-container {
     display: flex;
@@ -435,80 +555,4 @@ a:hover {
 .basket-item h3 {
     margin: 0;
     font-size: 20px;
-}
-
-.log-form {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto 50px;
-    padding: 20px;
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.log-form h1 {
-    text-align: center;
-    font-size: 26px;
-    color: #000;
-}
-
-.log-form p {
-    text-align: center;
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 20px;
-    margin-top: 0px;
-}
-
-.log-form form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.log-form #email,
-.log-form #password,
-.log-form input[type="submit"],
-.log-form a {
-    width: 100%;
-    padding: 12px;
-    font-size: 14px;
-    border: 1px solid #ddd;
-    background-color: #f9f9f9;
-    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-}
-
-.log-form #email:focus,
-.log-form #password:focus {
-    border-color: #555;
-}
-
-.log-form input[type="submit"] {
-    background-color: black;
-    color: white;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.log-form input[type="submit"]:hover {
-    background-color: #333;
-}
-
-.log-form a {
-    display: inline-block;
-    text-align: center;
-    text-decoration: none;
-    color: white;
-    background-color: black;
-    border: none;
-    padding: 12px;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-.log-form a:hover {
-    background-color: #333;
 }
