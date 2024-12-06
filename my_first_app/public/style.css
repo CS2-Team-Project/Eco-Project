@@ -150,16 +150,14 @@ body {
 }
 
 .log:hover {
-    background-color: var(--primary-color);
-    color: var(--base-color); /* Reverse colors on hover */
-}
-.sign:hover {
-    background-color: var(--primary-color);
-    color: var(--base-color); /* Reverse colors on hover */
+    background-color:#343434;
+    color: white;
 }
 
-/* Hero banner with background image */
-#herobanner {
+
+
+#herobanner{
+    color: white;
     background-image: url("img/hero1.png");
     height: 90vh;
     width: 100%;
@@ -547,89 +545,41 @@ a:hover {
 }
 
 .size:hover {
-    background-color: var(--base-color);
-    color: var(--base-color); /* Inverts colors on hover */
+    background-color: rgb(232, 232, 232)  !important; /* Button background on hover */
+    color: white; /* Button text color on hover */
 }
 
 .size.selected {
-    background-color: var(--accent-color);
-    color: var(--base-color);
-    border: 2px solid var(--accent-color); /* Styles selected size button */
+    background-color: #315cfd !important; /* Highlighted background */
+    color: white !important; /* Text color when selected */
+    border: 2px solid #315cfd !important; /* Consistent border */
 }
 
-/* Theme switch button (light/dark mode toggle) */
-/* Theme switch button (light/dark mode toggle) */
-#theme-switch {
-    height: 50px;
-    width: 50px;
-    padding: 0;
-    border-radius: 50%;
-    background-color: var(--background-color);
+/*basket page*/
+#basket-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer; /* Adds pointer cursor for better UX */
-    transition: background-color 0.3s ease; /* Smooth background color transition */
-    position: absolute; /* Position it absolute to the navbar */
-    right: -40px; 
-    top: 50%; /* Vertically center it inside the navbar */
-    transform: translateY(-50%); /* Adjust for exact vertical centering */
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
 }
 
-#theme-switch:hover {
-    background-color: var(--primary-color); /* Changes to accent color on hover */
-}
-
-#theme-switch svg {
-    fill: var(--text-color); /* Default icon color */
-    transition: fill 0.3s ease; /* Smooth icon color change on hover */
-}
-
-#theme-switch:hover svg {
-    fill: var(--text-color); /* Changes icon color on hover */
-}
-
-#theme-switch svg:last-child {
-    display: none; /* Hides dark mode icon in light mode */
-}
-
-.darkmode #theme-switch svg:first-child {
-    display: none; /* Hides light mode icon in dark mode */
-}
-
-.darkmode #theme-switch svg:last-child {
-    display: block; /* Shows dark mode icon when dark mode is active */
-}
-
-/* Ensure that navbar items don't move */
-#nav {
-    display: flex;
-    justify-content: space-between; /* Spread out the items */
-    align-items: center; /* Vertically center the items */
-    position: relative; /* Needed for the absolute positioning of the theme switch button */
-}
-
-#nav li {
-    list-style-type: none;
-    margin-right: 20px;
-}
-
-.user-actions {
+.basket-item {
     display: flex;
     align-items: center;
+    gap: 20px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.home-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50px; /* Make this the same width as the logo */
-    height: 50px; /* Make this the same height as the logo */
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    visibility: hidden; /* Hide the button */
-    z-index: -1; /* Send it behind the logo */
-    
+.basket-item img {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.basket-item h3 {
+    margin: 0;
+    font-size: 20px;
 }
