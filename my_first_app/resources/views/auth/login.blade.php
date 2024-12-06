@@ -46,7 +46,7 @@
                         </a>
                     @endif
 
-                    <x-button id="log-in" class="ms-4">
+                    <x-button id="log-form" class="ms-4">
                         {{ __('Log in') }}
                     </x-button>
                 </div>

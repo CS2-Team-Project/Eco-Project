@@ -452,7 +452,8 @@ a:hover {
  
 .log-form #email:focus,
 .log-form #Password:focus,
-.log-form input[type="Log In"] {
+
+.log-form input[type="log-in"] {
     background-color:black;
     color: white;
     font-size: 16px;
