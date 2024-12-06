@@ -136,7 +136,7 @@ const addCartToMemory = () => {
 };
 
 // Add to basket event listener for products page
-if (window.location.pathname.includes("products.html")) {
+if (window.location.pathname.includes("{{ route('products') }}")) {
     let listProductHTML = document.querySelector('.product-container');
     listProductHTML.addEventListener('click', (event) => {
         let positionClick = event.target;
@@ -156,7 +156,7 @@ if (window.location.pathname.includes("products.html")) {
 }
 
 // Add functionality for checkout page
-if (window.location.pathname.includes("basket.html")) {
+if (window.location.pathname.includes("{{ route('basket') }}")) {
     let listBasketHTML = document.querySelector('.basket-container');
     addCartToHTML(); // Call after data is fetched
 
@@ -204,5 +204,5 @@ document.getElementById("submit-btn").addEventListener("click", function () {
 
 // Open the products page when the "Shop Now" button is clicked
 document.querySelector("#herobanner button").addEventListener("click", function () {
-    window.open('products.html', '_blank');
+    window.open("{{ route('products') }}", '_blank');
 });
