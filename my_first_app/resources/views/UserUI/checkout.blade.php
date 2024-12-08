@@ -79,6 +79,5 @@
     </section>
   </section>
 </body>
-
-<script src="script.js"></script>
+<script src="{{ asset('script.js') }}"></script>
 </html>
