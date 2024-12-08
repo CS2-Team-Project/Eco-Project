@@ -50,7 +50,7 @@
         </div>
     </section>
 
-    <button class="check-out-button">Check Out</button>
+    <a href="{{url('checkout')}}"><button class="check-out-button">Check Out</button></a>
 
     <footer>
         <div class="container">

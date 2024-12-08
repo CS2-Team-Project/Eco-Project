@@ -36,3 +36,7 @@ Route::get('/about', function(){
 Route::get('/basket', function(){
     return view('UserUI.basket');
 });
+
+Route::get('/checkout', function () {
+    return view('UserUI.checkout');
+});

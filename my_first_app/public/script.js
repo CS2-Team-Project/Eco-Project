@@ -179,7 +179,7 @@ if (window.location.pathname.includes("/basket")) {
             if (basketItems.length == 0) {
                 alert('Your Basket is Empty, Navigate Back to the Products Page');
             } else {
-                window.location.href = "checkout.html";
+                window.location.href = "/checkout";
             }
         }
     });
