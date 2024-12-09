@@ -48,7 +48,7 @@
         <h2>Our Newest Arrival</h2>
         <h1>Discover the latest trends</h1>
         <p>Shop our latest collection of stylish and comfortable jackets.</p>
-        <button>Shop Now</button>
+        <button><a href="{{url('/products')}}">Shop Now</button></a>
     </section>
     
 
