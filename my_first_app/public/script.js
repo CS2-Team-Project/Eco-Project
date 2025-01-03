@@ -135,9 +135,9 @@ const addCartToMemory = () => {
     localStorage.setItem('basketItems', JSON.stringify(basketItems));
 };
 
-// Add to basket event listener for products page
 if (window.location.pathname.includes("/product")) {
     let listProductHTML = document.querySelector('.product-container');
+    //event listener for add to basket buttons
     listProductHTML.addEventListener('click', (event) => {
         let positionClick = event.target;
         if (positionClick.classList.contains('add-to-basket')) {
@@ -155,11 +155,10 @@ if (window.location.pathname.includes("/product")) {
     });
 }
 
-// Add functionality for checkout page
 if (window.location.pathname.includes("/basket")) {
     let listBasketHTML = document.querySelector('.basket-container');
     addCartToHTML(); // Call after data is fetched
-
+    //event listener for changing quantity
     listBasketHTML.addEventListener('click', (event) => {
         let positionClick = event.target;
         if (positionClick.classList.contains('minus') || positionClick.classList.contains('plus')) {
