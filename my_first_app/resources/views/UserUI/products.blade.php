@@ -49,6 +49,7 @@
         <option value="all">All</option>
         <option value="jackets">Jackets</option>
         <option value="bombers">Bombers</option>
+        <option value="puffers">Puffers</option>
     </select>
     <label for="sort-price">Sort by Price:</label>
     <select id="sort-price">
@@ -110,7 +111,7 @@
         <button class="add-to-basket">Add to Basket</button>
       </div>
 
-      <div class="product-card" data-category="jackets" data-price="315">
+      <div class="product-card" data-category="puffers" data-price="315">
         <img src="img/product3cream.png" alt="Product 3">
         <h3>The North Face Puffer</h3>
         <p>North Face 1996 Retro Nuptse</p>
@@ -130,7 +131,138 @@
         </div>
         <button class="add-to-basket">Add to Basket</button>
       </div>
-      
+
+      <div class="product-card" data-category="bombers" data-price="200">
+        <img src="img/product4.png" alt="Product 4">
+        <h3>Alpha Industries Bomber Jacket</h3>
+        <p>CWU-45 Heritage Bomber Jacket</p>
+        <p class="price">£200</p>
+        <details class="product-details">
+          <summary>Product Details</summary>
+          <ul>
+            <li>Shell: 100% Nylon;</li>
+            <li>Lining: 100%</li>
+            <li>Nylon; Filling:</li>
+            <li>100% Polyester</li>
+          </ul>            
+        </details>
+        <div class="size-buttons">
+          <button class="size" data-size="Small">S</button>
+          <button class="size" data-size="Medium">M</button>
+          <button class="size" data-size="Large">L</button>
+        </div>
+        <button class="add-to-basket">Add to Basket</button>
+      </div>
+
+      <div class="product-card" data-category="jackets" data-price="110">
+        <img src="img/product5.png" alt="Product 5">
+        <h3>Uniqlo Down Jacket</h3>
+        <p>Seamless Down Jacket</p>
+        <p class="price">£110</p>
+        <details class="product-details">
+          <summary>Product Details</summary>
+          <ul>
+            <li>Made with warm premium down with a fill power of 750*. *Measured by the IDFB method</li>
+            <li>Water-repellent finish</li>
+            <li>Shell: 100% Polyester</li>
+            <li>Filling: 90% Down, 10% Feathers</li>
+          </ul>            
+        </details>
+        <div class="size-buttons">
+          <button class="size" data-size="Small">S</button>
+          <button class="size" data-size="Medium">M</button>
+          <button class="size" data-size="Large">L</button>
+        </div>
+        <button class="add-to-basket">Add to Basket</button>
+      </div>
+
+      <div class="product-card" data-category="puffers" data-price="90">
+        <img src="img/product6.png" alt="Product 6">
+        <h3>Zavetti Puffer</h3>
+        <p>Zavetti Canada Atlin Puffer Jacket</p>
+        <p class="price">£90</p>
+        <details class="product-details">
+          <summary>Product Details</summary>
+          <ul>
+            <li>Main: 100% Polyamide. Lining: 100% Polyester.</li>
+            <li>Finished reflective zippered pockets</li>
+            <li>Machine washable</li>
+          </ul>            
+        </details>
+        <div class="size-buttons">
+          <button class="size" data-size="Small">S</button>
+          <button class="size" data-size="Medium">M</button>
+          <button class="size" data-size="Large">L</button>
+        </div>
+        <button class="add-to-basket">Add to Basket</button>
+      </div>
+
+      <div class="product-card" data-category="jackets" data-price="125">
+        <img src="img/product7.png" alt="Product 7">
+        <h3>Columbia Sports Jacket</h3>
+        <p>Powder Lite™ II Insulated Jacket</p>
+        <p class="price">£125</p>
+        <details class="product-details">
+          <summary>Product Details</summary>
+          <ul>
+            <li>Omni-Heat™ thermal reflective</li>
+            <li>Water resistant fabric</li>
+            <li>Zippered hand pockets</li>
+            <li>Uses: Hiking, Walking, Casual</li>
+          </ul>            
+        </details>
+        <div class="size-buttons">
+          <button class="size" data-size="Small">S</button>
+          <button class="size" data-size="Medium">M</button>
+          <button class="size" data-size="Large">L</button>
+        </div>
+        <button class="add-to-basket">Add to Basket</button>
+      </div>
+
+      <div class="product-card" data-category="jackets" data-price="185">
+        <img src="img/product8.png" alt="Product 8">
+        <h3>Zara Jacket</h3>
+        <p>Lightweight Casual Jacket</p>
+        <p class="price">£185</p>
+        <details class="product-details">
+          <summary>Product Details</summary>
+          <ul>
+            <li>Lightweight jacket made of technical fabric.</li>
+            <li>Ribbed collar and long sleeves.</li>
+            <li>Welt pockets at the hip. Inside pocket detail.</li>
+            <li>BASE FABRIC: 100% polyester</li>
+          </ul>            
+        </details>
+        <div class="size-buttons">
+          <button class="size" data-size="Small">S</button>
+          <button class="size" data-size="Medium">M</button>
+          <button class="size" data-size="Large">L</button>
+        </div>
+        <button class="add-to-basket">Add to Basket</button>
+      </div>
+
+      <div class="product-card" data-category="puffers" data-price="140">
+        <img src="img/product9.png" alt="Product 9">
+        <h3>Mercier Puffer Coat</h3>
+        <p>Mercier Blizzard Coat</p>
+        <p class="price">£140</p>
+        <details class="product-details">
+          <summary>Product Details</summary>
+          <ul>
+            <li>100% Polyester</li>
+            <li>Combat the elements with this men's Blizzard Jacket</li>
+            <li>features a full-zip fastening and hood for custom coverage</li>
+            <li>Machine washable</li>
+          </ul>            
+        </details>
+        <div class="size-buttons">
+          <button class="size" data-size="Small">S</button>
+          <button class="size" data-size="Medium">M</button>
+          <button class="size" data-size="Large">L</button>
+        </div>
+        <button class="add-to-basket">Add to Basket</button>
+      </div>
+
     </div>
   </section>
   <script>

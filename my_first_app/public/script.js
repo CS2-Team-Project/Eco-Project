@@ -51,7 +51,37 @@ let listProducts = [
         "name": "The North Face Puffer",
         "price": 315,
         "image": "img/product3cream.png"
-    }
+    },
+    {
+        "name": "Alpha Industries Bomber Jacket",
+        "price": 200,
+        "image": "img/product4.png"
+    },
+    {
+        "name": "Uniqlo Down Jacket",
+        "price": 110,
+        "image": "img/product5.png"
+    },
+    {
+        "name": "Zavetti Puffer",
+        "price": 90,
+        "image": "img/product6.png"
+    },
+    {
+        "name": "Columbia Sports Jacket",
+        "price": 125,
+        "image": "img/product7.png"
+    },
+    {
+        "name": "Zara Bomber Jacket",
+        "price": 185,
+        "image": "img/product8.png"
+    },
+    {
+        "name": "Mercier Puffer Coat",
+        "price": 140,
+        "image": "img/product9.png"
+    },
 ];
 
 // Get items from local storage to retain basket on page refresh

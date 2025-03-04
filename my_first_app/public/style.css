@@ -617,8 +617,7 @@ footer a:visited {
     border: 1px solid var(--navbar-color);
     border-radius: 8px;
     text-align: center;
-    box-shadow: 0 4px 1px rgba(0, 0, 0, 0.1); /* Card shadow effect */
-    transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover animation */
+    box-shadow: 0 4px 1px rgba(26, 1, 82, 0.461); /* Card shadow effect */
 }
 
 .product-card img {
@@ -659,8 +658,7 @@ footer a:visited {
 }
  
 .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 12px rgba(26, 1, 82, 0.461);
 }
 .size-buttons {
     margin: 10px 0;
