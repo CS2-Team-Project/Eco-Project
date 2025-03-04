@@ -43,10 +43,24 @@
     </nav>
   </section>
 
+  <section id="filter-bar">
+    <label for="category">Category:</label>
+    <select id="category">
+        <option value="all">All</option>
+        <option value="jackets">Jackets</option>
+        <option value="bombers">Bombers</option>
+    </select>
+    <label for="sort-price">Sort by Price:</label>
+    <select id="sort-price">
+        <option value="low-high">Low to High</option>
+        <option value="high-low">High to Low</option>
+    </select>
+</section>
+
   <section id="products" class="section-p1">
     <h1>Our Products</h1>
     <div class="product-container">
-      <div class="product-card">
+    <div class="product-card" data-category="bombers" data-price="1375">
         <img src="img/product1grey.png" alt="Product 1">
         <h3>Canada Goose Bomber</h3>
         <p>Chilliwack Bomber Heritage</p>
@@ -70,7 +84,7 @@
         <button class="add-to-basket">Add to Basket</button>
       </div>
 
-      <div class="product-card">
+      <div class="product-card" data-category="jackets" data-price="765">
         <img src="img/product2black.png" alt="Product 2">
         <h3>Moncler Jacket</h3>
         <p>Moncler New Maya Down Jacket</p>
@@ -96,7 +110,7 @@
         <button class="add-to-basket">Add to Basket</button>
       </div>
 
-      <div class="product-card">
+      <div class="product-card" data-category="jackets" data-price="315">
         <img src="img/product3cream.png" alt="Product 3">
         <h3>The North Face Puffer</h3>
         <p>North Face 1996 Retro Nuptse</p>
@@ -116,8 +130,32 @@
         </div>
         <button class="add-to-basket">Add to Basket</button>
       </div>
+      
     </div>
   </section>
+  <script>
+    document.getElementById('category').addEventListener('change', function() {
+        let category = this.value;
+        document.querySelectorAll('.product-card').forEach(card => {
+            if (category === 'all' || card.dataset.category === category) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+
+    document.getElementById('sort-price').addEventListener('change', function() {
+        let container = document.querySelector('.product-container');
+        let products = Array.from(container.children);
+        let sortType = this.value;
+        products.sort((a, b) => {
+            return sortType === 'low-high' ? a.dataset.price - b.dataset.price : b.dataset.price - a.dataset.price;
+        });
+        container.innerHTML = '';
+        products.forEach(product => container.appendChild(product));
+    });
+</script>
 
   <footer>
     <div class="container">
