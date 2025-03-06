@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CS2TP</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="{{ asset('style.css') }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <script type="text/javascript" src="{{ asset('script.js') }}" defer></script>
 </head>
@@ -48,26 +48,30 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
     <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
                 
-    <h2 class="text-lg font-semibold"><h2 class="text-lg font-semibold">
+    <h2><h2 class="welcome-user">
     Welcome, {{ Auth::user()->name }}!
 </h2></h2>
 
     <!---------buttons------>
-    <div class="mt-4 flex space-x-4">
+    <div class="dashboardbuttonsdiv">
+
+    <div>
     <!-- Orders Button -->
-    <x-nav-link href="">
+    <x-nav-link href="" class="dashboardbutton">
     {{ __('Orders') }}
     </x-nav-link>
 
+    
     <!----------profile-------->
-    <x-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
+    <x-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')" class="dashboardbutton">
     {{ __('Profile') }}
     </x-nav-link>
+    </div>
 
     <!---------logout------ -->
     <form method="POST" action="{{ route('logout') }}">
      @csrf
-     <button type="submit" class="text-red-500 hover:underline">
+     <button type="submit" class="dashboardlogoutbutton">
     {{ __('Log Out') }}
     </button>
     </form>
