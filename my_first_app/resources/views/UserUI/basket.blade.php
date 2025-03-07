@@ -21,6 +21,14 @@
                <li><a href="{{url('/products')}}">Products</a></li>
                <li><a href="{{url('/contact')}}">Contact Us</a></li>
                <li><a href="{{url('/about')}}">About Us</a></li>
+               
+               
+               <!--Search Bar -->
+               <div class ="search-container">
+                  <input type="text" placeholder="Search..." class="search-input">
+                  <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i><button>
+               </div>
+               
                <div class="user-actions">
                @if (Route::has('login'))
                 @auth

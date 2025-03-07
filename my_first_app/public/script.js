@@ -35,6 +35,25 @@ document.querySelectorAll('.size-buttons').forEach(buttonGroup => {
     });
 });
 
+//Search bar 
+document.addEventListener("DOMContentLoaded", function() {
+    let searchInput = document.querySelector('.search-input');
+    let searchButton = document.querySelector('.search-btn');
+
+    function performSearch(){
+        let searchText = searchInput.value.trim();
+        if(searchText) {
+            window.location.href ='/search?query=' + encodeURIComponent(searchText);
+        }
+    }
+    searchButton.addEventListener('click', performSearch);
+    searchInput.addEventListener('keypress', function (event) {
+        if(event.key === "Enter") {
+            performSearch();
+        }
+    });
+});
+
 // Basket functionality and product page interaction
 let listProducts = [
     {

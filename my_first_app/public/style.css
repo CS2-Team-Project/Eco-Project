@@ -84,12 +84,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0px 80px;
+    padding: 0px 50px;
     background-color: var(--navbar-color);
     box-shadow: 0 6px 15px var(--primary-color);
     position: sticky;
     top: 0;
     left: 0;
+    height: 100px;
 }
 
 /* Navigation */
@@ -101,11 +102,12 @@ body {
     margin: 0;
     flex-grow: 1;
     position: relative;
+   
 }
 
 #nav li {
     list-style: none;
-    padding: 0 20px;
+    padding: 0 10px;
 }
 
 #nav li a {
@@ -113,7 +115,7 @@ body {
     color: var(--text-color);
     font-weight: 700;
     font-size: 15px;
-    transition: 0.8s ease;
+    transition: 0.3s ease;
 }
 
 #nav li a:hover {
@@ -128,8 +130,8 @@ body {
 }
 
 .log, .sign {
-    padding: 10px 15px;
-    border-radius: 30px;
+    padding: 5px 10px;
+    border-radius: 20px;
     font-weight: bold;
     transition: background-color 0.3s, color 0.3s;
 }
@@ -137,14 +139,14 @@ body {
 .log {
     background-color: transparent;
     color: var(--accent-color);
-    border: 2px solid var(--accent-color);
+    border: 2px solid var(--text-color);
     text-decoration:none;
 }
 
 .sign {
     background-color: transparent;
     color: var(--accent-color);
-    border: 2px solid var(--accent-color);
+    border: 2px solid var(--text-color);
     text-decoration: none; /* Remove underline */
 }
 
@@ -154,11 +156,34 @@ body {
     text-decoration: none; /* Ensure no underline on hover */
 }
 
+/*Search Bar*/
+.search-container{
+    display: flex;
+    align-items: center;
+    background: var(--base-variant);
+    border-radius: 20px;
+    padding: 5px 10px;
+}
+
+.search-input{
+    border: none;
+    background: transparent;
+    padding: 8px;
+    outline:none;
+    width:150px;
+}
+
+.search-btn{
+    border:none;
+    background:none;
+    cursor:pointer;
+}
+
 
 /* Hero banner */
 #herobanner {
     color: var(--text-color);
-    background-image: url("img/hero1.png");
+    background-image: url("img/hero2.png");
     height: 80vh;
     width: 100%;
     background-size: cover;
@@ -188,12 +213,21 @@ body {
     font-size: 1.5em;
 }
 
+#herobanner h1,h2,p {
+    color: white;
+}
+
 /* Footer styles */
 footer {
     background: var(--navbar-color);
     padding-top: 50px;
     color: var(--base-color);
     text-decoration: none; /* Remove underline in footer */
+}
+
+footer p {
+    color: var(--text-color);
+    padding-left: 80px;
 }
 
 .container {
