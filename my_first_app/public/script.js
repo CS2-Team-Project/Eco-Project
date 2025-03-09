@@ -82,6 +82,86 @@ let listProducts = [
         "price": 140,
         "image": "img/product9.png"
     },
+    {
+        "name": "All Saints leather Jacket",
+        "price": 490,
+        "image": "img/product10.png"
+    },
+    {
+        "name": "Evisu Denim Jacket",
+        "price": 440,
+        "image": "img/product11.png"
+    },
+    {
+        "name": "Hugo Boss Leather Jacket",
+        "price": 1190,
+        "image": "img/product12.png"
+    },
+    {
+        "name": "The Leather Company Leather Jacket",
+        "price": 250,
+        "image": "img/product13.png"
+    },
+    {
+        "name": "Ralph Lauren Leather Jacket",
+        "price": 1660,
+        "image": "img/product14.png"
+    },
+    {
+        "name": "Schott NYC Leather Jacket",
+        "price": 990,
+        "image": "img/product15.png"
+    },
+    {
+        "name": "Diesel Denim Jacket",
+        "price": 540,
+        "image": "img/product16.png"
+    },
+    {
+        "name": "YSL Denim Jacket",
+        "price": 1110,
+        "image": "img/product17.png"
+    },
+    {
+        "name": "Louis Vitton Denim Jacket",
+        "price": 1530,
+        "image": "img/product18.png"
+    },
+    {
+        "name": "Ralph Lauren Denim Jacket",
+        "price": 270,
+        "image": "img/product19.png"
+    },
+    {
+        "name": "Canada Goose Puffer",
+        "price": 880,
+        "image": "img/product20.png"
+    },
+    {
+        "name": "Stone Island GHost Puffer",
+        "price": 1040,
+        "image": "img/product21.png"
+    },
+    {
+        "name": "Versace Couture Bomber",
+        "price": 570,
+        "image": "img/product22.png"
+    },
+    {
+        "name": "Jeff Hamilton Bomber",
+        "price": 1055,
+        "image": "img/product23.png"
+    },
+    {
+        "name": "Reiss Bomber",
+        "price": 260,
+        "image": "img/product24.png"
+    },
+    {
+        "name": "Tom Ford Bomber",
+        "price": 2000,
+        "image": "img/product25.png"
+    },
 ];
 
 // Get items from local storage to retain basket on page refresh
