@@ -55,16 +55,17 @@
     <div class="py-6">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
     <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
-                
-    <h2><h2 class="welcome-user">
+
+  <!-----Welcome msg----->         
+    <div class="welcome-user">
     Welcome, {{ Auth::user()->name }}!
-</h2></h2>
+</div>
 
     <!---------buttons------>
     <div class="dashboardbuttonsdiv">
 
     <div>
-    <!-- Orders Button -->
+    <!-----Orders Button---->
     <x-nav-link href="" class="dashboardbutton">
     {{ __('Orders') }}
     </x-nav-link>
