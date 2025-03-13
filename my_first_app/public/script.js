@@ -21,6 +21,24 @@ themeSwitch.addEventListener("click", (event) => {
     darkmode !== "active" ? enableDarkmode() : disableDarkmode();
 });
 
+// cookie script
+function acceptCookies() {
+    document.cookie = `cookieConsent=true; path=/; max-age=${60 * 60 * 24 * 30}`;
+    document.getElementById('cookie-box').style.display = 'none';
+}
+
+function closeBox() {
+    document.getElementById('cookie-box').style.display = 'none';
+}
+
+function checkCookie() {
+    if (!document.cookie.includes('cookieConsent=true')) {
+        document.getElementById('cookie-box').style.display = 'flex';
+    }
+}
+
+window.onload = checkCookie;
+
 // Size button functionality
 document.querySelectorAll('.size-buttons').forEach(buttonGroup => {
     buttonGroup.addEventListener('click', event => {

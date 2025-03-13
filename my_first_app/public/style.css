@@ -217,6 +217,59 @@ body {
     color: white;
 }
 
+/* cookie styles */
+
+        .cookie-box {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #000;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.cookie-message {
+    font-size: 16px;
+    flex: 1;
+    min-width: 200px;
+}
+.cookie-buttons {
+    display: flex;
+    gap: 10px;
+}
+.cookie-buttons button {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+.accept {
+    background: #fff;
+    color: #000;
+}
+.accept:hover {
+    background: #007BFF;
+    color: #fff;
+}
+.reject {
+    background: #000;
+    color: #fff;
+    border: 1px solid #fff;
+}
+.reject:hover {
+    background: #007BFF;
+    color: #fff;
+    border-color: #007BFF;
+}
+
 /* Footer styles */
 footer {
     background: var(--navbar-color);
