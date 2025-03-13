@@ -60,6 +60,7 @@
     <section id="order-summary">
         <h3>Order Summary</h3>
         <div class="order-summary-container">
+            <h3> hi </h3>
             <!-- This is where the JavaScript will dynamically populate the basket details -->
         </div>
     </section>
