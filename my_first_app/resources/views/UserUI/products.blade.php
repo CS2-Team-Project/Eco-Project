@@ -125,6 +125,22 @@
         <h3>Contact</h3>
         <p>Email: info.concept@gmail.com</p>
       </div>
+
+      <div class="footer-content">
+        <h3>Language</h3>
+        !-- translate script -->
+<div id="google_translate_element"></div>
+
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+  }
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+      </div>
+
       <div class="footer-content">
         <h3>Quick Links</h3>
         <ul class="list">
@@ -144,9 +160,12 @@
         </ul>
       </div>
     </div>
-  </footer>
 
+    
+  </footer>
 </body>
 <script src="{{ asset('script.js') }}"></script>
+
+
 </html>
 
