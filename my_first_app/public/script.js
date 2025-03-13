@@ -219,6 +219,37 @@ const addCartToHTML = () => {
     }
 };
 
+const displayOrderSummary = () => {
+    // Check if we're on the checkout page by checking the URL
+    if (window.location.pathname.includes("checkout")) {
+        const orderSummaryContainer = document.querySelector('.order-summary-container'); // The element where we want to show the total price
+
+        // Check if the order summary container exists on the page
+        if (orderSummaryContainer) {
+            let totalPrice = 0;
+
+            // Loop through the basketItems to calculate the total price
+            basketItems.forEach(basketItem => {
+                const product = listProducts.find(item => item.name === basketItem.productName);
+                if (product) {
+                    totalPrice += product.price * basketItem.quantity; // Calculate the price for each product in the basket
+                }
+            });
+
+            // Display the total price in the order summary container
+            orderSummaryContainer.innerHTML = `
+                <p><strong>Total Price:</strong> £${totalPrice.toFixed(2)}</p>
+            `;
+        } else {
+            console.error("Order summary container not found on the checkout page.");
+        }
+    }
+};
+
+// Call the function when the page loads (only on checkout page)
+window.addEventListener('DOMContentLoaded', displayOrderSummary);
+
+
 const changeQuantity = (productName, size, type) => {
     let positionItemInBasket = basketItems.findIndex((value) => value.productName == productName && value.size == size);
     if (positionItemInBasket >= 0) {
