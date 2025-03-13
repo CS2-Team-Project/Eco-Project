@@ -599,6 +599,14 @@ footer a:visited {
     background-color: #f9f9f9;
 }
 
+.order-summary-container p
+{
+
+ color: black;
+
+
+}
+
 .order-item {
     display: flex;
     justify-content: space-between;
