@@ -40,3 +40,24 @@ Route::get('/basket', function(){
 Route::get('/checkout', function () {
     return view('UserUI.checkout');
 });
+
+use App\Http\Controllers\ProductController;
+ 
+Route::get('/', function () {
+    return view('welcome');
+});
+
+    Route::controller(ProductController::class)->prefix('products')->group(function () {
+        Route::get('', 'index')->name('products');
+        Route::get('create', 'create')->name('products.create');
+        Route::post('store', 'store')->name('products.store');
+        Route::get('show/{id}', 'show')->name('products.show');
+        Route::get('edit/{id}', 'edit')->name('products.edit');
+        Route::put('edit/{id}', 'update')->name('products.update');
+        Route::delete('destroy/{id}', 'destroy')->name('products.destroy');
+    });
+    Route::get('/products', [ProductController::class, 'index'])->name('products');
+ 
+    Route::get('/profile', [App\Http\Controllers\AuthController::class, 'profile'])->name('profile');
+
+    
