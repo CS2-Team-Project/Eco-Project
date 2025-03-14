@@ -7,16 +7,32 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <title>Concept - Dashboard</title>
+
+  <!-- FontAwesome -->
   <link href="{{ asset('admin_assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-  <link href="{{ asset('resources/css/sb-admin-2.min.css') }}" rel="stylesheet">
+
+  <!-- Admin Stylesheet -->
+  <link href="{{ asset('admin_assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
 </head>
 <body id="page-top">
+
+  <!-- Page Wrapper -->
   <div id="wrapper">
+    <!-- Sidebar -->
     @include('admin.layouts.sidebar')
+
+    <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
       <div id="content">
+        <!-- Topbar -->
         @include('admin.layouts.navbar')
+
+        <!-- Page Content -->
         <div class="container-fluid">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">@yield('title')</h1>
@@ -24,12 +40,20 @@
           @yield('contents')
         </div>
       </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
       @include('admin.layouts.footer')
+
     </div>
   </div>
+
+  <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
+
+  <!-- JavaScript Libraries -->
   <script src="{{ asset('admin_assets/vendor/jquery/jquery.min.js') }}"></script>
   <script src="{{ asset('admin_assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('admin_assets/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
