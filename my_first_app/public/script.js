@@ -365,3 +365,16 @@ document.getElementById("submit-btn").addEventListener("click", function () {
 document.querySelector("#herobanner button").addEventListener("click", function () {
     window.open("{{ route('products') }}", '_blank');
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const menu = document.querySelector(".nav-links");
+    const hamburger = document.querySelector(".hamburger");
+
+    if (menu && hamburger) {
+        hamburger.addEventListener("click", function() {
+            menu.classList.toggle("show");
+        });
+    } else {
+        console.error("Hamburger menu or nav-links not found!");
+    }
+});
