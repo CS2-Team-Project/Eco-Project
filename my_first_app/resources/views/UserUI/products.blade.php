@@ -644,6 +644,12 @@
     });
 </script>
 
+  <!-- chatbot -->
+  <script>
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="l_64M3nESJsg18Uz_Gfhi";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    </script>
+
+  <!-- Footer Section -->
   <footer>
     <div class="container">
       <div class="footer-content">
@@ -653,7 +659,7 @@
 
       <div class="footer-content">
         <h3>Language</h3>
-        !-- translate script -->
+        <!-- translate script -->
 <div id="google_translate_element"></div>
 
 <script type="text/javascript">
@@ -669,7 +675,7 @@
       <div class="footer-content">
         <h3>Quick Links</h3>
         <ul class="list">
-        <li><a href="{{url('/home')}}">Home</a></li>
+          <li><a href="{{url('/home')}}">Home</a></li>
           <li><a href="{{url('/products')}}">Products</a></li>
           <li><a href="{{url('/contact')}}">Contact</a></li>
           <li><a href="{{url('/about')}}">About Us</a></li>
