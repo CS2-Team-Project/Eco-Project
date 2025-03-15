@@ -160,7 +160,7 @@ body {
 .search-container{
     display: flex;
     align-items: center;
-    background: var(--base-variant);
+    background: var(--primary-color);
     border-radius: 20px;
     padding: 5px 10px;
 }
