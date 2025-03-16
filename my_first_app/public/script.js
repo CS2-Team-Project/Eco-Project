@@ -21,6 +21,24 @@ themeSwitch.addEventListener("click", (event) => {
     darkmode !== "active" ? enableDarkmode() : disableDarkmode();
 });
 
+// cookies
+function acceptCookies() {
+    document.cookie = `cookieConsent=true; path=/; max-age=${60 * 60 * 24 * 30}`;
+    document.getElementById('cookie-box').style.display = 'none';
+}
+
+function closeBox() {
+    document.getElementById('cookie-box').style.display = 'none';
+}
+
+function checkCookie() {
+    if (!document.cookie.includes('cookieConsent=true')) {
+        document.getElementById('cookie-box').style.display = 'flex';
+    }
+}
+
+window.onload = checkCookie;
+
 // Size button functionality
 document.querySelectorAll('.size-buttons').forEach(buttonGroup => {
     buttonGroup.addEventListener('click', event => {
@@ -364,4 +382,17 @@ document.getElementById("submit-btn").addEventListener("click", function () {
 // Open the products page when the "Shop Now" button is clicked
 document.querySelector("#herobanner button").addEventListener("click", function () {
     window.open("{{ route('products') }}", '_blank');
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const menu = document.querySelector(".nav-links");
+    const hamburger = document.querySelector(".hamburger");
+
+    if (menu && hamburger) {
+        hamburger.addEventListener("click", function() {
+            menu.classList.toggle("show");
+        });
+    } else {
+        console.error("Hamburger menu or nav-links not found!");
+    }
 });

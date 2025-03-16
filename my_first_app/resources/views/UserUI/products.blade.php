@@ -644,16 +644,38 @@
     });
 </script>
 
+  <!-- chatbot -->
+  <script>
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="l_64M3nESJsg18Uz_Gfhi";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    </script>
+
+  <!-- Footer Section -->
   <footer>
     <div class="container">
       <div class="footer-content">
         <h3>Contact</h3>
         <p>Email: info.concept@gmail.com</p>
       </div>
+
+      <div class="footer-content">
+        <h3>Language</h3>
+        <!-- translate script -->
+<div id="google_translate_element"></div>
+
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+  }
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+      </div>
+
       <div class="footer-content">
         <h3>Quick Links</h3>
         <ul class="list">
-        <li><a href="{{url('/home')}}">Home</a></li>
+          <li><a href="{{url('/home')}}">Home</a></li>
           <li><a href="{{url('/products')}}">Products</a></li>
           <li><a href="{{url('/contact')}}">Contact</a></li>
           <li><a href="{{url('/about')}}">About Us</a></li>
@@ -669,9 +691,12 @@
         </ul>
       </div>
     </div>
-  </footer>
 
+    
+  </footer>
 </body>
 <script src="{{ asset('script.js') }}"></script>
+
+
 </html>
 

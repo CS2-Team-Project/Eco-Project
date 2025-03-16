@@ -619,3 +619,31 @@ a:hover {
     align-items: center;
 }
 
+/*google traslate feature*/
+
+#google_translate_element {
+	margin-top: 20px;
+}
+
+
+.goog-logo-link, .goog-te-gadget span, .goog-te-footer-frame {
+	display: none !important; /* Hide Google Translate logo */
+}
+
+select.goog-te-combo {
+	padding: 10px;
+	font-size: 16px;                         /* Style for the dropdon */
+	border: 2px solid #007BFF;
+	border-radius: 5px;
+	background-color: white;
+	color: #333;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+}
+
+
+select.goog-te-combo:hover {
+	background-color: #4990dc;        /* hover effect */
+	color: white;
+	transform: scale(1.05);
+}
