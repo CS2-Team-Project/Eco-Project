@@ -5,6 +5,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- FLATICON -->
+  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-thin-straight/css/uicons-thin-straight.css'>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
   <title>CS2TP</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -48,18 +55,67 @@
       </button>
       <li><a href="{{url('/basket')}}"><i class="fa-solid fa-cart-shopping"></i></a></li>
     </nav>
-  </section>
+</section>
 
 
-    <section id="herobanner">
-        <h2>Our Newest Arrival</h2>
-        <h1>Discover the latest trends</h1>
-        <p>Shop our latest collection of stylish and comfortable jackets.</p>
-        <button><a href="{{url('/products')}}">Shop Now</button></a>
-    </section>
-    
+<section id="herobanner">
+      <h2>CONCEPT PRESENTS</h2>
+      <h1>signature heavyweight jackets</h1>
+      
+      <button><a href="{{url('/products')}}">Shop Now</button></a>
+</section>
 
-    <footer>
+<section  class ="catogories Hcontainer section"> 
+  <h3 class="section_title"><span>Product</span> Catogories</h3>
+
+  <div class="categories_container swiper">
+    <div class="swiper-wrapper">
+      <a href="{{ url('/products?category=bombers') }}" class="category_item swiper-slide">
+        <img src="img/category1.png" alt="" 
+        class="category_img">
+
+        <h3 class="category_title">Bomber Jackets</h3>
+      </a>
+
+      <a href="{{ url('/products?category=puffers') }}" class="category_item swiper-slide">
+        <img src="img/category2.png" alt="" 
+        class="category_img">
+
+        <h3 class="category_title">Puffer Jackets</h3>
+      </a>
+
+      <a href="{{ url('/products?category=leathers') }}" class="category_item swiper-slide">
+        <img src="img/category3.png" alt="" 
+        class="category_img">
+
+        <h3 class="category_title">Leather Jackets</h3>
+      </a>
+
+      <a href="{{ url('/products?category=denims') }}" class="category_item swiper-slide">
+        <img src="img/category4.png" alt="" 
+        class="category_img">
+
+        <h3 class="category_title">Denim Jackets</h3>
+      </a>
+
+      <a href="{{ url('/products?category=jackets') }}" class="category_item swiper-slide">
+        <img src="img/category5.png" alt="" 
+        class="category_img">
+
+        <h3 class="category_title">Jackets</h3>
+      </a>
+    </div>
+
+    <div class="swiper-button-next">
+      <i class="fi fi-ts-angle-small-right"></i>
+    </div>
+    <div class="swiper-button-prev">
+      <i class="fi fi-ts-angle-small-left"></i>
+    </div>
+  </div>
+</section>   
+
+<footer>
         <div class="container">
             <div class="footer-content" >
                 <h3>Contact</h3>
@@ -77,18 +133,21 @@
             <div class="footer-content">
                 <h3>Follow Us</h3>
                 <ul class="media-icons">
-                    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>   
+                    <li><a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a></li>
+                    <li><a href="https://twitter.com"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="https://facebook.com"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="https://instagram.com"><i class="fab fa-instagram"></i></a></li>   
                 </ul>
             </div>
         </div>
      
-    </footer>
+</footer>
+ 
+ <!--SWIPER JS -->
+ <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-
-    <script src="script.js"></script>
+ <!--MAIN JS -->
+ <script src="script.js"></script>
 </body>
 <script src="{{ asset('script.js') }}"></script>
 </html>
