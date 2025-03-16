@@ -11,8 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) 
+        {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade'); // Link to user
+            $table->foreignId('shipping_address_id')->constrained('shipping_addresses')->onDelete('cascade'); // Link to shipping address
+            $table->enum('status', ['pending','processing', 'shipped', 'delivered', 'cancelled'])->default('pending'); // Order status
+            $table->decimal('total_amount', 10, 2); // Total order price
+           
             $table->timestamps();
         });
     }

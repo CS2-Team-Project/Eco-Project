@@ -69,26 +69,33 @@
 
     <!-- Checkout Form Section -->
     <section id="checkout-body">
-        <h3>Enter Shipping Address</h3>
-        <section id="details-info">
-            <form id="checkout-form">
-                <label for="name">Full Name:</label>
-                <input type="text" id="fullName" name="user_name" required>
+    <h3>Enter Shipping Address</h3>
+    <section id="details-info">
+        <form id="checkout-form">
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="user_name" required>
 
-                <label for="address">Street Address:</label>
-                <input type="text" id="address" name="address" required>
+            <label for="address1">Address Line 1:</label>
+            <input type="text" id="address1" name="address1" required>
 
-                <label for="city">City:</label>
-                <input type="text" id="city" name="city" required>
+            <label for="address2">Address Line 2 (Optional):</label>
+            <input type="text" id="address2" name="address2">
 
-                <label for="zip">PostCode</label>
-                <input type="text" id="zip" name="zip" required>
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required>
 
-                <button type="button" id="submit-btn">Submit</button>
-            </form>
-            <p id="confirmation-message" style="color: green; margin-top: 20px; font-weight: bold;"></p>
-        </section>
+            <label for="zip">Postcode:</label>
+            <input type="text" id="zip" name="zip" required>
+
+            <label for="country">Country:</label>
+            <input type="text" id="country" name="country" required>
+
+            <button type="button" id="submit-btn">Submit</button>
+        </form>
+        <p id="confirmation-message" style="color: green; margin-top: 20px; font-weight: bold;"></p>
     </section>
+</section>
+
 
     <script src="{{ asset('script.js') }}"></script>
 

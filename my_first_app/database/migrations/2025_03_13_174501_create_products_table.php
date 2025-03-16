@@ -11,15 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::dropIfExists('products');
+        Schema::create('products', function (Blueprint $table)
+         {
             $table->id();
-            $table->bigInteger('cate_id');
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade'); // Link to categories table
             $table->string('name');
             $table->longText('description');
-            $table->string('og_price');
-            $table->string('selling_price');
+            $table->decimal('og_price',8,2); // original price of product
+            $table->decimal('selling_price',8,2); // the selling price
             $table->string('image');
-            $table->string('qty');
+            $table->integer('quantity')->default(0); // stores the quantity of specific product
             $table->tinyInteger('status');
             $table->timestamps();
         });
