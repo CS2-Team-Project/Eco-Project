@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-
+// home categories 
 document.addEventListener('DOMContentLoaded', function(){
     const urlParams = new URLSearchParams(window.location.search);
     const queryCategory =urlParams.get('category');

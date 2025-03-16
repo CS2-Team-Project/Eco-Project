@@ -94,17 +94,18 @@ body {
     left: 0;
     height: 100px;
     z-index: 9999; 
+    
 }
 
 /* Navigation */
 #nav {
     display: flex;
     align-items: center;
-    gap:1 rem;
     list-style: none;
     padding: 0;
     margin: 0;
-   flex-wrap:nowrap
+    flex-grow: 1;
+    position:relative; 
    
 }
 
@@ -195,7 +196,7 @@ body {
     padding: 0 80px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
 }
 
@@ -685,7 +686,7 @@ footer a:visited {
  
 }
 .sign-form .a {
-    display: inline-bl.log-formock;
+    display: inline-block;
     text-align: center;
     text-decoration: none;
     color: white;
