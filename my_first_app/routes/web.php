@@ -47,17 +47,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-    Route::controller(ProductController::class)->prefix('products')->group(function () {
-        Route::get('', 'index')->name('products');
-        Route::get('create', 'create')->name('products.create');
-        Route::post('store', 'store')->name('products.store');
-        Route::get('show/{id}', 'show')->name('products.show');
-        Route::get('edit/{id}', 'edit')->name('products.edit');
-        Route::put('edit/{id}', 'update')->name('products.update');
-        Route::delete('destroy/{id}', 'destroy')->name('products.destroy');
+    Route::controller(ProductController::class)->prefix('product_management')->group(function () {
+        Route::get('', 'index')->name('product_management');
+        Route::get('create', 'create')->name('product_management.create');
+        Route::post('store', 'store')->name('product_management.store');
+        Route::get('show/{id}', 'show')->name('product_management.show');
+        Route::get('edit/{id}', 'edit')->name('product_management.edit');
+        Route::put('edit/{id}', 'update')->name('product_management.update');
+        Route::delete('destroy/{id}', 'destroy')->name('product_management.destroy');
     });
-    Route::get('/products', [ProductController::class, 'index'])->name('products');
+    Route::get('/product_management', [ProductController::class, 'index'])->name('product_management');
  
-    Route::get('/profile', [App\Http\Controllers\AuthController::class, 'profile'])->name('profile');
-
-    

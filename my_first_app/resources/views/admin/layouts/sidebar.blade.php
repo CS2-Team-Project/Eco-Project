@@ -17,7 +17,7 @@
   </li>
   
   <li class="nav-item mt-3">
-    <a class="nav-link" href="{{ route('products') }}">
+    <a class="nav-link" href="{{ route('product_management') }}">
       <i class="fas fa-fw fa-tachometer-alt"></i>
       <span>Product</span>
     </a>

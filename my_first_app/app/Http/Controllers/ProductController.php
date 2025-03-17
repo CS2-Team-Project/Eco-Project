@@ -14,7 +14,7 @@
       {
           $product = Product::orderBy('created_at', 'DESC')->get();
    
-          return view('admin.products.index', compact('product'));
+          return view('admin.product_management.index', compact('product'));
       }
       
    
@@ -23,7 +23,7 @@
        */
       public function create()
       {
-          return view('admin.products.create');
+          return view('admin.product_management.create');
       }
    
       /**
@@ -33,7 +33,7 @@
       {
           Product::create($request->all());
    
-          return redirect()->route('products')->with('success', 'Product added successfully');
+          return redirect()->route('product_management')->with('success', 'Product added successfully');
       }
    
       /**
@@ -43,7 +43,7 @@
       {
           $product = Product::findOrFail($id);
    
-          return view('products.show', compact('product'));
+          return view('product_management.show', compact('product'));
       }
    
       /**
@@ -53,7 +53,7 @@
       {
           $product = Product::findOrFail($id);
    
-          return view('products.edit', compact('product'));
+          return view('product_management.edit', compact('product'));
       }
    
       /**
@@ -65,7 +65,7 @@
    
           $product->update($request->all());
    
-          return redirect()->route('products')->with('success', 'product updated successfully');
+          return redirect()->route('product_management')->with('success', 'product updated successfully');
       }
    
       /**
@@ -77,6 +77,6 @@
    
           $product->delete();
    
-          return redirect()->route('products')->with('success', 'product deleted successfully');
+          return redirect()->route('product_management')->with('success', 'product deleted successfully');
       }
   }
