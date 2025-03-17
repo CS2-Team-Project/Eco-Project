@@ -13,7 +13,7 @@ class HomeController extends Controller
     public function redirect()
     {
         $usertype=Auth::user()->usertype;
-        if($usertype=='1'){
+        if($usertype=='1'){ // remember to reference db tables, use this method
             return view('admin.layouts.home');
         }
             else

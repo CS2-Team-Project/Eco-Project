@@ -21,7 +21,9 @@ return new class extends Migration
             $table->decimal('og_price',8,2); // original price of product
             $table->decimal('selling_price',8,2); // the selling price
             $table->string('image');
-            $table->integer('quantity')->default(0); // stores the quantity of specific product
+            $table->integer('stock_s')->default(0); // S stock 
+            $table->integer('stock_m')->default(0); // M stock
+            $table->integer('stock_l')->default(0); // L stock    
             $table->tinyInteger('status');
             $table->timestamps();
         });
