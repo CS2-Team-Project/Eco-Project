@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function(){
     
 
 //SWIPER CATEGORIES
+if (document.querySelector(".categories_container")){
 var swiperCategories = new Swiper(".categories_container", {
     spaceBetween: 24,
     loop: true,
@@ -91,6 +92,7 @@ var swiperCategories = new Swiper(".categories_container", {
       },
     },
   });
+}
 
 
 // Basket functionality and product page interaction

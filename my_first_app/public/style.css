@@ -186,6 +186,7 @@ body {
 
 
 /* Hero banner */
+
 #herobanner {
     color: var(--text-color);
     background-image: url("img/hero2.png");
@@ -193,12 +194,13 @@ body {
     width: 100%;
     background-size: cover;
     background-position: top 25% right 0;
-    padding: 0 80px;
+    padding: 0 60px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
 }
+
 
 #herobanner button {
     width: 160px;
@@ -236,6 +238,7 @@ body {
 /*HOME CATEGORIES*/
 .catogories.Hcontainer.section{
     padding: 3rem 2rem;
+    overflow-x: hidden;
 }
 
 .section_title {
@@ -249,6 +252,8 @@ body {
 .categories {
     overflow: hidden;
 }
+
+
 
 .category_item {
     display:flex;
@@ -285,6 +290,8 @@ body {
     color: var(--text-color);
     font-size: 1.2rem;
 }
+
+
 
 /* Swiper class */
 
@@ -345,8 +352,9 @@ footer p {
 }
 
 .container {
-    width: 1140px;
-    margin: auto;
+    max-width: 1140px;
+    width:100%;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
 }
@@ -446,7 +454,7 @@ footer a:visited {
     cursor: pointer;
     transition: background-color 0.3s ease;
     position: absolute;
-    right: -40px;
+    right: 0;
     top: 50%;
     transform: translateY(-50%);
 }

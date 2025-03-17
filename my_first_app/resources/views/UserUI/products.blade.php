@@ -514,7 +514,7 @@
 
       <div class="product-card" data-category="puffers" data-price="1040">
         <img src="img/product21.png" alt="Product 21">
-        <h3>Stone Island GHost Puffer</h3>
+        <h3>Stone Island Ghost Puffer</h3>
         <p>Ghost Down Puffer Jacket</p>
         <p class="price">£1040</p>
         <details class="product-details">
