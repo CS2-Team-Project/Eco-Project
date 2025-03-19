@@ -515,13 +515,14 @@ footer a:visited {
 }
 
 .contact-form input[type="submit"] {
-    background-color: var(--primary-color);
+    background-color:var(--text-color);
     color: var(--base-color);
     font-size: 16px;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
 
 .log-form {
     width: 100%;

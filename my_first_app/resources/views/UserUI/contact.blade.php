@@ -51,12 +51,13 @@
   </section>
 
     <div class="contact-form">
-        <form>
+        <form action="https://api.web3forms.com/submit" method="POST">
           <h1>Contact</h1>
           <p>Please only use this form for general enquiries.</p>
-          <input type="text" id="Name" placeholder="Your Name" required>
-          <input type="email" id="email" placeholder="Your Email" required>
-          <textarea placeholder="Your message" required></textarea>
+          <input type="hidden" name="access_key" value="e1b2e433-63df-47ba-ab49-8c094d986818">
+          <input type="text" id="Name" name="Name" placeholder="Your Name" required>
+          <input type="email" id="email" name="email" placeholder="Your Email" required>
+          <textarea name="message" placeholder="Your message" required></textarea>
           <input type="submit" value="SEND MESSAGE" id="button">
         </form>
     </div>
@@ -67,7 +68,7 @@
         <div class="container">
             <div class="footer-content" >
                 <h3>Contact</h3>
-                <p>Email:info.concept@gmail.com</p>
+                <p>Email:info.conceptt@gmail.com</p>
             </div>  
             <div class="footer-content">
                 <h3>Quick Links</h3>

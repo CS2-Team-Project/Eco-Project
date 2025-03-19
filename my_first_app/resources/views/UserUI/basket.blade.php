@@ -64,7 +64,7 @@
         <div class="container">
             <div class="footer-content">
                 <h3>Contact</h3>
-                <p>Email: info.concept@gmail.com</p>
+                <p>Email:info.conceptt@gmail.com</p>
             </div>  
             <div class="footer-content">
                 <h3>Quick Links</h3>
