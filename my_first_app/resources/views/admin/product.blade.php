@@ -20,66 +20,50 @@
    
       @include('admin.sidebar');
 
-      <!-- partial -->
       <div class="container-fluid page-body-wrapper">
 
         <div class ="container" align ="center">
 
-        <h1 class="title">Stock Products</h1>
+        <h1 class="title">Manage Products</h1>
 
-        <form action="{{url('uploadproduct')}}" method="post" enctype="multipart/form-data">
-            @csrf
-        <div style="padding: 15px;">
-        <label>Product ID</label>
-        <input type="text" name="title" placeholder="enter the product ID" required="">
-</div>
-
-<div style="padding: 15px;">
-        <label>Category ID</label>
-        <input type="text" name="title" placeholder="Enter the category ID" required="">
-</div>
-
-<div style="padding: 15px;">
-        <label>Product Name</label>
-        <input type="text" name="title" placeholder="Enter the product name" required="">
-</div>
-
-<div style="padding: 15px;">
-        <label>Purchasing Price</label>
-        <input type="text" name="title" placeholder="Enter the product cost" required="">
-</div>
-
-
-<div style="padding: 15px;">
-        <label>Selling Price</label>
-        <input type="text" name="title" placeholder="Enter the product price" required="">
-</div>
-
-<div style="padding: 15px;">
-        <label>Description</label>
-        <input type="text" name="title" placeholder="Enter the product descriptions" required="">
-</div>
-
-<div style="padding: 15px;">
-            <label>Stock by Size</label>
-            <div id="size-quantity-container">
-                <div class="size-quantity-row">
-                    <select name="size[]">
-                        <option value="">Select Size</option>
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                    </select>
-                    <input type="number" name="quantity[]" placeholder="Enter quantity" min="1" required="">
-                    <button type="button" onclick="removeRow(this)">Delete</button>
-                </div>
+            <table>
+            <thead>
+            <tr>
+            <th>ID</th>
+            <th>Category</th>
+            <th>Name</th>
+            <th>Stock (S/M/L)</th>
+            <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach ($productdata as $product)
+                <tr>
+            <td>{{ $product->id }}</td>
+            <td>{{ $product->category }}</td>
+            <td>{{ $product->name }}</td>
+            <td>
+            <input type="number" class="form-control" id="stock_s_{{ $product->id }}" value="{{ $product->stock_s }}" min="0">
+            <input type="number" class="form-control" id="stock_m_{{ $product->id }}" value="{{ $product->stock_m }}" min="0">
+            <input type="number" class="form-control" id="stock_l_{{ $product->id }}" value="{{ $product->stock_l }}" min="0">
+            </td>
+            <td>
+            <button class="btn-edit" onclick="updateProduct({{ $product->id }})">Update</button>
+            <button class="btn-delete" onclick="deleteProduct({{ $product->id }})">Delete</button>
+            </td>
+            </tr> <!----the foundations for adding products should now be there -->
+            @endforeach
+            </tbody>
+             </table>
             </div>
-            <button type="button" onclick="addSizeRow()">Add Size</button>
-        </div>
-        
+            </div>
 
-</div>
-</div>
+@include('admin.navbar')
+@include('admin.script')
+
+</body>
+</html>
+
 <script>
     function addSizeRow() {
         let container = document.getElementById('size-quantity-container');
@@ -105,11 +89,4 @@
 </script>
 
 
-        @include('admin.navbar');
-
-          <!-- partial -->
-
-          @include('admin.script');
-      
-  </body>
-</html>
+ 
