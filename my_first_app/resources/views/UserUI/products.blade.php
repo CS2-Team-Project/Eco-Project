@@ -514,7 +514,7 @@
 
       <div class="product-card" data-category="puffers" data-price="1040">
         <img src="img/product21.png" alt="Product 21">
-        <h3>Stone Island GHost Puffer</h3>
+        <h3>Stone Island Ghost Puffer</h3>
         <p>Ghost Down Puffer Jacket</p>
         <p class="price">£1040</p>
         <details class="product-details">
@@ -654,7 +654,7 @@
     <div class="container">
       <div class="footer-content">
         <h3>Contact</h3>
-        <p>Email: info.concept@gmail.com</p>
+        <p>Email:info.conceptt@gmail.com</p>
       </div>
 
       <div class="footer-content">
@@ -684,10 +684,10 @@
       <div class="footer-content">
         <h3>Follow Us</h3>
         <ul class="media-icons">
-          <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-          <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://twitter.com"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://facebook.com"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="https://instagram.com"><i class="fab fa-instagram"></i></a></li>   
         </ul>
       </div>
     </div>

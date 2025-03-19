@@ -8,6 +8,7 @@
     --accent2-color: rgb(210, 210, 210);
     --background-color: white;
     --navbar-color: white;
+    --categorytext-color:black;  
 }
 
 /* Dark mode variables */
@@ -20,6 +21,7 @@
     --accent2-color: #070b1d;
     --background-color: #121212;
     --navbar-color: #282828;
+    --categorytext-color:black;
 }
 
 /* Universal reset */
@@ -86,11 +88,13 @@ body {
     justify-content: space-between;
     padding: 0px 50px;
     background-color: var(--navbar-color);
-    box-shadow: 0 6px 15px var(--primary-color);
+    box-shadow: 0 2px 4px var(--primary-color);
     position: sticky;
     top: 0;
     left: 0;
     height: 100px;
+    z-index: 9999; 
+    
 }
 
 /* Navigation */
@@ -101,7 +105,8 @@ body {
     padding: 0;
     margin: 0;
     flex-grow: 1;
-    position: fixed;
+    position:relative; 
+   
 }
 
 #nav li {
@@ -267,10 +272,12 @@ select.goog-te-combo:hover {
     border:none;
     background:none;
     cursor:pointer;
+    
 }
 
 
 /* Hero banner */
+
 #herobanner {
     color: var(--text-color);
     background-image: url("img/hero2.png");
@@ -278,12 +285,13 @@ select.goog-te-combo:hover {
     width: 100%;
     background-size: cover;
     background-position: top 25% right 0;
-    padding: 0 80px;
+    padding: 0 60px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
 }
+
 
 #herobanner button {
     width: 160px;
@@ -303,9 +311,121 @@ select.goog-te-combo:hover {
     font-size: 1.5em;
 }
 
-#herobanner h1,h2,p {
-    color: white;
+#herobanner button a {
+    text-decoration:none;
 }
+
+#herobanner h1 {
+    color: white;
+    font-size:2rem;
+    margin-bottom: 1rem;
+}
+
+#herobanner h2 {
+    color: white;
+    font-size: 1.5rem;
+}
+
+/*HOME CATEGORIES*/
+.catogories.Hcontainer.section{
+    padding: 3rem 2rem;
+    overflow-x: hidden;
+}
+
+.section_title {
+    margin-bottom: 2.5rem;
+}
+
+.section_title span {
+    color: var(--accent-color);
+}
+
+.categories {
+    overflow: hidden;
+}
+
+
+
+.category_item {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-decoration: none;
+    text-align: center;
+
+    background-color:var(--navbar-color);
+    color:var(--text-color);
+    border-radius:0.75rem;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    transition:transform 0.2s ease, box-shadow 0.2s ease;
+
+    padding:1rem;
+    margin:0 0.5rem;
+    margin-bottom: 3rem;
+}
+
+.category_item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.category_img {
+    width:100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius:0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.category_title {
+    color: var(--text-color);
+    font-size: 1.2rem;
+}
+
+
+
+/* Swiper class */
+
+.swiper{
+    overflow: initial;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    content:'';
+}
+.swiper-button-next,
+.swiper-button-prev {
+  
+    top: -1.875rem;
+    
+    width: 35px;
+    height: 35px;
+    border:2px solid var(--text-color);    
+    border-radius: 50%;
+
+    background-color: var(--base-color);
+    color: var(--text-color);
+    font-size: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s,color 0.3s, border-color 0.3s;
+    cursor:pointer;
+}
+
+.swiper-button-prev {
+    left: initial;
+    right: 2.5rem;
+}
+
+.swiper-button-next {
+    right : 0;
+}
+
 
 /* Footer styles */
 footer {
@@ -313,6 +433,8 @@ footer {
     padding-top: 50px;
     color: var(--base-color);
     text-decoration: none; /* Remove underline in footer */
+    border-top: 2px solid var(--accent-color);
+    
 }
 
 footer p {
@@ -321,8 +443,9 @@ footer p {
 }
 
 .container {
-    width: 1140px;
-    margin: auto;
+    max-width: 1140px;
+    width:100%;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
 }
@@ -422,7 +545,7 @@ footer a:visited {
     cursor: pointer;
     transition: background-color 0.3s ease;
     position: absolute;
-    right: -40px;
+    right: 0;
     top: 50%;
     transform: translateY(-50%);
 }
@@ -483,13 +606,14 @@ footer a:visited {
 }
 
 .contact-form input[type="submit"] {
-    background-color: var(--primary-color);
+    background-color:var(--text-color);
     color: var(--base-color);
     font-size: 16px;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
 
 .log-form {
     width: 100%;
@@ -663,7 +787,7 @@ footer a:visited {
 }
 
 .sign-form .a {
-    display: inline-bl.log-formock;
+    display: inline-block;
     text-align: center;
     text-decoration: none;
     color: white;
