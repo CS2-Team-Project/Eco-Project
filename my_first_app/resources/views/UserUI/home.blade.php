@@ -115,6 +115,15 @@
     </div>
   </div>
 </section>   
+<!-- cookies -->
+<div id="cookie-box" class="cookie-box">
+  <p class="cookie-message">This website uses cookies to ensure you get the best experience. Do you accept?</p>
+  <div class="cookie-buttons">
+      <button class="accept" onclick="acceptCookies()">Accept</button>
+      <button class="reject" onclick="closeBox()">Reject</button>
+  </div>
+</div>
+
 
 <!-- chatbot -->
 <script>
