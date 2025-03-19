@@ -22,7 +22,16 @@ class HomeController extends Controller
             }
         
     }
-    public function home(){
-        return view('UserUI.home');
+    public function home()
+    {
+        if(Auth::id())
+        {
+            return redirect('redirect');
+        }
+
+        else
+        {
+            return view('UserUI.home');
+        }
     }
 }
