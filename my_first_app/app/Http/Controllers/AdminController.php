@@ -15,6 +15,6 @@ class AdminController extends Controller
 
     public function uploadproduct(Request $request)
     {
-       $data = new products
+       $data = new products;
     }
 }

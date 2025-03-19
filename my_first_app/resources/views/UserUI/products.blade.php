@@ -13,6 +13,19 @@
 
 <body>
   
+@foreach($productdata as $product)
+    <div>
+        <h3>{{ $product->name }}</h3>
+        <p>Price: ${{ $product->price }}</p>
+        <p>Stock: {{ $product->stock }}</p>
+        <form action="{{ route('order.store') }}" method="POST">
+            @csrf
+            <input type="hidden" name="product_id" value="{{ $product->id }}">
+            <input type="number" name="quantity" min="1" max="{{ $product->stock }}">
+            <button type="submit">Order</button>
+        </form>
+    </div>
+@endforeach
 <section id="header">
         <a href="#"><img src="img/logo1.png" class="logo" alt=""></a>
 

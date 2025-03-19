@@ -14,16 +14,16 @@ return new class extends Migration
         Schema::dropIfExists('products');
         Schema::create('products', function (Blueprint $table)
          {
-            $table->id();
-            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade'); // Link to categories table
-            $table->string('name');
-            $table->longText('description');
-            $table->decimal('og_price',8,2); // original price of product
-            $table->decimal('selling_price',8,2); // the selling price
-            $table->string('image');
-            $table->integer('quantity')->default(0); // stores the quantity of specific product
-            $table->tinyInteger('status');
-            $table->timestamps();
+                $table->id();
+                $table->string('name');
+                $table->string('category');
+                $table->text('description');
+                $table->decimal('price', 8, 2);
+                $table->integer('stock')->default(10); //sets default
+                $table->json('details'); // JSON format attempt for details
+                $table->json('sizes');   //JSON format attempt for sizes
+                $table->string('image');
+                $table->timestamps();
         });
     }
 

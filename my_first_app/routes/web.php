@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProductController;
 
 
 Route::middleware([
@@ -15,7 +16,8 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::get('/redirect', [HomeController::class, 'redirect'])->name('redirect');
+Route::get('/redirect',[HomeController::class,'redirect']);
+
 
 Route::get('/',[HomeController::class,'home']);
 
@@ -23,18 +25,16 @@ Route::get('/product',[AdminController::class,'product']);
 
 Route::post('/uploadproduct',[AdminController::class,'uploadproduct']);
 
+Route::get('/products', [ProductController::class, 'index']);
 
 Route::get('/home', function(){
     return view('UserUI.home');
 });
 
-Route::get('/products', function(){
-    return view('UserUI.products');
-});
-
 Route::get('/contact', function(){
     return view('UserUI.contact');
 });
+
 
 Route::get('/about', function(){
     return view('UserUI.about');

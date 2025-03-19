@@ -225,37 +225,29 @@ const addToCart = (productName, size) => {
     console.log(basketItems);
 };
 
-const addCartToHTML = () => {
-    const listBasketHTML = document.querySelector('.basket-container');
-    listBasketHTML.innerHTML = '';
-    if (basketItems.length > 0) {
-        basketItems.forEach(basketItem => {
-            let newBasket = document.createElement('div');
-            newBasket.classList.add('item');
-            newBasket.dataset.productName = basketItem.productName;
-            newBasket.dataset.size = basketItem.size;
-            let positionProduct = listProducts.findIndex((value) => value.name == basketItem.productName);
-            let info = listProducts[positionProduct];
-            newBasket.innerHTML = `
-                <img src="${info.image}" alt="">
-                <div class="name">${info.name}</div>
-                <div class="price">£${info.price * basketItem.quantity}</div>
-                <div>${basketItem.size}</div>
-                <div class="quantity">
-                    <span class="minus"> < </span>
-                    <span>${basketItem.quantity}</span>
-                    <span class="plus"> > </span>
-                </div>  
-            `;
-            listBasketHTML.appendChild(newBasket);
-        });
-    } else if (basketItems.length == 0) {
-        document.querySelector('.section-p1').innerHTML += `
-        <h8 class = "empty-basket-message">Your basket is empty!</h8>
-        `;
-    }
-};
-
+document.querySelector("#checkout-button").addEventListener("click", () => {
+    fetch("/order/store", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content")
+        },
+        body: JSON.stringify({
+            cart: basketItems // Ensure `basketItems` contains all product details
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert("Order placed successfully!");
+            localStorage.removeItem("basketItems"); // Clear cart
+            window.location.href = "/home"; // Redirect to home
+        } else {
+            alert("Error: " + data.error);
+        }
+    })
+    .catch(error => console.error("Error:", error));
+});
 const displayOrderSummary = () => {
     // Check if we're on the checkout page by checking the URL
     if (window.location.pathname.includes("checkout")) {
