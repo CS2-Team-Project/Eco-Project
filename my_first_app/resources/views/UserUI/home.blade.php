@@ -32,7 +32,7 @@
                <!--Search Bar -->
                 <div class ="search-container">
                   <input type="text" placeholder="Search..." class="search-input">
-                  <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i><button>
+                  <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
                 
                 <!--login and signup-->

@@ -855,7 +855,13 @@ footer a:visited {
 
 /* product */
 
-#products {
+#products  {
+    text-align: center;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.search-results-container {
     text-align: center;
     color: var(--text-color);
     background-color: var(--background-color);
@@ -1357,7 +1363,7 @@ font-size: 30px;
     display: block;
     margin: 0 auto; /* Center the button */
     padding: 10px 20px;
-    background-color: #ff4d4d;
+    background-color: #484848;
     color: white;
     border: none;
     border-radius: 5px;
@@ -1370,7 +1376,7 @@ font-size: 30px;
 
 .dashboardlogoutbutton:hover {
     background-color: #f3f3f3;
-    color: #ff4d4d;
+    color: #1e1e1e;
     font-size: 1.5em;
     font-weight: bold;
     }
