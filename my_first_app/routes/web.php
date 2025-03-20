@@ -28,10 +28,6 @@ Route::post('/uploadproduct',[AdminController::class,'uploadproduct']);
 
 Route::get('/products', [ProductController::class, 'index']);
 
-Route::get('/admin/product', [AdminController::class, 'product'])->name('admin.product');
-Route::post('/admin/update-product/{id}', [AdminController::class, 'updateProduct'])->name('admin.product.update');
-Route::delete('/admin/delete-product/{id}', [AdminController::class, 'deleteProduct'])->name('admin.product.delete');
-
 Route::get('/home', function(){
     return view('UserUI.home');
 });

@@ -26,7 +26,8 @@
         <div class ="container" align ="center">
 
         <h1 class="title">Manage Products</h1>
-
+        <form action="{{url('uploadproduct')}}" method="post" enctype="multipart/form-data">
+        @csrf
             <table>
             <thead>
             <tr>
@@ -38,21 +39,28 @@
             </tr>
             </thead>
             <tbody>
-            @foreach ($products as $product) <!---products means the table itself--->
-                <tr>
-            <td>{{ $product->id }}</td>
-            <td>{{ $product->category }}</td>
-            <td>{{ $product->name }}</td>
-            <td>
-            <input type="number" class="form-control" id="stock_s_{{ $product->id }}" value="{{ $product->stock_s }}" min="0">
-            <input type="number" class="form-control" id="stock_m_{{ $product->id }}" value="{{ $product->stock_m }}" min="0">
-            <input type="number" class="form-control" id="stock_l_{{ $product->id }}" value="{{ $product->stock_l }}" min="0">
-            </td>
-            <td>
-            <button class="btn-edit" onclick="updateProduct({{ $product->id }})">Update</button>
-            <button class="btn-delete" onclick="deleteProduct({{ $product->id }})">Delete</button>
-            </td>
-            </tr> <!----the foundations for adding products is here -->
+@foreach ($products as $product) 
+<tr>
+    <!-- Start a separate form for each product -->
+    <form action="{{ url('uploadproduct') }}" method="post">
+        @csrf
+        <td>{{ $product->id }}</td>
+        <td>{{ $product->category }}</td>
+        <td>{{ $product->name }}</td>
+        <td>
+            <!-- Use 'name' attributes so Laravel can recognize inputs -->
+            <input type="number" class="form-control" name="stock_s" value="0" min="0">
+            <input type="number" class="form-control" name="stock_m" value="0" min="0">
+            <input type="number" class="form-control" name="stock_l" value="0" min="0">
+        </td>
+        <td>
+            <!-- Send product ID with hidden input -->
+            <input type="hidden" name="product_id" value="{{ $product->id }}">
+            <!-- Submit the form for this specific product -->
+            <button type="submit" class="btn-edit">Update</button>
+        </td>
+    </form>
+</tr>
             @endforeach
             </tbody>
              </table>
@@ -88,48 +96,6 @@
         button.parentElement.remove();
     }
 
-        function updateProduct(productId) {
-        let stock_s = document.getElementById(`stock_s_${productId}`).value;
-        let stock_m = document.getElementById(`stock_m_${productId}`).value;
-        let stock_l = document.getElementById(`stock_l_${productId}`).value;
-
-        fetch(`/admin/update-product/${productId}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json', //may need to troubleshoot this 
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-            },
-            body: JSON.stringify({ //this should work?
-                stock_s: stock_s,
-                stock_m: stock_m,
-                stock_l: stock_l
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            alert(data.message); //Show success message
-        })
-        .catch(error => console.error('Error:', error));
-    }
-
-    //Function to delete a product
-    function deleteProduct(productId) {
-        if (confirm("Are you sure you want to delete this product?")) {
-            fetch(`/admin/delete-product/${productId}`, {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                alert(data.message);
-                location.reload(); // Reload the page to update the list
-            })
-            .catch(error => console.error('Error:', error));
-        }
-    }
 
 </script>
 
