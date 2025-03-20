@@ -10,7 +10,7 @@ class ProductSeeder extends Seeder
 {
     public function run()
     {
-        $productdata = [
+        $products = [
             [
                 'name' => 'Canada Goose Bomber',
                 'category' => 'bombers',
@@ -385,7 +385,7 @@ class ProductSeeder extends Seeder
             ]
         ];
 
-        foreach ($productdata as $product) {
+        foreach ($product as $product) {
             Product::create($product);
         }
     }

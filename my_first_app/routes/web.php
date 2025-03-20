@@ -28,11 +28,9 @@ Route::post('/uploadproduct',[AdminController::class,'uploadproduct']);
 
 Route::get('/products', [ProductController::class, 'index']);
 
-Route::get('/admin/product', [AdminController::class, 'manageProducts'])->name('admin.product');
-Route::post('/admin/update-product/{id}', [AdminController::class, 'updateProduct']);
-Route::delete('/admin/delete-product/{id}', [AdminController::class, 'deleteProduct']);
-
-Route::post('/basket/add/{id}', [BasketController::class, 'add'])->name('basket.add');
+Route::get('/admin/product', [AdminController::class, 'product'])->name('admin.product');
+Route::post('/admin/update-product/{id}', [AdminController::class, 'updateProduct'])->name('admin.product.update');
+Route::delete('/admin/delete-product/{id}', [AdminController::class, 'deleteProduct'])->name('admin.product.delete');
 
 Route::get('/home', function(){
     return view('UserUI.home');

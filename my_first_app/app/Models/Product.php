@@ -8,7 +8,7 @@ class Product extends Model
 {
     public function index()
 {
-    $productdata = Product::all(); 
-    return view('UserUI.products', compact('productdata'));
+    $products = Product::all();  //any ref to  products table should be $products
+    return view('UserUI.products', compact('products'));
 }
 }

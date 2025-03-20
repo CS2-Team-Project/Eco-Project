@@ -11,25 +11,29 @@ class AdminController extends Controller
 
         public function product()
         {
-            $productdata = Product::all();
-            return view('admin.product', compact('productdata'));
+            $products = Product::all();
+            return view('admin.product', compact('products'));
         }
     
         public function updateProduct(Request $request, $id)
         {
-            $productdata = Product::findOrFail($id);
-            $productdata->price = $request->input('price');
-            $productdata->stock = json_encode($request->input('stock'));
-            $productdata->save();
+            $data = $request->all();
+
+            $products = Product::findOrFail($id);
+            $products->stock_s = $request->input('stock_s'); // S
+            $products->stock_m = $request->input('stock_m'); // M
+            $products->stock_l = $request->input('stock_l'); // L
+            $products->save();
+
     
-            return redirect()->back()->with('success', 'Product updated successfully.');
+            return redirect()->back()->with('success', 'Product updated.');
         }
     
         public function deleteProduct($id)
         {
-            $productdata = Product::findOrFail($id);
-            $productdata->delete();
+            $products = Product::findOrFail($id);
+            $products->delete();
     
-            return redirect()->back()->with('success', 'Product deleted successfully.');
+            return redirect()->back()->with('success', 'Product deleted.');
         }
     }
