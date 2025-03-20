@@ -632,7 +632,13 @@ footer a:visited {
 
 /* product */
 
-#products {
+#products  {
+    text-align: center;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.search-results-container {
     text-align: center;
     color: var(--text-color);
     background-color: var(--background-color);

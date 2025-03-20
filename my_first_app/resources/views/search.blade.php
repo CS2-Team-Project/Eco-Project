@@ -19,6 +19,13 @@
       <li><a href="products.html">Products</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><a href="about.html">About Us</a></li>
+
+      <!--Search Bar -->
+      <div class ="search-container">
+                  <input type="text" placeholder="Search..." class="search-input">
+                  <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+                
       <div class="user-actions">
         <a href="log.html" class="log">LOGIN</a>
         <a href="#" class="sign">SIGN UP</a>
@@ -35,7 +42,7 @@
     </nav>
   </section>
 
-  <div class = "search-results-container"></div>
+  <div class = "product-container"></div>
   
   <footer>
     <div class="container">

@@ -66,10 +66,10 @@ let listProducts = [
 //write a function later, if the results dont exist, just instead of displaying products display a message
 //only initiate addResultHTML function if there are results
 
-//filtering and generating search page
+//generating search page
 const addResultsHTML = (searchText) => {
     console.log("D Runs");
-    const searchResultsHTML = document.querySelector('.search-results-container');
+    const searchResultsHTML = document.querySelector('.product-container');
     searchResultsHTML.innerHTML = '';
         listProducts.forEach(product => {
             if(product.name.toLowerCase().includes(searchText.toLowerCase())){
