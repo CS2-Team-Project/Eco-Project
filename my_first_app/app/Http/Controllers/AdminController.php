@@ -32,9 +32,15 @@ class AdminController extends Controller
         
             // Save the updated stock values
             $data->save();
-        
-            // Redirect back with a success message
-            return redirect()->back()->with('success', 'Stock updated successfully!');
+             // Update price if provided
+    if ($request->filled('price')) {
+        $data->price = floatval($request->price);
+    }
+    // Save the updated data
+    $data->save();
+
+    return redirect()->back()->with('success', 'Product updated successfully!');
+
         }
         
 }

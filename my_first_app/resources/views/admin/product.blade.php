@@ -39,19 +39,29 @@
             </tr>
             </thead>
             <tbody>
-@foreach ($products as $product) 
+            @foreach ($products as $product)
 <tr>
-    <!-- Start a separate form for each product -->
+    <!-- Each row has its own form -->
     <form action="{{ url('uploadproduct') }}" method="post">
         @csrf
         <td>{{ $product->id }}</td>
         <td>{{ $product->category }}</td>
         <td>{{ $product->name }}</td>
         <td>
-            <!-- Use 'name' attributes so Laravel can recognize inputs -->
-            <input type="number" class="form-control" name="stock_s" value="0" min="0">
-            <input type="number" class="form-control" name="stock_m" value="0" min="0">
-            <input type="number" class="form-control" name="stock_l" value="0" min="0">
+            <!-- Show current stock levels -->
+            <p>Small: {{ $product->stock_s }}</p>
+            <p>Medium: {{ $product->stock_m }}</p>
+            <p>Large: {{ $product->stock_l }}</p>
+        </td>
+        <td>
+            <!-- Inputs to update stock -->
+            <input type="number" class="form-control" name="stock_s" placeholder="Add stock (S)" min="0">
+            <input type="number" class="form-control" name="stock_m" placeholder="Add stock (M)" min="0">
+            <input type="number" class="form-control" name="stock_l" placeholder="Add stock (L)" min="0">
+        </td>
+        <td>
+            <!-- Update Price -->
+            <input type="text" class="form-control" name="price" value="{{ $product->price }}" placeholder="Update Price">
         </td>
         <td>
             <!-- Send product ID with hidden input -->
@@ -61,11 +71,8 @@
         </td>
     </form>
 </tr>
-            @endforeach
-            </tbody>
-             </table>
-            </div>
-            </div>
+@endforeach
+
 
 @include('admin.navbar')
 @include('admin.script')
