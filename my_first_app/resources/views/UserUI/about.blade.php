@@ -9,17 +9,24 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <script type="text/javascript" src="script.js" defer></script> <!-- Include dark mode JS -->
+  
 </head>
 
 <body>
   <section id="header">
         <a href="#"><img src="img/logo1.png" class="logo" alt=""></a>
 
+
+
+
            <nav id="nav">
                <li><a href="{{url('/home')}}">Home</a></li>
                <li><a href="{{url('/products')}}">Products</a></li>
                <li><a href="{{url('/contact')}}">Contact Us</a></li>
                <li><a href="{{url('/about')}}">About Us</a></li>
+               
+
+
 
                
                <!--Search Bar -->
@@ -49,9 +56,7 @@
       <li><a href="{{url('/basket')}}"><i class="fa-solid fa-cart-shopping"></i></a></li>
     </nav>
   </section>
-
-
-  <!-- About Us Banner -->
+<!-- About Us Banner -->
   <section id="aboutbanner">
     <h1>About Us</h1><br>
     <div class="aboutus-container">
@@ -91,14 +96,38 @@
       </div>
     </div>
   </section>
+  
+  
+
+  
+  <!-- chatbot -->
+  <script>
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="l_64M3nESJsg18Uz_Gfhi";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    </script>
 
   <!-- Footer Section -->
   <footer>
     <div class="container">
       <div class="footer-content">
         <h3>Contact</h3>
-        <p>Email: info.concept@gmail.com</p>
+        <p>Email:info.conceptt@gmail.com</p>
       </div>
+
+      <div class="footer-content">
+        <h3>Language</h3>
+        <!-- translate script -->
+<div id="google_translate_element"></div>
+
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+  }
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+      </div>
+
       <div class="footer-content">
         <h3>Quick Links</h3>
         <ul class="list">
@@ -111,16 +140,20 @@
       <div class="footer-content">
         <h3>Follow Us</h3>
         <ul class="media-icons">
-          <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-          <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+             <li><a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a></li>
+             <li><a href="https://twitter.com"><i class="fab fa-twitter"></i></a></li>
+             <li><a href="https://facebook.com"><i class="fab fa-facebook"></i></a></li>
+             <li><a href="https://instagram.com"><i class="fab fa-instagram"></i></a></li>   
         </ul>
       </div>
     </div>
+
+    
   </footer>
 
   <script src="script.js"></script>
+
+ 
 </body>
 
 </html>

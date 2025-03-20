@@ -21,6 +21,24 @@ themeSwitch.addEventListener("click", (event) => {
     darkmode !== "active" ? enableDarkmode() : disableDarkmode();
 });
 
+// cookies
+function acceptCookies() {
+    document.cookie = `cookieConsent=true; path=/; max-age=${60 * 60 * 24 * 30}`;
+    document.getElementById('cookie-box').style.display = 'none';
+}
+
+function closeBox() {
+    document.getElementById('cookie-box').style.display = 'none';
+}
+
+function checkCookie() {
+    if (!document.cookie.includes('cookieConsent=true')) {
+        document.getElementById('cookie-box').style.display = 'flex';
+    }
+}
+
+window.onload = checkCookie;
+
 // Size button functionality
 document.querySelectorAll('.size-buttons').forEach(buttonGroup => {
     buttonGroup.addEventListener('click', event => {
@@ -59,6 +77,116 @@ let listProducts = [
         "summary": "The North Face Puffer",                      //these onwards are only for the search page, not basket page
         "alt": "Product 2"      
 
+    },
+   {
+        "name": "Alpha Industries Bomber Jacket",
+        "price": 200,
+        "image": "img/product4.png"
+    },
+    {
+        "name": "Uniqlo Down Jacket",
+        "price": 110,
+        "image": "img/product5.png"
+    },
+    {
+        "name": "Zavetti Puffer",
+        "price": 90,
+        "image": "img/product6.png"
+    },
+    {
+        "name": "Columbia Sports Jacket",
+        "price": 125,
+        "image": "img/product7.png"
+    },
+    {
+        "name": "Zara Bomber Jacket",
+        "price": 185,
+        "image": "img/product8.png"
+    },
+    {
+        "name": "Mercier Puffer Coat",
+        "price": 140,
+        "image": "img/product9.png"
+    },
+    {
+        "name": "All Saints leather Jacket",
+        "price": 490,
+        "image": "img/product10.png"
+    },
+    {
+        "name": "Evisu Denim Jacket",
+        "price": 440,
+        "image": "img/product11.png"
+    },
+    {
+        "name": "Hugo Boss Leather Jacket",
+        "price": 1190,
+        "image": "img/product12.png"
+    },
+    {
+        "name": "The Leather Company Leather Jacket",
+        "price": 250,
+        "image": "img/product13.png"
+    },
+    {
+        "name": "Ralph Lauren Leather Jacket",
+        "price": 1660,
+        "image": "img/product14.png"
+    },
+    {
+        "name": "Schott NYC Leather Jacket",
+        "price": 990,
+        "image": "img/product15.png"
+    },
+    {
+        "name": "Diesel Denim Jacket",
+        "price": 540,
+        "image": "img/product16.png"
+    },
+    {
+        "name": "YSL Denim Jacket",
+        "price": 1110,
+        "image": "img/product17.png"
+    },
+    {
+        "name": "Louis Vitton Denim Jacket",
+        "price": 1530,
+        "image": "img/product18.png"
+    },
+    {
+        "name": "Ralph Lauren Denim Jacket",
+        "price": 270,
+        "image": "img/product19.png"
+    },
+    {
+        "name": "Canada Goose Puffer",
+        "price": 880,
+        "image": "img/product20.png"
+    },
+    {
+        "name": "Stone Island GHost Puffer",
+        "price": 1040,
+        "image": "img/product21.png"
+    },
+    {
+        "name": "Versace Couture Bomber",
+        "price": 570,
+        "image": "img/product22.png"
+    },
+    {
+        "name": "Jeff Hamilton Bomber",
+        "price": 1055,
+        "image": "img/product23.png"
+    },
+    {
+        "name": "Reiss Bomber",
+        "price": 260,
+        "image": "img/product24.png"
+    },
+    {
+        "name": "Tom Ford Bomber",
+        "price": 2000,
+        "image": "img/product25.png"
     }
 ];
 
@@ -114,7 +242,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
-//after loading search page
+
 document.addEventListener("DOMContentLoaded", function() {
     if (window.location.pathname === "/search") { 
         console.log("A Runs");
@@ -132,7 +260,50 @@ document.addEventListener("DOMContentLoaded", function() {
  });
 
 
-// Basket functionality and product page interaction, also used for search bar data for now
+
+
+// home categories 
+document.addEventListener('DOMContentLoaded', function(){
+    const urlParams = new URLSearchParams(window.location.search);
+    const queryCategory =urlParams.get('category');
+    const categorySelect = document.getElementById('category');
+    if (queryCategory) {
+        categorySelect.value =queryCategory;
+        categorySelect.dispatchEvent(new Event('change'));
+    }
+});
+    
+
+//SWIPER CATEGORIES
+if (document.querySelector(".categories_container")){
+var swiperCategories = new Swiper(".categories_container", {
+    spaceBetween: 24,
+    loop: true,
+    
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    
+    breakpoints: {
+      640: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      768: {
+        slidesPerView: 4,
+        spaceBetween: 40,
+      },
+      1400: {
+        slidesPerView: 6,
+        spaceBetween: 24,
+      },
+    },
+  });
+}
+
+
+// Basket functionality and product page interaction
 
 
 // Get items from local storage to retain basket on page refresh
@@ -189,6 +360,37 @@ const addCartToHTML = () => {
         `;
     }
 };
+
+const displayOrderSummary = () => {
+    // Check if we're on the checkout page by checking the URL
+    if (window.location.pathname.includes("checkout")) {
+        const orderSummaryContainer = document.querySelector('.order-summary-container'); // The element where we want to show the total price
+
+        // Check if the order summary container exists on the page
+        if (orderSummaryContainer) {
+            let totalPrice = 0;
+
+            // Loop through the basketItems to calculate the total price
+            basketItems.forEach(basketItem => {
+                const product = listProducts.find(item => item.name === basketItem.productName);
+                if (product) {
+                    totalPrice += product.price * basketItem.quantity; // Calculate the price for each product in the basket
+                }
+            });
+
+            // Display the total price in the order summary container
+            orderSummaryContainer.innerHTML = `
+                <p><strong>Total Price:</strong> £${totalPrice.toFixed(2)}</p>
+            `;
+        } else {
+            console.error("Order summary container not found on the checkout page.");
+        }
+    }
+};
+
+// Call the function when the page loads (only on checkout page)
+window.addEventListener('DOMContentLoaded', displayOrderSummary);
+
 
 const changeQuantity = (productName, size, type) => {
     let positionItemInBasket = basketItems.findIndex((value) => value.productName == productName && value.size == size);
@@ -285,4 +487,17 @@ document.getElementById("submit-btn").addEventListener("click", function () {
 // Open the products page when the "Shop Now" button is clicked
 document.querySelector("#herobanner button").addEventListener("click", function () {
     window.open("{{ route('products') }}", '_blank');
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const menu = document.querySelector(".nav-links");
+    const hamburger = document.querySelector(".hamburger");
+
+    if (menu && hamburger) {
+        hamburger.addEventListener("click", function() {
+            menu.classList.toggle("show");
+        });
+    } else {
+        console.error("Hamburger menu or nav-links not found!");
+    }
 });
