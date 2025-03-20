@@ -35,6 +35,64 @@ document.querySelectorAll('.size-buttons').forEach(buttonGroup => {
     });
 });
 
+//temporary database, used for basket and search
+let listProducts = [
+    {
+        "name": "Canada Goose Bomber",
+        "price": 1375,
+        "image": "img/product1grey.png",
+        "summary": "Chilliwack Bomber Heritage",                      //these onwards are only for the search page, not basket page  
+        "alt": "Product 1"      
+    },
+    {
+        "name": "Moncler Jacket",
+        "price": 765,
+        "image": "img/product2black.png",
+        "summary": "Moncler New Maya Down Jacket",                      //these onwards are only for the search page, not basket page
+        "alt": "Product 2"      
+
+    },
+    {
+        "name": "The North Face Puffer",
+        "price": 315,
+        "image": "img/product3cream.png",
+        "summary": "The North Face Puffer",                      //these onwards are only for the search page, not basket page
+        "alt": "Product 2"      
+
+    }
+];
+
+//Functon: Check if search results exist, return a boolean and have it called inside an if statement when the addResultsHTML call is
+//write a function later, if the results dont exist, just instead of displaying products display a message
+//only initiate addResultHTML function if there are results
+
+//filtering and generating search page
+const addResultsHTML = (searchText) => {
+    console.log("D Runs");
+    const searchResultsHTML = document.querySelector('.search-results-container');
+    searchResultsHTML.innerHTML = '';
+        listProducts.forEach(product => {
+            if(product.name.toLowerCase().includes(searchText.toLowerCase())){
+                let newResult = document.createElement('div');
+                newResult.classList.add('product-card');
+                newResult.dataset.productName = product.name;
+                newResult.innerHTML = `
+                    <img src="${product.image}" alt="${product.alt}">
+                    <h3>${product.name}</h3>
+                    <p>${product.summary}</p>
+                    <p class="price">£${product.price}</p>
+                    <div class="size-buttons">
+                    <button class="size" data-size="Small">S</button>
+                    <button class="size" data-size="Medium">M</button>
+                    <button class="size" data-size="Large">L</button>
+                    </div>
+                    <button class="add-to-basket">Add to Basket</button>            
+                            `;
+                    searchResultsHTML.appendChild(newResult);
+            }
+        });
+};
+
 //Search bar 
 document.addEventListener("DOMContentLoaded", function() {
     let searchInput = document.querySelector('.search-input');
@@ -44,34 +102,38 @@ document.addEventListener("DOMContentLoaded", function() {
         let searchText = searchInput.value.trim();
         if(searchText) {
             window.location.href ='/search?query=' + encodeURIComponent(searchText);
+            //addResultsHTML(searchText);  
+            //NOTE: searchText variable is lost after page reloads. then to get the searchText variable to be able to run addResultsHTML we need to extract it from the url of the current page, as the current page is the searched page and it has the searchText variable within it
         }
     }
     searchButton.addEventListener('click', performSearch);
-    searchInput.addEventListener('keypress', function (event) {
+    searchInput.addEventListener('keypress', function(event) {
+
         if(event.key === "Enter") {
             performSearch();
         }
     });
 });
-
-// Basket functionality and product page interaction
-let listProducts = [
-    {
-        "name": "Canada Goose Bomber",
-        "price": 1375,
-        "image": "img/product1grey.png"
-    },
-    {
-        "name": "Moncler Jacket",
-        "price": 765,
-        "image": "img/product2black.png"
-    },
-    {
-        "name": "The North Face Puffer",
-        "price": 315,
-        "image": "img/product3cream.png"
+//after loading search page
+document.addEventListener("DOMContentLoaded", function() {
+    if (window.location.pathname === "/search") { 
+        console.log("A Runs");
+        // Extract search query from URL and display results after page reload
+        const urlParams = new URLSearchParams(window.location.search); //an object which stores the url making it easy to extract information
+        const searchQuery = urlParams.get('query'); //in the url, the key value pair is query=canada for example
+        if (searchQuery) {
+            console.log("B Runs");
+            console.log(searchQuery);
+            //searchInput.value = searchQuery;  //Keep search text in input
+            console.log("C Runs");
+            addResultsHTML(searchQuery);  //Display search results
+        }
     }
-];
+ });
+
+
+// Basket functionality and product page interaction, also used for search bar data for now
+
 
 // Get items from local storage to retain basket on page refresh
 let basketItems = JSON.parse(localStorage.getItem("basketItems")) || [];

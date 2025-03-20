@@ -40,3 +40,8 @@ Route::get('/basket', function(){
 Route::get('/checkout', function () {
     return view('UserUI.checkout');
 });
+
+Route::get('/search', function () {
+    $searchQuery = request('query');
+    return view('search', compact('searchQuery'));
+});
