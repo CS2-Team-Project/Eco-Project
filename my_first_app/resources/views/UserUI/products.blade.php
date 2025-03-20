@@ -68,46 +68,43 @@
     </select>
 </section>
 
-  <section id="products" class="section-p1">
-    <h1>Our Products</h1>
-    @foreach($products as $product)
-<div class="product-card" data-category="{{ $product->category }}" data-price="{{ $product->price }}">
-    <img src="{{ asset($product->image) }}" alt="{{ $product->name }}">
+<section id="products">
+    <div class="product-container">
+        @foreach ($products as $product)
+            <div class="product-card" data-category="{{ $product->category }}" data-price="{{ $product->price }}">
+                <img src="{{ asset($product->image) }}" alt="{{ $product->name }}">
 
-    <h3>{{ $product->name }}</h3>
+                <h3>{{ $product->name }}</h3>
 
-    <p>{{ $product->description }}</p>
-    <p class="price">£{{ $product->price }}</p>
+                <p>{{ $product->description }}</p>
+                <p class="price">£{{ $product->price }}</p>
 
-    <details class="product-details">
+                <details class="product-details">
+                    <summary>Product Details</summary>
+                    <ul>
+                        @foreach(json_decode($product->details) as $detail)
+                            <li>{{ $detail }}</li>
+                        @endforeach
+                    </ul>
+                </details>
 
-        <summary>Product Details</summary>
-        <ul>
-            @foreach(json_decode($product->details) as $detail)
-                <li>{{ $detail }}</li>
-            @endforeach
-        </ul>
-    </details>
-    <div class="size-buttons">
-        @foreach(json_decode($product->sizes) as $size)
-            <button class="size" data-size="{{ $size }}">{{ $size }}</button>
+                <div class="size-buttons">
+                    @foreach(json_decode($product->sizes) as $size)
+                        <button class="size" data-size="{{ $size }}">{{ $size }}</button>
+                    @endforeach
+                </div>
+
+                <form action="{{ url('/basket/add', $product->id) }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                    <button type="submit" class="add-to-basket">Add to Basket</button>
+                </form>
+            </div>
         @endforeach
     </div>
-    <form action="{{ url('/basket/add', $product->id) }}" method="POST">
-
-    @csrf
-
-    <input type="hidden" name="product_id" value="{{ $product->id }}">
-
-    <button type="submit" class="add-to-basket">Add to Basket</button>
-    
-</form>
-</div>
-@endforeach
+</section>
 
 
-    </div>
-  </section>
   <script>
     document.getElementById('category').addEventListener('change', function() {
         let category = this.value;

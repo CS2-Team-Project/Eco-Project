@@ -739,13 +739,13 @@ footer a:visited {
 
 .product-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr)!important;
     gap: 20px;
     margin-top: 20px;
 }
 
 .product-card {
-    width: 300px;
+    width: 100%;
     padding: 20px;
     border: 1px solid var(--navbar-color);
     border-radius: 8px;
