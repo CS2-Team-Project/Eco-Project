@@ -53,140 +53,181 @@ document.querySelectorAll('.size-buttons').forEach(buttonGroup => {
     });
 });
 
-//temporary database, used for basket and search
 let listProducts = [
     {
         "name": "Canada Goose Bomber",
         "price": 1375,
         "image": "img/product1grey.png",
-        "summary": "Chilliwack Bomber Heritage",                      //these onwards are only for the search page, not basket page  
-        "alt": "Product 1"      
+        "summary": "Chilliwack Bomber Heritage",
+        "alt": "Product 1"
     },
     {
         "name": "Moncler Jacket",
         "price": 765,
         "image": "img/product2black.png",
-        "summary": "Moncler New Maya Down Jacket",                      //these onwards are only for the search page, not basket page
-        "alt": "Product 2"      
-
+        "summary": "Moncler New Maya Down Jacket",
+        "alt": "Product 2"
     },
     {
         "name": "The North Face Puffer",
         "price": 315,
         "image": "img/product3cream.png",
-        "summary": "The North Face Puffer",                      //these onwards are only for the search page, not basket page
-        "alt": "Product 2"      
-
+        "summary": "The North Face 1996 Retro Nuptse",
+        "alt": "Product 3"
     },
-   {
+    {
         "name": "Alpha Industries Bomber Jacket",
         "price": 200,
-        "image": "img/product4.png"
+        "image": "img/product4.png",
+        "summary": "CWU-45 Heritage Bomber Jacket",
+        "alt": "Product 4"
     },
     {
         "name": "Uniqlo Down Jacket",
         "price": 110,
-        "image": "img/product5.png"
+        "image": "img/product5.png",
+        "summary": "Seamless Down Jacket",
+        "alt": "Product 5"
     },
     {
         "name": "Zavetti Puffer",
         "price": 90,
-        "image": "img/product6.png"
+        "image": "img/product6.png",
+        "summary": "Zavetti Canada Atlin Puffer Jacket",
+        "alt": "Product 6"
     },
     {
         "name": "Columbia Sports Jacket",
         "price": 125,
-        "image": "img/product7.png"
+        "image": "img/product7.png",
+        "summary": "Powder Lite™ II Insulated Jacket",
+        "alt": "Product 7"
     },
     {
         "name": "Zara Bomber Jacket",
         "price": 185,
-        "image": "img/product8.png"
+        "image": "img/product8.png",
+        "summary": "Lightweight Casual Jacket",
+        "alt": "Product 8"
     },
     {
         "name": "Mercier Puffer Coat",
         "price": 140,
-        "image": "img/product9.png"
+        "image": "img/product9.png",
+        "summary": "Mercier Blizzard Coat",
+        "alt": "Product 9"
     },
     {
         "name": "All Saints leather Jacket",
         "price": 490,
-        "image": "img/product10.png"
+        "image": "img/product10.png",
+        "summary": "Milo Desserto® Biker Jacket",
+        "alt": "Product 10"
     },
     {
         "name": "Evisu Denim Jacket",
         "price": 440,
-        "image": "img/product11.png"
+        "image": "img/product11.png",
+        "summary": "Graffiti Prints Regular Fit Denim Jacket",
+        "alt": "Product 11"
     },
     {
         "name": "Hugo Boss Leather Jacket",
         "price": 1190,
-        "image": "img/product12.png"
+        "image": "img/product12.png",
+        "summary": "Porsche x BOSS regular-fit jacket in leather",
+        "alt": "Product 12"
     },
     {
         "name": "The Leather Company Leather Jacket",
         "price": 250,
-        "image": "img/product13.png"
+        "image": "img/product13.png",
+        "summary": "Mens Safari Style Leather Jacket Black: AMJ-5",
+        "alt": "Product 13"
     },
     {
         "name": "Ralph Lauren Leather Jacket",
         "price": 1660,
-        "image": "img/product14.png"
+        "image": "img/product14.png",
+        "summary": "Slim Fit Leather Moto Jacket",
+        "alt": "Product 14"
     },
     {
         "name": "Schott NYC Leather Jacket",
         "price": 990,
-        "image": "img/product15.png"
+        "image": "img/product15.png",
+        "summary": "Waxed Natural Pebbled Cowhide Café Leather Jacket",
+        "alt": "Product 15"
     },
     {
         "name": "Diesel Denim Jacket",
         "price": 540,
-        "image": "img/product16.png"
+        "image": "img/product16.png",
+        "summary": "D-BARCY-S3",
+        "alt": "Product 16"
     },
     {
         "name": "YSL Denim Jacket",
         "price": 1110,
-        "image": "img/product17.png"
+        "image": "img/product17.png",
+        "summary": "Oversized jacket in dark blue black denim",
+        "alt": "Product 17"
     },
     {
         "name": "Louis Vitton Denim Jacket",
         "price": 1530,
-        "image": "img/product18.png"
+        "image": "img/product18.png",
+        "summary": "DNA Denim Jacket",
+        "alt": "Product 18"
     },
     {
         "name": "Ralph Lauren Denim Jacket",
         "price": 270,
-        "image": "img/product19.png"
+        "image": "img/product19.png",
+        "summary": "The Bayport Indigo-Dyed Denim Jacket",
+        "alt": "Product 19"
     },
     {
         "name": "Canada Goose Puffer",
         "price": 880,
-        "image": "img/product20.png"
+        "image": "img/product20.png",
+        "summary": "Crofton Hoody Puffer Jacket",
+        "alt": "Product 20"
     },
     {
-        "name": "Stone Island GHost Puffer",
+        "name": "Stone Island Ghost Puffer",
         "price": 1040,
-        "image": "img/product21.png"
+        "image": "img/product21.png",
+        "summary": "Ghost Down Puffer Jacket",
+        "alt": "Product 21"
     },
     {
         "name": "Versace Couture Bomber",
         "price": 570,
-        "image": "img/product22.png"
+        "image": "img/product22.png",
+        "summary": "V-Emblem bomber jacket",
+        "alt": "Product 22"
     },
     {
         "name": "Jeff Hamilton Bomber",
         "price": 1055,
-        "image": "img/product23.png"
+        "image": "img/product23.png",
+        "summary": "Jeff Hamilton x NBA Collage jacket",
+        "alt": "Product 23"
     },
     {
         "name": "Reiss Bomber",
         "price": 260,
-        "image": "img/product24.png"
+        "image": "img/product24.png",
+        "summary": "Brushed Wool-Blend Bomber Jacket",
+        "alt": "Product 24"
     },
     {
         "name": "Tom Ford Bomber",
         "price": 2000,
-        "image": "img/product25.png"
+        "image": "img/product25.png",
+        "summary": "TOM FORD Hazed Gabardine Jacket",
+        "alt": "Product 25"
     }
 ];
 
