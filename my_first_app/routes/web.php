@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\BasketController;
 
 
 Route::middleware([
@@ -48,4 +49,9 @@ Route::get('/basket', function(){
 Route::get('/checkout', function () {
     return view('UserUI.checkout');
 });
+
+
+Route::post('/basket/{id}', [BasketController::class, 'addToBasket'])->middleware('auth');
+
+
 

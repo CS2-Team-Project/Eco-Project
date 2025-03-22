@@ -94,7 +94,7 @@
                     @endforeach
                 </div>
 
-                <form action="{{ url('/basket/add', $product->id) }}" method="POST">
+                <form action="{{ url('basket', $product->id) }}" method="POST">
                     @csrf
                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                     <button type="submit" class="add-to-basket">Add to Basket</button>

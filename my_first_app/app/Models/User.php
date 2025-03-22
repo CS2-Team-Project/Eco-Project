@@ -64,4 +64,12 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function shippingAddress()
+    {
+       return $this->hasOne(ShippingAddress::class);
+    }
+
+    
+
 }

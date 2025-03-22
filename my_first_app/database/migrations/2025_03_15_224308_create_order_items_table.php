@@ -9,17 +9,17 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('order_items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('order_id')->constrained('orders')->onDelete('cascade'); // Link to order
-            $table->integer('quantity'); // Quantity of the product ordered
-            $table->decimal('price',10,2); // price of the product at the time of order 
+            $table->foreignId('order_id')->constrained()->onDelete('cascade'); // Foreign key to orders table
+            $table->foreignId('product_id')->constrained()->onDelete('cascade'); // Foreign key to products table
+            $table->integer('quantity'); // Quantity of the product
+            $table->decimal('price', 8, 2); // Price of the product
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      */

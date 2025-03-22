@@ -14,4 +14,14 @@ class Product extends Model
 
     protected $fillable = ['stock_s', 'stock_m', 'stock_l'];
 
+
+     // Define relationships if needed (for example, with OrderItem)
+     public function orderItems()
+     {
+         return $this->hasMany(OrderItem::class, 'product_id');  // assuming 'product_id' is the foreign key in order_items
+     }
+
 }
+
+
+

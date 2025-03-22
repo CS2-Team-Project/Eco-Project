@@ -34,4 +34,19 @@ class HomeController extends Controller
             return view('UserUI.home');
         }
     }
+
+    public function basket(Request $Request, $id)
+    {
+        if(Auth::id())
+        {
+            return redirect()->back();
+        }
+
+        else
+        {
+
+            return redirect('login');
+        }
+    }
+    
 }

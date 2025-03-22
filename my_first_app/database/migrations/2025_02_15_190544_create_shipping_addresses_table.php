@@ -15,7 +15,6 @@ return new class extends Migration
         {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade'); // Link to users
-            $table->string('name'); // Name of the recipient
             $table->string('address_line_1');
             $table->string('address_line_2')->nullable();
             $table->string('city');
@@ -33,3 +32,4 @@ return new class extends Migration
         Schema::dropIfExists('shipping_addresses');
     }
 };
+

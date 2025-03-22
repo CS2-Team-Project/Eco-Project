@@ -645,22 +645,27 @@ footer a:visited {
     gap: 15px;
 }
  
-.sign-form #Name,
-.sign-form #Email,
-.sign-form #button,
-.sign-form #Password,
+.sign-form #name,
+.sign-form #email,
+.sign-form #password,
 .sign-form #password_confirmation,
+.sign-form #address_line_1,
+.sign-form #address_line_2,
+.sign-form #city,
+.sign-form #postal_code,
+.sign-form #country,
+.sign-form #button,
 .sign-form input[type="Sign Up"],
- 
+
 .sign-form textarea {
     width: 100%;
     padding: 12px;
     font-size: 14px;
     border: 1px solid #ddd;
     background-color: #f9f9f9;
-    transition: border-color 0.3
- 
+    transition: border-color 0.3s ease;
 }
+
 
 .sign-form .a {
     display: inline-bl.log-formock;
