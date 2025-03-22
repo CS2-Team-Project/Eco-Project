@@ -340,6 +340,8 @@ select.goog-te-combo:hover {
     align-items: center;
     flex-wrap: wrap;
     gap: 10px;
+    border-radius: 8px;
+    max-width: 90%;
 }
 .cookie-message {
     font-size: 16px;
@@ -358,6 +360,7 @@ select.goog-te-combo:hover {
     cursor: pointer;
     border-radius: 5px;
     transition: background 0.3s ease, color 0.3s ease;
+    max-width: 100px;
 }
 .accept {
     background: #fff;
@@ -376,6 +379,29 @@ select.goog-te-combo:hover {
     background: #007BFF;
     color: #fff;
     border-color: #007BFF;
+}
+
+@media (max-width: 480px) {
+    .cookie-box {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .cookie-message {
+        font-size: 13px;
+        padding: 0;
+    }
+
+    .cookie-buttons {
+        width: 100%;
+        justify-content: right;
+    }
+
+    .cookie-buttons button {
+        width: 100%;
+        padding: 10px;
+    }
 }
 
 /* User actions */

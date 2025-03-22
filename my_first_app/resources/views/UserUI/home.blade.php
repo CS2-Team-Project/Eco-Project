@@ -65,7 +65,7 @@
   <!-- Hero Banner Section -->
   <section id="herobanner">
     <h2>CONCEPT PRESENTS</h2>
-    <h1>signature heavyweight jackets</h1>
+    <h1>Signature Heavyweight Jackets</h1>
     <button><a href="{{url('/products')}}">Shop Now</a></button>
   </section>
 
