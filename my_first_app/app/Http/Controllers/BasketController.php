@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 
 class BasketController extends Controller
 {
@@ -63,4 +64,22 @@ class BasketController extends Controller
         // Redirect to the products page with a success message
          return redirect()->back()->with('message', 'Product added to basket successfully!');
     }
+
+
+    public function viewBasket()
+    {
+        $user = Auth::user();
+    
+        $order = Order::where('user_id', $user->id)
+            ->where('status', 'pending')
+            ->with('orderItems.product')
+            ->first();
+    
+        // Ensure orderItems is an array
+        $orderItems = $order ? $order->orderItems : [];
+    
+        return view('UserUI.basket', ['orderItems' => $orderItems]);
+    }
+    
+
 }

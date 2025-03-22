@@ -54,4 +54,5 @@ Route::get('/checkout', function () {
 Route::post('/basket/{id}', [BasketController::class, 'addToBasket'])->middleware('auth');
 
 
+Route::get('/basket', [BasketController::class, 'viewBasket'])->name('basket');
 

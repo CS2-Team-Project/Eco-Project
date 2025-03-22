@@ -51,11 +51,31 @@
     </nav>
   </section>
 
-    <section class="section-p1">
-        <h1>Your Basket</h1>
-        <div class="basket-container">
-            <!-- Basket items will be dynamically loaded here -->
+  <section class="section-p1">
+   <h1>Your Basket</h1>
+    <div class="basket-container">
+          @if(isset($orderItems) && count($orderItems) > 0)
+          @foreach($orderItems as $item)
+
+        <!-- Display Product Image -->
+
+      <div class="basket-card" data-category="{{  $item->category }}" data-price="{{ $item->price }}">
+        <img src="{{ asset($item->product->image) }}" alt="{{ $item->product->name }}">
+        <div class="basket-item-details">
+            <h3>{{ $item->product->name }}</h3>
+            <p>(1) Price: £{{ number_format($item->product->price, 2) }}</p>
+            <p>Quantity: {{ $item->quantity }}</p>
         </div>
+
+
+      </div>
+
+      @endforeach
+       
+    @else
+    <p>Your basket is empty.</p>
+    @endif
+      </div>
     </section>
 
     <a href="{{url('checkout')}}"><button class="check-out-button">Check Out</button></a>
