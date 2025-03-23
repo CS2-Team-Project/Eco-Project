@@ -26,6 +26,8 @@ Route::get('/', [HomeController::class, 'home']);
 Route::get('/product', [AdminController::class, 'product']);
 Route::post('/uploadproduct', [AdminController::class, 'uploadproduct']);
 Route::get('/products', [ProductController::class, 'index']);
+Route::post('/review/{product}', [ReviewController::class, 'store'])->name('review.store');
+
 
 Route::get('/home', function () {
     return view('UserUI.home');

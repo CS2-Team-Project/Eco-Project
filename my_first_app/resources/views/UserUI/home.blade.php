@@ -66,8 +66,8 @@
       <button><a href="{{url('/products')}}">Shop Now</button></a>
 </section>
 
-<section  class ="catogories Hcontainer section"> 
-  <h3 class="section_title"><span>Product</span> Catogories</h3>
+<section  class ="categories Hcontainer section"> 
+  <h3 class="section_title"><span>Product</span> Categories</h3>
 
   <div class="categories_container swiper">
     <div class="swiper-wrapper">

@@ -96,6 +96,32 @@
                             <li>{{ $detail }}</li>
                         @endforeach
                     </ul>
+                    <p>Average Rating: {{ number_format($product->averageRating(), 1) ?? 'No ratings yet' }} ⭐</p>
+
+                    @foreach($product->reviews as $review)
+                    <div class="review">
+                    <strong>{{ $review->user->name }}</strong>
+                    <span>{{ $review->rating }}Stars</span>
+                    <p>{{ $review->review }}</p>
+                    @if(Auth::check())
+                    <form action="{{ route('review.store', $product->id) }}" method="POST">
+                    @csrf
+                    <label for="rating">Rating:</label>
+                    <select name="rating" required>
+                    @for($i = 1; $i <= 5; $i++)
+                    <option value="{{ $i }}">{{ $i }} Star{{ $i > 1 ? 's' : '' }}</option>
+                    @endfor
+                    </select>
+
+                    <label for="review">Comment:</label>
+                    <textarea name="review" rows="3"></textarea>
+
+                    <button type="submit">Submit Review</button>
+                    </form>
+@endif
+                    </div>
+                    
+@endforeach
                 </details>
 
                 <div class="size-buttons">

@@ -20,6 +20,15 @@ class Product extends Model
      {
          return $this->hasMany(OrderItem::class, 'product_id');  // assuming 'product_id' is the foreign key in order_items
      }
+     public function reviews()
+{
+    return $this->hasMany(Review::class);
+}
+
+public function averageRating()
+{
+    return $this->reviews()->avg('rating');
+}
 
 }
 
