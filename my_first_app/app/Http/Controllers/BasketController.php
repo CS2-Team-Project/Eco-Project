@@ -23,14 +23,6 @@ class BasketController extends Controller
             return response()->json(['message' => 'Product not found!'], 404);
         }
 
-        // Get the selected size from the request
-        $selectedSize = $request->input('size');
-
-        // Validate that a size has been selected
-        if (!$selectedSize) {
-            return redirect()->back()->with('error', 'Please select a size before adding to the basket.');
-        }
-
         // Get the existing order for the user that is pending
         $order = Order::where('user_id', $user->id)->where('status', 'pending')->first();
 
@@ -44,13 +36,12 @@ class BasketController extends Controller
             ]);
         }
 
-        // Check if the product with the selected size is already in the order
+        // Check if the product is already in the order
         $orderItem = OrderItem::where('order_id', $order->id)
                               ->where('product_id', $product->id)
-                              ->where('size', $selectedSize) // Check the selected size
                               ->first();
 
-        // If the product with selected size is already in the basket, increment the quantity
+        // If the product is already in the basket, increment the quantity
         if ($orderItem) {
             $orderItem->quantity += 1;  // Increase the quantity by 1
             $orderItem->save();
@@ -60,8 +51,7 @@ class BasketController extends Controller
                 'order_id' => $order->id,
                 'product_id' => $product->id,
                 'quantity' => 1,
-                'price' => $product->price,
-                'size' => $selectedSize // Store the selected size
+                'price' => $product->price
             ]);
         }
 
@@ -72,8 +62,9 @@ class BasketController extends Controller
         $order->save();
 
         // Redirect to the products page with a success message
-        return redirect()->back()->with('message', 'Product added to basket successfully!');
+         return redirect()->back()->with('message', 'Product added to basket successfully!');
     }
+
 
     public function viewBasket()
     {
@@ -81,7 +72,7 @@ class BasketController extends Controller
     
         $order = Order::where('user_id', $user->id)
             ->where('status', 'pending')
-            ->with('orderItems.product') // Load the product details
+            ->with('orderItems.product')
             ->first();
     
         // Ensure orderItems is an array
@@ -89,4 +80,6 @@ class BasketController extends Controller
     
         return view('UserUI.basket', ['orderItems' => $orderItems]);
     }
+    
+
 }

@@ -202,6 +202,174 @@ let listProducts = [
 ];
 
 // Get items from local storage to retain basket on page refresh
+let basketItems = JSON.parse(localStorage.getItem("basketItems")) || [];
+
+const addToCart = (productName, size) => {
+    let positionThisProductInBasket = basketItems.findIndex((value) => value.productName == productName && value.size == size);
+    if (basketItems.length <= 0) { // Basket is empty
+        basketItems = [{
+            productName: productName,
+            quantity: 1,
+            size: size
+        }];
+    } else if (positionThisProductInBasket < 0) { // Basket is not empty but product doesn't exist
+        basketItems.push({
+            productName: productName,
+            quantity: 1,
+            size: size
+        });
+    } else { // Basket is not empty and product exists
+        basketItems[positionThisProductInBasket].quantity = basketItems[positionThisProductInBasket].quantity + 1;
+    }
+    addCartToMemory();
+    console.log(basketItems);
+};
+
+document.querySelector("#checkout-button").addEventListener("click", () => {
+    fetch("/order/store", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content")
+        },
+        body: JSON.stringify({
+            cart: basketItems // Ensure `basketItems` contains all product details
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert("Order placed successfully!");
+            localStorage.removeItem("basketItems"); // Clear cart
+            window.location.href = "/home"; // Redirect to home
+        } else {
+            alert("Error: " + data.error);
+        }
+    })
+    .catch(error => console.error("Error:", error));
+});
+const displayOrderSummary = () => {
+    // Check if we're on the checkout page by checking the URL
+    if (window.location.pathname.includes("checkout")) {
+        const orderSummaryContainer = document.querySelector('.order-summary-container'); // The element where we want to show the total price
+
+        // Check if the order summary container exists on the page
+        if (orderSummaryContainer) {
+            let totalPrice = 0;
+
+            // Loop through the basketItems to calculate the total price
+            basketItems.forEach(basketItem => {
+                const product = listProducts.find(item => item.name === basketItem.productName);
+                if (product) {
+                    totalPrice += product.price * basketItem.quantity; // Calculate the price for each product in the basket
+                }
+            });
+
+            // Display the total price in the order summary container
+            orderSummaryContainer.innerHTML = `
+                <p><strong>Total Price:</strong> £${totalPrice.toFixed(2)}</p>
+            `;
+        } else {
+            console.error("Order summary container not found on the checkout page.");
+        }
+    }
+};
+
+// Call the function when the page loads (only on checkout page)
+window.addEventListener('DOMContentLoaded', displayOrderSummary);
+
+
+const changeQuantity = (productName, size, type) => {
+    let positionItemInBasket = basketItems.findIndex((value) => value.productName == productName && value.size == size);
+    if (positionItemInBasket >= 0) {
+        switch (type) {
+            case 'plus':
+                basketItems[positionItemInBasket].quantity = basketItems[positionItemInBasket].quantity + 1;
+                break;
+            default:
+                let valueChange = basketItems[positionItemInBasket].quantity - 1;
+                if (valueChange > 0) {
+                    basketItems[positionItemInBasket].quantity = valueChange;
+                } else {
+                    basketItems.splice(positionItemInBasket, 1);
+                }
+                break;
+        }
+    }
+    addCartToMemory();
+    addCartToHTML(); // Refresh data on screen
+};
+
+// Save to local storage
+const addCartToMemory = () => {
+    localStorage.setItem('basketItems', JSON.stringify(basketItems));
+};
+
+if (window.location.pathname.includes("/product")) {
+    let listProductHTML = document.querySelector('.product-container');
+    //event listener for add to basket buttons
+    listProductHTML.addEventListener('click', (event) => {
+        let positionClick = event.target;
+        if (positionClick.classList.contains('add-to-basket')) {
+            let productCard = positionClick.closest('.product-card');
+            let productName = productCard.querySelector('h3').textContent.trim();
+            let sizeButton = productCard.querySelector('.size.selected');
+            if (!sizeButton) {
+                alert('Please select a size before adding to the basket.');
+                return;
+            }
+            let size = sizeButton.dataset.size;
+            alert(`Product added: ${productName}`);
+            addToCart(productName, size);
+        }
+    });
+}
+
+if (window.location.pathname.includes("/basket")) {
+    let listBasketHTML = document.querySelector('.basket-container');
+    addCartToHTML(); // Call after data is fetched
+    //event listener for changing quantity
+    listBasketHTML.addEventListener('click', (event) => {
+        let positionClick = event.target;
+        if (positionClick.classList.contains('minus') || positionClick.classList.contains('plus')) {
+            let productName = positionClick.parentElement.parentElement.dataset.productName;
+            let size = positionClick.parentElement.parentElement.dataset.size;
+            let type = 'minus';
+            if (positionClick.classList.contains('plus')) {
+                type = 'plus';
+            }
+            changeQuantity(productName, size, type);
+        }
+    });
+
+    document.querySelector('.check-out-button').addEventListener('click', (event) => {
+        let positionClick = event.target;
+        if (positionClick.classList.contains('check-out-button')) {
+            if (basketItems.length == 0) {
+                alert('Your Basket is Empty, Navigate Back to the Products Page');
+            } else {
+                window.location.href = "/checkout";
+            }
+        }
+    });
+}
+
+// Checkout submit order functionality
+document.getElementById("submit-btn").addEventListener("click", function () {
+    const confirmationMessage = document.getElementById("confirmation-message");
+
+    const fullName = document.getElementById("fullName").value.trim();
+    const address = document.getElementById("address").value.trim();
+    const city = document.getElementById("city").value.trim();
+    const zip = document.getElementById("zip").value.trim();
+
+    if (fullName && address && city && zip) {
+        confirmationMessage.textContent = "Order Confirmed.";
+    } else {
+        confirmationMessage.textContent = "Please fill in all fields.";
+        confirmationMessage.style.color = "red";
+    }
+});
 
 // Open the products page when the "Shop Now" button is clicked
 document.querySelector("#herobanner button").addEventListener("click", function () {

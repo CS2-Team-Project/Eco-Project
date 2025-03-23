@@ -17,7 +17,6 @@ return new class extends Migration
             $table->foreignId('product_id')->constrained()->onDelete('cascade'); // Foreign key to products table
             $table->integer('quantity'); // Quantity of the product
             $table->decimal('price', 8, 2); // Price of the product
-            $table->enum('size', ['S', 'M', 'L']); // Size (Small, Medium, Large)
             $table->timestamps();
         });
     }
