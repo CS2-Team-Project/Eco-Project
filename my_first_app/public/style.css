@@ -1346,3 +1346,13 @@ font-size: 30px;
     background-color: var(--base-color);
     color: var(--text-color);
 }
+
+.stock-levels {
+    list-style: none;
+    padding: 0;
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
+.stock-levels li {
+    color: #555;
+}
