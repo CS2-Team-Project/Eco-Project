@@ -62,10 +62,10 @@
       <div class="footer-content">
         <h3>Follow Us</h3>
         <ul class="media-icons">
-          <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-          <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="https://www.linkedin.com/in/concept-clothing-1b8536357/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+        <li><a href="https://x.com/Concept10_" target="_blank"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=61574613238016&sk=about" target="_blank"><i class="fab fa-facebook"></i></a></li>
+        <li><a href="https://www.instagram.com/conceptt___/" target="_blank"><i class="fab fa-instagram"></i></a></li>
         </ul>
       </div>
     </div>
