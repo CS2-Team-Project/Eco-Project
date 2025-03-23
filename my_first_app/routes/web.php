@@ -57,23 +57,3 @@ Route::get('/shipping-address/create', [ShippingAddressController::class, 'creat
 
 // This route handles storing (or updating) the address
 Route::post('/shipping-address/store', [ShippingAddressController::class, 'store'])->name('address.store');
-
-
-
-Route::post('/basket/{id}', [BasketController::class, 'addToBasket'])->middleware('auth');
-Route::get('/basket', [BasketController::class, 'viewBasket'])->name('basket');
-Route::get('/checkout', [CheckoutController::class, 'showCheckoutPage'])->name('checkout');
-Route::post('/checkout/submit', [CheckoutController::class, 'submit'])->name('checkout.submit');
-
-// Shipping Address Routes
-
-// This route handles showing the form (create view)
-Route::get('/shipping-address/create', [ShippingAddressController::class, 'create'])->name('address.create');
-
-// This route handles storing (or updating) the address
-Route::post('/shipping-address/store', [ShippingAddressController::class, 'store'])->name('address.store');
-
-Route::get('/search', function () {
-    $searchQuery = request('query');
-    return view('search', compact('searchQuery'));
-});

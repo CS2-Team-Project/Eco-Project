@@ -51,20 +51,19 @@
   </section>
 
     <div class="contact-form">
-        <form action="https://api.web3forms.com/submit" method="POST">
+        <form>
           <h1>Contact</h1>
           <p>Please only use this form for general enquiries.</p>
-          <input type="hidden" name="access_key" value="e1b2e433-63df-47ba-ab49-8c094d986818">
-          <input type="text" id="Name" name="Name" placeholder="Your Name" required>
-          <input type="email" id="email" name="email" placeholder="Your Email" required>
-          <textarea name="message" placeholder="Your message" required></textarea>
+          <input type="text" id="Name" placeholder="Your Name" required>
+          <input type="email" id="email" placeholder="Your Email" required>
+          <textarea placeholder="Your message" required></textarea>
           <input type="submit" value="SEND MESSAGE" id="button">
         </form>
     </div>
 
     
 
-   <!-- chatbot -->
+    <!-- chatbot -->
   <script>
     (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="l_64M3nESJsg18Uz_Gfhi";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
     </script>
@@ -74,7 +73,7 @@
     <div class="container">
       <div class="footer-content">
         <h3>Contact</h3>
-        <p>Email:info.conceptt@gmail.com</p>
+        <p>Email: info.concept@gmail.com</p>
       </div>
 
       <div class="footer-content">
@@ -104,17 +103,16 @@
       <div class="footer-content">
         <h3>Follow Us</h3>
         <ul class="media-icons">
-             <li><a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a></li>
-             <li><a href="https://twitter.com"><i class="fab fa-twitter"></i></a></li>
-             <li><a href="https://facebook.com"><i class="fab fa-facebook"></i></a></li>
-             <li><a href="https://instagram.com"><i class="fab fa-instagram"></i></a></li>   
+          <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
         </ul>
       </div>
     </div>
 
     
   </footer>
-
    
 
 
