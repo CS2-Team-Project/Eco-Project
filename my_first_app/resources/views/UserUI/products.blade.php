@@ -71,6 +71,9 @@
 <section id="products">
     <div class="product-container">
         @foreach ($products as $product)
+        @php
+        $totalStock = ($product->stock_s ?? 0) + ($product->stock_m ?? 0) + ($product->stock_l ?? 0);
+        @endphp
             <div class="product-card" data-category="{{ $product->category }}" data-price="{{ $product->price }}">
                 <img src="{{ asset($product->image) }}" alt="{{ $product->name }}">
 
@@ -78,6 +81,13 @@
 
                 <p>{{ $product->description }}</p>
                 <p class="price">£{{ $product->price }}</p>
+
+                @if($totalStock <= 2 && $totalStock > 0)
+                <p class="low-stock">Only {{ $totalStock }} left in stock!</p>
+                @elseif($totalStock == 0)
+                <p class="out-of-stock">Out of stock</p>
+                @endif
+
 
                 <details class="product-details">
                     <summary>Product Details</summary>
@@ -89,15 +99,28 @@
                 </details>
 
                 <div class="size-buttons">
-                    @foreach(json_decode($product->sizes) as $size)
-                        <button class="size" data-size="{{ $size }}">{{ $size }}</button>
-                    @endforeach
-                </div>
+                <button class="size" data-size="S"
+                {{ ($product->stock_s ?? 0) == 0 ? 'disabled class=out-of-stock-size' :''}}>
+                S
+                </button>
+
+                <button class="size" data-size="M"
+                {{ ($product->stock_m ?? 0) == 0 ? 'disabled class=out-of-stock-size' :''}}>
+                 M
+                </button>
+
+                <button class="size" data-size="L"
+                {{ ($product->stock_l ?? 0) == 0 ? 'disabled class=out-of-stock-size' : '' }}>
+                L
+               </button>
+          </div>
 
                 <form action="{{ url('basket', $product->id) }}" method="POST">
                     @csrf
                     <input type="hidden" name="product_id" value="{{ $product->id }}">
-                    <button type="submit" class="add-to-basket">Add to Basket</button>
+                    <button type="submit" class="add-to-basket" {{ $totalStock == 0 ? 'disabled' : '' }}>
+                    {{ $totalStock == 0 ? 'Notify Me' : 'Add to Basket' }}
+                     </button>
                 </form>
             </div>
         @endforeach

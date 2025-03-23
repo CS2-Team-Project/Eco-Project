@@ -84,7 +84,7 @@
         <div class="container">
             <div class="footer-content">
                 <h3>Contact</h3>
-                <p>Email: info.concept@gmail.com</p>
+                <p>Email:info.conceptt@gmail.com</p>
             </div>  
             <div class="footer-content">
                 <h3>Quick Links</h3>
@@ -98,10 +98,10 @@
             <div class="footer-content">
                 <h3>Follow Us</h3>
                 <ul class="media-icons">
-                    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>   
+                    <li><a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a></li>
+                    <li><a href="https://twitter.com"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="https://facebook.com"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="https://instagram.com"><i class="fab fa-instagram"></i></a></li>   
                 </ul>
             </div>
         </div>
