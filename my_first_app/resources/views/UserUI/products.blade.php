@@ -11,6 +11,7 @@
   <script type="text/javascript" src="{{ asset('script.js') }}" defer></script>
 </head>
 
+
 <body>
   
 <section id="header">
@@ -67,559 +68,66 @@
     </select>
 </section>
 
-  <section id="products" class="section-p1">
-    <h1>Our Products</h1>
+<section id="products">
     <div class="product-container">
-    <div class="product-card" data-category="bombers" data-price="1375">
-        <img src="img/product1grey.png" alt="Product 1">
-        <h3>Canada Goose Bomber</h3>
-        <p>Chilliwack Bomber Heritage</p>
-        <p class="price">£1375</p>
-        <details class="product-details">
-          <summary>Product Details</summary>
-          <ul>
-            <li>Bomber length for exceptional mobility</li>
-            <li>Removable fur ruff</li>
-            <li>Non-removable, adjustable tunnel hood with a shaping wire to stand up to winds</li>
-            <li>Stretch rib waistband and cuff for added warmth and comfort</li>
-            <li>Reinforced elbows for durability</li>
-            <li>Interior pocket: drop-in pocket</li>
-          </ul>
-        </details>
-        <div class="size-buttons">
-          <button class="size" data-size="Small">S</button>
-          <button class="size" data-size="Medium">M</button>
-          <button class="size" data-size="Large">L</button>
-        </div>
-        <button class="add-to-basket">Add to Basket</button>
-      </div>
+        @foreach ($products as $product)
+        @php
+        $totalStock = ($product->stock_s ?? 0) + ($product->stock_m ?? 0) + ($product->stock_l ?? 0);
+        @endphp
+            <div class="product-card" data-category="{{ $product->category }}" data-price="{{ $product->price }}">
+                <img src="{{ asset($product->image) }}" alt="{{ $product->name }}">
 
-      <div class="product-card" data-category="jackets" data-price="765">
-        <img src="img/product2black.png" alt="Product 2">
-        <h3>Moncler Jacket</h3>
-        <p>Moncler New Maya Down Jacket</p>
-        <p class="price">£765</p>
-        <details class="product-details">
-          <summary>Product Details</summary>
-          <ul>
-            <li>Crafted from nylon laqué</li>
-            <li>Down-filled with boudin quilting</li>
-            <li>Two-way zip closure</li>
-            <li>Zipped pockets</li>
-            <li>Adjustable, elastic cuffs with snap buttons</li>
-            <li>Hem with drawstring fastening</li>
-            <li>Flap patch pocket on sleeve</li>
-            <li>Felt logo patch on sleeve</li>
-          </ul>          
-        </details>
-        <div class="size-buttons">
-          <button class="size" data-size="Small">S</button>
-          <button class="size" data-size="Medium">M</button>
-          <button class="size" data-size="Large">L</button>
-        </div>
-        <button class="add-to-basket">Add to Basket</button>
-      </div>
+                <h3>{{ $product->name }}</h3>
 
-      <div class="product-card" data-category="puffers" data-price="315">
-        <img src="img/product3cream.png" alt="Product 3">
-        <h3>The North Face Puffer</h3>
-        <p>North Face 1996 Retro Nuptse</p>
-        <p class="price">£315</p>
-        <details class="product-details">
-          <summary>Product Details</summary>
-          <ul>
-            <li>Fabric - Body: 54 G/M², 100% Recycled Nylon Ripstop with Non-PFC Durable Water-Repellent (Non-PFC DWR) Finish</li>
-            <li>Fabric - Overlay & Lining: 69 G/M², 100% Recycled Nylon Taffeta with Non-PFC Durable Water-Repellent (Non-PFC DWR) Finish</li>
-            <li>Insulation: 700-Fill Goose Down; Responsible Down Standard (RDS) </li>
-          </ul>            
-        </details>
-        <div class="size-buttons">
-          <button class="size" data-size="Small">S</button>
-          <button class="size" data-size="Medium">M</button>
-          <button class="size" data-size="Large">L</button>
-        </div>
-        <button class="add-to-basket">Add to Basket</button>
-      </div>
+                <p>{{ $product->description }}</p>
+                <p class="price">£{{ $product->price }}</p>
 
-      <div class="product-card" data-category="bombers" data-price="200">
-        <img src="img/product4.png" alt="Product 4">
-        <h3>Alpha Industries Bomber Jacket</h3>
-        <p>CWU-45 Heritage Bomber Jacket</p>
-        <p class="price">£200</p>
-        <details class="product-details">
-          <summary>Product Details</summary>
-          <ul>
-            <li>Shell: 100% Nylon;</li>
-            <li>Lining: 100%</li>
-            <li>Nylon; Filling:</li>
-            <li>100% Polyester</li>
-          </ul>            
-        </details>
-        <div class="size-buttons">
-          <button class="size" data-size="Small">S</button>
-          <button class="size" data-size="Medium">M</button>
-          <button class="size" data-size="Large">L</button>
-        </div>
-        <button class="add-to-basket">Add to Basket</button>
-      </div>
+                @if($totalStock <= 2 && $totalStock > 0)
+                <p class="low-stock">Only {{ $totalStock }} left in stock!</p>
+                @elseif($totalStock == 0)
+                <p class="out-of-stock">Out of stock</p>
+                @endif
 
-      <div class="product-card" data-category="jackets" data-price="110">
-        <img src="img/product5.png" alt="Product 5">
-        <h3>Uniqlo Down Jacket</h3>
-        <p>Seamless Down Jacket</p>
-        <p class="price">£110</p>
-        <details class="product-details">
-          <summary>Product Details</summary>
-          <ul>
-            <li>Made with warm premium down with a fill power of 750*. *Measured by the IDFB method</li>
-            <li>Water-repellent finish</li>
-            <li>Shell: 100% Polyester</li>
-            <li>Filling: 90% Down, 10% Feathers</li>
-          </ul>            
-        </details>
-        <div class="size-buttons">
-          <button class="size" data-size="Small">S</button>
-          <button class="size" data-size="Medium">M</button>
-          <button class="size" data-size="Large">L</button>
-        </div>
-        <button class="add-to-basket">Add to Basket</button>
-      </div>
 
-      <div class="product-card" data-category="puffers" data-price="90">
-        <img src="img/product6.png" alt="Product 6">
-        <h3>Zavetti Puffer</h3>
-        <p>Zavetti Canada Atlin Puffer Jacket</p>
-        <p class="price">£90</p>
-        <details class="product-details">
-          <summary>Product Details</summary>
-          <ul>
-            <li>Main: 100% Polyamide. Lining: 100% Polyester.</li>
-            <li>Finished reflective zippered pockets</li>
-            <li>Machine washable</li>
-          </ul>            
-        </details>
-        <div class="size-buttons">
-          <button class="size" data-size="Small">S</button>
-          <button class="size" data-size="Medium">M</button>
-          <button class="size" data-size="Large">L</button>
-        </div>
-        <button class="add-to-basket">Add to Basket</button>
-      </div>
+                <details class="product-details">
+                    <summary>Product Details</summary>
+                    <ul>
+                        @foreach(json_decode($product->details) as $detail)
+                            <li>{{ $detail }}</li>
+                        @endforeach
+                    </ul>
+                </details>
 
-      <div class="product-card" data-category="jackets" data-price="125">
-        <img src="img/product7.png" alt="Product 7">
-        <h3>Columbia Sports Jacket</h3>
-        <p>Powder Lite™ II Insulated Jacket</p>
-        <p class="price">£125</p>
-        <details class="product-details">
-          <summary>Product Details</summary>
-          <ul>
-            <li>Omni-Heat™ thermal reflective</li>
-            <li>Water resistant fabric</li>
-            <li>Zippered hand pockets</li>
-            <li>Uses: Hiking, Walking, Casual</li>
-          </ul>            
-        </details>
-        <div class="size-buttons">
-          <button class="size" data-size="Small">S</button>
-          <button class="size" data-size="Medium">M</button>
-          <button class="size" data-size="Large">L</button>
-        </div>
-        <button class="add-to-basket">Add to Basket</button>
-      </div>
+                <div class="size-buttons">
+                <button class="size" data-size="S"
+                {{ ($product->stock_s ?? 0) == 0 ? 'disabled class=out-of-stock-size' :''}}>
+                S
+                </button>
 
-      <div class="product-card" data-category="jackets" data-price="185">
-        <img src="img/product8.png" alt="Product 8">
-        <h3>Zara Jacket</h3>
-        <p>Lightweight Casual Jacket</p>
-        <p class="price">£185</p>
-        <details class="product-details">
-          <summary>Product Details</summary>
-          <ul>
-            <li>Lightweight jacket made of technical fabric.</li>
-            <li>Ribbed collar and long sleeves.</li>
-            <li>Welt pockets at the hip. Inside pocket detail.</li>
-            <li>BASE FABRIC: 100% polyester</li>
-          </ul>            
-        </details>
-        <div class="size-buttons">
-          <button class="size" data-size="Small">S</button>
-          <button class="size" data-size="Medium">M</button>
-          <button class="size" data-size="Large">L</button>
-        </div>
-        <button class="add-to-basket">Add to Basket</button>
-      </div>
+                <button class="size" data-size="M"
+                {{ ($product->stock_m ?? 0) == 0 ? 'disabled class=out-of-stock-size' :''}}>
+                 M
+                </button>
 
-      <div class="product-card" data-category="puffers" data-price="140">
-        <img src="img/product9.png" alt="Product 9">
-        <h3>Mercier Puffer Coat</h3>
-        <p>Mercier Blizzard Coat</p>
-        <p class="price">£140</p>
-        <details class="product-details">
-          <summary>Product Details</summary>
-          <ul>
-            <li>100% Polyester</li>
-            <li>Combat the elements with this men's Blizzard Jacket</li>
-            <li>features a full-zip fastening and hood for custom coverage</li>
-            <li>Machine washable</li>
-          </ul>            
-        </details>
-        <div class="size-buttons">
-          <button class="size" data-size="Small">S</button>
-          <button class="size" data-size="Medium">M</button>
-          <button class="size" data-size="Large">L</button>
-        </div>
-        <button class="add-to-basket">Add to Basket</button>
-      </div>
+                <button class="size" data-size="L"
+                {{ ($product->stock_l ?? 0) == 0 ? 'disabled class=out-of-stock-size' : '' }}>
+                L
+               </button>
+          </div>
 
-      <div class="product-card" data-category="leathers" data-price="490">
-        <img src="img/product10.png" alt="Product 10">
-        <h3>All Saints Leather Jacket</h3>
-        <p>Milo Desserto® Biker Jacket</p>
-        <p class="price">£490</p>
-        <details class="product-details">
-          <summary>Product Details</summary>
-          <ul>
-            <li>Asymmetric zip front</li>
-            <li>Two lower zip pockets</li>
-            <li>Ticket pocket</li>
-            <li>Hem loops</li>
-          </ul>            
-        </details>
-        <div class="size-buttons">
-          <button class="size" data-size="Small">S</button>
-          <button class="size" data-size="Medium">M</button>
-          <button class="size" data-size="Large">L</button>
-        </div>
-        <button class="add-to-basket">Add to Basket</button>
-      </div>
-
-      <div class="product-card" data-category="denims" data-price="440">
-        <img src="img/product11.png" alt="Product 11">
-        <h3>Evisu Denim Jacket</h3>
-        <p>Graffiti Prints Regular Fit Denim Jacket</p>
-        <p class="price">£440</p>
-        <details class="product-details">
-          <summary>Product Details</summary>
-          <ul>
-            <li>100% Cotton</li>
-            <li>Graffiti styles print logo, Godhead and Daruma</li>
-            <li>Button fastening, 4 pockets</li>
-            <li>EVISU Premium Quality Kamon tag</li>
-          </ul>            
-        </details>
-        <div class="size-buttons">
-          <button class="size" data-size="Small">S</button>
-          <button class="size" data-size="Medium">M</button>
-          <button class="size" data-size="Large">L</button>
-        </div>
-        <button class="add-to-basket">Add to Basket</button>
-      </div>
-
-      <div class="product-card" data-category="leathers" data-price="1190">
-        <img src="img/product12.png" alt="Product 12">
-        <h3>Hugo Boss Leather Jacket</h3>
-        <p>Porsche x BOSS regular-fit jacket in leather</p>
-        <p class="price">£1190</p>
-        <details class="product-details">
-          <summary>Product Details</summary>
-          <ul>
-            <li>Fastening top: Zip closure</li>
-            <li>Pockets top: Zip pockets</li>
-            <li>Fully lined</li>
-            <li>Standard length</li>
-          </ul>            
-        </details>
-        <div class="size-buttons">
-          <button class="size" data-size="Small">S</button>
-          <button class="size" data-size="Medium">M</button>
-          <button class="size" data-size="Large">L</button>
-        </div>
-        <button class="add-to-basket">Add to Basket</button>
-      </div>
-
-      <div class="product-card" data-category="leathers" data-price="250">
-        <img src="img/product13.png" alt="Product 13">
-        <h3>The Leather Company Leather Jacket</h3>
-        <p>Mens Safari Style Leather Jacket Black: AMJ-5</p>
-        <p class="price">£250</p>
-        <details class="product-details">
-          <summary>Product Details</summary>
-          <ul>
-            <li>Ashwood Leather Jackets</li>
-            <li>100% genuine leather</li>
-            <li>Two side and two breast pockets</li>
-            <li>Fully lined with two internal pockets</li>
-          </ul>            
-        </details>
-        <div class="size-buttons">
-          <button class="size" data-size="Small">S</button>
-          <button class="size" data-size="Medium">M</button>
-          <button class="size" data-size="Large">L</button>
-        </div>
-        <button class="add-to-basket">Add to Basket</button>
-      </div>
-
-      <div class="product-card" data-category="leathers" data-price="1660">
-        <img src="img/product14.png" alt="Product 14">
-        <h3>Ralph Lauren Leather Jacket</h3>
-        <p>Slim Fit Leather Moto Jacket</p>
-        <p class="price">£1660</p>
-        <details class="product-details">
-          <summary>Product Details</summary>
-          <ul>
-            <li>Slim fit. Hits at the waist</li>
-            <li>Left chest zip pocket. Two front waist zip pockets</li>
-            <li>Shell and lining: 100% leather. Lining: 57% cupro, 43% cotton</li>
-            <li>Dry clean by a leather specialist</li>
-          </ul>            
-        </details>
-        <div class="size-buttons">
-          <button class="size" data-size="Small">S</button>
-          <button class="size" data-size="Medium">M</button>
-          <button class="size" data-size="Large">L</button>
-        </div>
-        <button class="add-to-basket">Add to Basket</button>
-      </div>
-
-      <div class="product-card" data-category="leathers" data-price="990">
-        <img src="img/product15.png" alt="Product 15">
-        <h3>Schott NYC Leather Jacket</h3>
-        <p>Waxed Natural Pebbled Cowhide Café Leather Jacket</p>
-        <p class="price">£990</p>
-        <details class="product-details">
-          <summary>Product Details</summary>
-          <ul>
-            <li>Full Aniline, drum dyed, hand cut, drummed cowhide leather</li>
-            <li>Durable nickel plated brass hardware</li>
-            <li>Vintage style open zippered sleeve cuffs with wind flaps</li>
-            <li>100% cotton plaid lining</li>
-          </ul>            
-        </details>
-        <div class="size-buttons">
-          <button class="size" data-size="Small">S</button>
-          <button class="size" data-size="Medium">M</button>
-          <button class="size" data-size="Large">L</button>
-        </div>
-        <button class="add-to-basket">Add to Basket</button>
-      </div>
-
-      <div class="product-card" data-category="denims" data-price="540">
-        <img src="img/product16.png" alt="Product 16">
-        <h3>Diesel Denim Jacket</h3>
-        <p>D-BARCY-S3</p>
-        <p class="price">£540</p>
-        <details class="product-details">
-          <summary>Product Details</summary>
-          <ul>
-            <li>Composition: 100%Cotton, Application 100%Cotton</li>
-            <li>Regular fit</li>
-            <li>4 pockets</li>
-            <li>Button cuffs and waist adjusters</li>
-          </ul>            
-        </details>
-        <div class="size-buttons">
-          <button class="size" data-size="Small">S</button>
-          <button class="size" data-size="Medium">M</button>
-          <button class="size" data-size="Large">L</button>
-        </div>
-        <button class="add-to-basket">Add to Basket</button>
-      </div>
-
-      <div class="product-card" data-category="denims" data-price="1110">
-        <img src="img/product17.png" alt="Product 17">
-        <h3>YSL Denim Jacket</h3>
-        <p>oversized jacket in dark blue black denim</p>
-        <p class="price">£1110</p>
-        <details class="product-details">
-          <summary>Product Details</summary>
-          <ul>
-            <li>100% Cotton</li>
-            <li>Made in Italy</li>
-            <li>one-button cuffs</li>
-            <li>front button closure</li>
-          </ul>            
-        </details>
-        <div class="size-buttons">
-          <button class="size" data-size="Small">S</button>
-          <button class="size" data-size="Medium">M</button>
-          <button class="size" data-size="Large">L</button>
-        </div>
-        <button class="add-to-basket">Add to Basket</button>
-      </div>
-
-      <div class="product-card" data-category="denims" data-price="1530">
-        <img src="img/product18.png" alt="Product 18">
-        <h3>Louis Vitton Denim Jacket</h3>
-        <p>DNA Denim Jacket</p>
-        <p class="price">£1530</p>
-        <details class="product-details">
-          <summary>Product Details</summary>
-          <ul>
-            <li>100% cotton Lining: 100% cotton</li>
-            <li>Made in Japan</li>
-            <li>Regular fit</li>
-            <li>Black</li>
-          </ul>            
-        </details>
-        <div class="size-buttons">
-          <button class="size" data-size="Small">S</button>
-          <button class="size" data-size="Medium">M</button>
-          <button class="size" data-size="Large">L</button>
-        </div>
-        <button class="add-to-basket">Add to Basket</button>
-      </div>
-
-      <div class="product-card" data-category="denims" data-price="270">
-        <img src="img/product19.png" alt="Product 19">
-        <h3>Ralph Lauren Denim Jacket</h3>
-        <p>The Bayport Indigo-Dyed Denim Jacket</p>
-        <p class="price">£270</p>
-        <details class="product-details">
-          <summary>Product Details</summary>
-          <ul>
-            <li>100% cotton. Machine washable. Imported.</li>
-            <li>Dyed with indigo</li>
-            <li>Straight collar. Throat tab with a snapped closure.</li>
-          </ul>            
-        </details>
-        <div class="size-buttons">
-          <button class="size" data-size="Small">S</button>
-          <button class="size" data-size="Medium">M</button>
-          <button class="size" data-size="Large">L</button>
-        </div>
-        <button class="add-to-basket">Add to Basket</button>
-      </div>
-
-      <div class="product-card" data-category="puffers" data-price="880">
-        <img src="img/product20.png" alt="Product 20">
-        <h3>Canada Goose Puffer</h3>
-        <p>Crofton Hoody Puffer Jacket</p>
-        <p class="price">£880</p>
-        <details class="product-details">
-          <summary>Product Details</summary>
-          <ul>
-            <li>100% Recycled Nylon</li>
-            <li>750 Fill Power Responsibly Sourced Down</li>
-            <li>Lightweight, Water-Repellent, Wind-Resistant & Durable</li>
-          </ul>            
-        </details>
-        <div class="size-buttons">
-          <button class="size" data-size="Small">S</button>
-          <button class="size" data-size="Medium">M</button>
-          <button class="size" data-size="Large">L</button>
-        </div>
-        <button class="add-to-basket">Add to Basket</button>
-      </div>
-
-      <div class="product-card" data-category="puffers" data-price="1040">
-        <img src="img/product21.png" alt="Product 21">
-        <h3>Stone Island Ghost Puffer</h3>
-        <p>Ghost Down Puffer Jacket</p>
-        <p class="price">£1040</p>
-        <details class="product-details">
-          <summary>Product Details</summary>
-          <ul>
-            <li>Fabric: Nylon</li>
-            <li>Outer: polyamide. Filling: down, feather</li>
-            <li>Quilted padded design exudes comfort and warmth</li>
-          </ul>            
-        </details>
-        <div class="size-buttons">
-          <button class="size" data-size="Small">S</button>
-          <button class="size" data-size="Medium">M</button>
-          <button class="size" data-size="Large">L</button>
-        </div>
-        <button class="add-to-basket">Add to Basket</button>
-      </div>
-
-      <div class="product-card" data-category="bombers" data-price="570">
-        <img src="img/product22.png" alt="Product 22">
-        <h3>Versace Couture Bomber</h3>
-        <p>V-Emblem bomber jacket</p>
-        <p class="price">£570</p>
-        <details class="product-details">
-          <summary>Product Details</summary>
-          <ul>
-            <li>embroidered logo at the chest</li>
-            <li>black glossy finish</li>
-            <li>two press-stud fastening side pockets</li>
-          </ul>            
-        </details>
-        <div class="size-buttons">
-          <button class="size" data-size="Small">S</button>
-          <button class="size" data-size="Medium">M</button>
-          <button class="size" data-size="Large">L</button>
-        </div>
-        <button class="add-to-basket">Add to Basket</button>
-      </div>
-
-      <div class="product-card" data-category="bombers" data-price="1055">
-        <img src="img/product23.png" alt="Product 23">
-        <h3>Jeff Hamilton Bomber</h3>
-        <p>Jeff Hamilton x NBA Collage jacket</p>
-        <p class="price">£1055</p>
-        <details class="product-details">
-          <summary>Product Details</summary>
-          <ul>
-            <li>Lining: Satin 100%</li>
-            <li>Outer: Lamb Skin 100%, Wool 100%</li>
-            <li>front press-stud fastening</li>
-          </ul>            
-        </details>
-        <div class="size-buttons">
-          <button class="size" data-size="Small">S</button>
-          <button class="size" data-size="Medium">M</button>
-          <button class="size" data-size="Large">L</button>
-        </div>
-        <button class="add-to-basket">Add to Basket</button>
-      </div>
-
-      <div class="product-card" data-category="bombers" data-price="260">
-        <img src="img/product24.png" alt="Product 24">
-        <h3>Reiss Bomber</h3>
-        <p>Brushed Wool-Blend Bomber Jacket</p>
-        <p class="price">£260</p>
-        <details class="product-details">
-          <summary>Product Details</summary>
-          <ul>
-            <li>53% Wool, 47% Polyester</li>
-            <li>Raised central seam to reverse</li>
-            <li>Dual front zip</li>
-          </ul>            
-        </details>
-        <div class="size-buttons">
-          <button class="size" data-size="Small">S</button>
-          <button class="size" data-size="Medium">M</button>
-          <button class="size" data-size="Large">L</button>
-        </div>
-        <button class="add-to-basket">Add to Basket</button>
-      </div>
-
-      <div class="product-card" data-category="jackets" data-price="2000">
-        <img src="img/product25.png" alt="Product 25">
-        <h3>Tom Ford Bomber</h3>
-        <p>TOM FORD Hazed Gabardine Jacket</p>
-        <p class="price">£2000</p>
-        <details class="product-details">
-          <summary>Product Details</summary>
-          <ul>
-            <li>OUTER: Lyocell 100%</li>
-            <li>Made in Italy</li>
-            <li>High neck, Long sleeves</li>
-            <li>2-way zip, 2 side zipped pockets</li>
-          </ul>            
-        </details>
-        <div class="size-buttons">
-          <button class="size" data-size="Small">S</button>
-          <button class="size" data-size="Medium">M</button>
-          <button class="size" data-size="Large">L</button>
-        </div>
-        <button class="add-to-basket">Add to Basket</button>
-      </div>
-
+                <form action="{{ url('basket', $product->id) }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                    <button type="submit" class="add-to-basket" {{ $totalStock == 0 ? 'disabled' : '' }}>
+                    {{ $totalStock == 0 ? 'Notify Me' : 'Add to Basket' }}
+                     </button>
+                </form>
+            </div>
+        @endforeach
     </div>
-  </section>
+</section>
+
+
   <script>
     document.getElementById('category').addEventListener('change', function() {
         let category = this.value;
@@ -654,7 +162,7 @@
     <div class="container">
       <div class="footer-content">
         <h3>Contact</h3>
-        <p>Email:info.conceptt@gmail.com</p>
+        <p>Email: info.concept@gmail.com</p>
       </div>
 
       <div class="footer-content">
@@ -684,10 +192,10 @@
       <div class="footer-content">
         <h3>Follow Us</h3>
         <ul class="media-icons">
-            <li><a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://twitter.com"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://facebook.com"><i class="fab fa-facebook"></i></a></li>
-            <li><a href="https://instagram.com"><i class="fab fa-instagram"></i></a></li>   
+          <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
         </ul>
       </div>
     </div>
