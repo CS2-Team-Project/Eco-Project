@@ -5,6 +5,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- FLATICON -->
+  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-thin-straight/css/uicons-thin-straight.css'>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
   <title>CS2TP</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -25,9 +32,10 @@
                <!--Search Bar -->
                 <div class ="search-container">
                   <input type="text" placeholder="Search..." class="search-input">
-                  <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i><button>
+                  <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
                 
+                <!--login and signup-->
                 <div class="user-actions">
                  @if (Route::has('login'))
                    @auth
@@ -48,79 +56,132 @@
       </button>
       <li><a href="{{url('/basket')}}"><i class="fa-solid fa-cart-shopping"></i></a></li>
     </nav>
-  </section>
+</section>
 
 
-    <section id="herobanner">
-        <h2>Our Newest Arrival</h2>
-        <h1>Discover the latest trends</h1>
-        <p>Shop our latest collection of stylish and comfortable jackets.</p>
-        <button><a href="{{url('/products')}}">Shop Now</button></a>
-    </section>
+<section id="herobanner">
+      <h2>CONCEPT PRESENTS</h2>
+      <h1>signature heavyweight jackets</h1>
+      
+      <button><a href="{{url('/products')}}">Shop Now</button></a>
+</section>
 
-     <!-- cookies -->
-    <div id="cookie-box" class="cookie-box">
-      <p class="cookie-message">This website uses cookies to ensure you get the best experience. Do you accept?</p>
-      <div class="cookie-buttons">
-          <button class="accept" onclick="acceptCookies()">Accept</button>
-          <button class="reject" onclick="closeBox()">Reject</button>
-      </div>
+<section  class ="catogories Hcontainer section"> 
+  <h3 class="section_title"><span>Product</span> Catogories</h3>
+
+  <div class="categories_container swiper">
+    <div class="swiper-wrapper">
+      <a href="{{ url('/products?category=bombers') }}" class="category_item swiper-slide">
+        <img src="img/category1.png" alt="" 
+        class="category_img">
+
+        <h3 class="category_title">Bomber Jackets</h3>
+      </a>
+
+      <a href="{{ url('/products?category=puffers') }}" class="category_item swiper-slide">
+        <img src="img/category2.png" alt="" 
+        class="category_img">
+
+        <h3 class="category_title">Puffer Jackets</h3>
+      </a>
+
+      <a href="{{ url('/products?category=leathers') }}" class="category_item swiper-slide">
+        <img src="img/category3.png" alt="" 
+        class="category_img">
+
+        <h3 class="category_title">Leather Jackets</h3>
+      </a>
+
+      <a href="{{ url('/products?category=denims') }}" class="category_item swiper-slide">
+        <img src="img/category4.png" alt="" 
+        class="category_img">
+
+        <h3 class="category_title">Denim Jackets</h3>
+      </a>
+
+      <a href="{{ url('/products?category=jackets') }}" class="category_item swiper-slide">
+        <img src="img/category5.png" alt="" 
+        class="category_img">
+
+        <h3 class="category_title">Jackets</h3>
+      </a>
+    </div>
+
+    <div class="swiper-button-next">
+      <i class="fi fi-ts-angle-small-right"></i>
+    </div>
+    <div class="swiper-button-prev">
+      <i class="fi fi-ts-angle-small-left"></i>
+    </div>
   </div>
+</section>   
+<!-- cookies -->
+<div id="cookie-box" class="cookie-box">
+  <p class="cookie-message">This website uses cookies to ensure you get the best experience. Do you accept?</p>
+  <div class="cookie-buttons">
+      <button class="accept" onclick="acceptCookies()">Accept</button>
+      <button class="reject" onclick="closeBox()">Reject</button>
+  </div>
+</div>
 
-    
 
-  <!-- chatbot -->
-  <script>
-    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="l_64M3nESJsg18Uz_Gfhi";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-    </script>
 
-  <!-- Footer Section -->
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <h3>Contact</h3>
-        <p>Email: info.concept@gmail.com</p>
-      </div>
+<!-- chatbot -->
+<script>
+  (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="l_64M3nESJsg18Uz_Gfhi";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+  </script>
 
-      <div class="footer-content">
-        <h3>Language</h3>
-        <!-- translate script -->
+<!-- Footer Section -->
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <h3>Contact</h3>
+      <p>Email:info.conceptt@gmail.com</p>
+    </div>
+
+    <div class="footer-content">
+      <h3>Language</h3>
+      <!-- translate script -->
 <div id="google_translate_element"></div>
 
 <script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
-  }
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+}
 </script>
 
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-      </div>
-
-      <div class="footer-content">
-        <h3>Quick Links</h3>
-        <ul class="list">
-          <li><a href="{{url('/home')}}">Home</a></li>
-          <li><a href="{{url('/products')}}">Products</a></li>
-          <li><a href="{{url('/contact')}}">Contact</a></li>
-          <li><a href="{{url('/about')}}">About Us</a></li>
-        </ul>
-      </div>
-      <div class="footer-content">
-        <h3>Follow Us</h3>
-        <ul class="media-icons">
-          <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-          <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-        </ul>
-      </div>
     </div>
 
-    
-  </footer>
+    <div class="footer-content">
+      <h3>Quick Links</h3>
+      <ul class="list">
+        <li><a href="{{url('/home')}}">Home</a></li>
+        <li><a href="{{url('/products')}}">Products</a></li>
+        <li><a href="{{url('/contact')}}">Contact</a></li>
+        <li><a href="{{url('/about')}}">About Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-content">
+      <h3>Follow Us</h3>
+      <ul class="media-icons">
+           <li><a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a></li>
+           <li><a href="https://twitter.com"><i class="fab fa-twitter"></i></a></li>
+           <li><a href="https://facebook.com"><i class="fab fa-facebook"></i></a></li>
+           <li><a href="https://instagram.com"><i class="fab fa-instagram"></i></a></li>   
+      </ul>
+    </div>
+  </div>
 
-    <script src="script.js"></script>
+  
+</footer>
+ 
+ <!--SWIPER JS -->
+ <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+ <!--MAIN JS -->
+ <script src="script.js"></script>
 </body>
 <script src="{{ asset('script.js') }}"></script>
 </html>
