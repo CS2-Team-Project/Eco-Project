@@ -65,11 +65,19 @@ class User extends Authenticatable
         ];
     }
 
+    /**
+     * Define the relationship between the User and ShippingAddress
+     */
     public function shippingAddress()
     {
-       return $this->hasOne(ShippingAddress::class);
+        return $this->hasOne(ShippingAddress::class);
     }
 
-    
-
+    /**
+     * Define the relationship between the User and Orders
+     */
+    public function orders()
+    {
+        return $this->hasMany(Order::class); // A user can have many orders
+    }
 }

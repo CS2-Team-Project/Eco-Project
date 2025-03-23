@@ -1105,81 +1105,160 @@ body {
 }
 /* Checkout page */
  
-#checkout-head h3
-{
+
+
+/* Checkout Header */
+#checkout-head h3 {
     text-align: left;
-    margin-left:  40px;
+    margin-left: 40px;
     margin-top: 40px;
 }
- 
- 
+
+/* Faint Line Separator */
 .faint-line {
-    width: 100%;                      
+    width: 100%;
     border-top: 1px solid var(--primary-color);
-    margin: 20px 100;                  
-    max-width: calc(100% - 80px);    
-    margin-left: 40px;                
-}
- 
-#checkout-body #details-info
-{
- 
-   text-align: left;
-   margin-left: 50px;
-   margin-top:40px;
-   display: flex;
-   flex-direction: column;
-}e
-    border-top: 1px solid var(--base-color);
-    margin: 20px 100;
     max-width: calc(100% - 80px);
-    margin-left: 40px;
+    margin: 10px auto;
 }
 
-#checkout-body #details-info {
+#checkout-body {
+    padding: 20px 40px; 
+}
+
+/* Shipping Address Section */
+#details-info {
+    margin: 10px 0; 
+}
+
+/* Order Summary & Address Title */
+#order-summary h3,
+#details-info h3 {
     text-align: left;
-    margin-left: 50px;
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
+    margin-bottom: 5px; /* Keeps title closer to content */
+    font-size: 1.3rem;
+    color: var(--text-color);
 }
 
-#checkout-body h3 {
-    text-align: left;
-    margin-left: 40px;
-    margin-top: 40px;
-    color: var(--text-color); /* Use primary text variable */
+/* Order Summary Container - Reduce Bottom Margin */
+.order-summary-container {
+    margin-bottom: 10px; 
 }
 
-#details-info label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: lighter;
-    color: var(--text-color); /* Use primary text variable */
+/* Address Details Box */
+.address-details {
+    background: var(--secondary-bg);
+    padding: 10px; /* Reduced padding */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
 }
 
-#checkout-body #details-info input {
-    border: 2px solid black;
-    padding: 10px;
-    border-radius: 15px;
-    width: 40%;
-    box-sizing: border-box;
-    margin-bottom: 15px;
+/* Address Details - Less Vertical Space */
+.address-details p {
+    margin: 3px 0;
+    font-size: 1rem;
 }
 
-#checkout-body #details-info button {
-    padding: 10px 20px;
-    background-color: white;
-    color: black;
-    border: 2px solid black;
-    border-radius: 15px;
-    cursor: pointer;
-    /*transition: background-color 0.3s ease, color 0.3s ease; */
-}
-
+/* Button Hover Effect */
 #checkout-body #details-info button:hover {
     background-color: lightgrey;
 }
+
+/* Edit Address Button */
+
+.edit-address-btn {
+    padding: 12px 25px; 
+    background-color: grey; 
+    color: white;
+    border: none; 
+    border-radius: 8px; 
+    font-size: 16px; 
+    font-weight: bold; 
+    text-align: center; 
+    cursor: pointer; 
+    transition: background-color 0.3s, transform 0.3s; 
+    display: inline-block; 
+}
+
+.edit-address-btn:hover {
+    background-color: #005f75; 
+    transform: translateY(-3px); 
+}
+
+.edit-address-btn:focus {
+    outline: none; 
+    box-shadow: 0 0 5px rgba(0, 140, 186, 0.7); 
+}
+
+.edit-address-btn:active {
+    background-color: #004f66; 
+    transform: translateY(0); 
+}
+
+
+
+/* Shipping Form Section */
+#shipping-form {
+    background-color: #fff;
+    width: 50%;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#shipping-form h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#shipping-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#shipping-form label {
+    font-size: 16px;
+    color: #333;
+}
+
+#shipping-form input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+}
+
+#shipping-form button {
+    padding: 12px;
+    background-color: grey;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#shipping-form button:hover {
+    background-color: grey;
+}
+
+.success-message {
+    background-color: #e8f8e8;
+    color: #3e8e41;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+
 
 .welcome-user{
     margin-top: 30px;
