@@ -138,15 +138,16 @@
         <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
       </div>
       <div class="footer-content">
-        <h3>Quick Links</h3>
-        <ul class="list">
-          <li><a href="{{url('/home')}}">Home</a></li>
-          <li><a href="{{url('/products')}}">Products</a></li>
-          <li><a href="{{url('/contact')}}">Contact</a></li>
-          <li><a href="{{url('/about')}}">About Us</a></li>
-        </ul>
-      </div>
-      <div class="footer-content">
+
+      <h3>Quick Links</h3>
+      <ul class="list">
+        <li><a href="{{url('/home')}}">Home</a></li>
+        <li><a href="{{url('/products')}}">Products</a></li>
+        <li><a href="{{url('/contact')}}">Contact</a></li>
+        <li><a href="{{url('/about')}}">About Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-content">
       <h3>Follow Us</h3>
       <ul class="media-icons">
            <li><a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a></li>
@@ -156,8 +157,7 @@
       </ul>
     </div>
   </div>
-  </div>
-
+>>>>>>> parent of 39b317fb (Updated social media links and final website edits)
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
