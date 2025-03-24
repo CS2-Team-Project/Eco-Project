@@ -99,28 +99,38 @@
                 </details>
 
                 <div class="size-buttons">
-                <button class="size" data-size="S"
-                {{ ($product->stock_s ?? 0) == 0 ? 'disabled class=out-of-stock-size' :''}}>
-                S
-                </button>
+    <form action="{{ url('basket', $product->id) }}" method="POST" class="size-form" id="size-form-s">
+        @csrf
+        <input type="hidden" name="product_id" value="{{ $product->id }}">
+        <input type="hidden" name="size" value="S">
+        <button type="submit" class="size" {{ ($product->stock_s ?? 0) == 0 ? 'disabled class=out-of-stock-size' :'' }}>
+            S
+        </button>
+    </form>
 
-                <button class="size" data-size="M"
-                {{ ($product->stock_m ?? 0) == 0 ? 'disabled class=out-of-stock-size' :''}}>
-                 M
-                </button>
+    <form action="{{ url('basket', $product->id) }}" method="POST" class="size-form" id="size-form-m">
+        @csrf
+        <input type="hidden" name="product_id" value="{{ $product->id }}">
+        <input type="hidden" name="size" value="M">
+        <button type="submit" class="size" {{ ($product->stock_m ?? 0) == 0 ? 'disabled class=out-of-stock-size' :'' }}>
+            M
+        </button>
+    </form>
 
-                <button class="size" data-size="L"
-                {{ ($product->stock_l ?? 0) == 0 ? 'disabled class=out-of-stock-size' : '' }}>
-                L
-               </button>
-          </div>
+    <form action="{{ url('basket', $product->id) }}" method="POST" class="size-form" id="size-form-l">
+        @csrf
+        <input type="hidden" name="product_id" value="{{ $product->id }}">
+        <input type="hidden" name="size" value="L">
+        <button type="submit" class="size" {{ ($product->stock_l ?? 0) == 0 ? 'disabled class=out-of-stock-size' : '' }}>
+            L
+        </button>
+    </form>
+</div>
+
 
                 <form action="{{ url('basket', $product->id) }}" method="POST">
                     @csrf
                     <input type="hidden" name="product_id" value="{{ $product->id }}">
-                    <button type="submit" class="add-to-basket" {{ $totalStock == 0 ? 'disabled' : '' }}>
-                    {{ $totalStock == 0 ? 'Notify Me' : 'Add to Basket' }}
-                     </button>
                 </form>
             </div>
         @endforeach

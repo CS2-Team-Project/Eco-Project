@@ -62,17 +62,32 @@
 
     <!-- Order Summary Section -->
     <section id="order-summary">
-        <h3>Order Summary</h3>
-        <div class="order-summary-container">
-            <ul>
-                @foreach($orderItems as $item)
-                    <li>{{ $item->product->name }} (x{{ $item->quantity }}) - £{{ number_format($item->product->price * $item->quantity, 2) }}</li>
-                @endforeach
-            </ul>
-            <hr>
-            <p><strong>Total: £{{ number_format($totalPrice, 2) }}</strong></p>
-        </div>
-    </section>
+    <h3>Order Summary</h3>
+    <div class="order-summary-container">
+        <ul>
+            @foreach($orderItems as $item)
+                <li>
+                    {{ $item->product->name }} 
+                    <!-- Display the decoded size -->
+                    (x{{ $item->quantity }}) 
+                    - £{{ number_format($item->product->price * $item->quantity, 2) }}
+
+                    <!-- Delete Button Form -->
+                    <form action="{{ route('basket.delete', $item->id) }}" method="POST" style="display:inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="delete-btn">Delete</button>
+                    </form>
+                </li>
+            @endforeach
+        </ul>
+        <hr>
+        <p><strong>Total: £{{ number_format($totalPrice, 2) }}</strong></p>
+    </div>
+</section>
+
+
+
 
     <div class="faint-line"></div>
 
@@ -100,6 +115,15 @@
     <div class="faint-line"></div>
 
     <!--Here is where the code related to dummy payments will take place!!! -->
+    
+    <form action="{{ route('order.confirm') }}" method="POST">
+    @csrf
+    <button type="submit" class="confirm-order-btn">Confirm Order</button>
+</form>
+
+
+
+
 
     <script src="{{ asset('script.js') }}"></script>
 </body>

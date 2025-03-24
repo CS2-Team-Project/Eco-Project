@@ -8,7 +8,7 @@ class Product extends Model
 {
     public function products()
 {
-    $products = Product::all();  //any ref to  products table should be $products
+    $products = Product::all();  
     return view('UserUI.products', compact('products'));
 }
 
@@ -18,7 +18,7 @@ class Product extends Model
      // Define relationships if needed (for example, with OrderItem)
      public function orderItems()
      {
-         return $this->hasMany(OrderItem::class, 'product_id');  // assuming 'product_id' is the foreign key in order_items
+         return $this->hasMany(OrderItem::class, 'product_id');  
      }
 
 }

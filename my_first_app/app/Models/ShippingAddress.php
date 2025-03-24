@@ -8,7 +8,7 @@ use App\Models\ShippingAddress;
 
 class ShippingAddress extends Model
 {
-    // We don’t need to specify the table name if it follows Laravel's conventions
+   
     protected $fillable = [
         'user_id',         // Foreign key linking to the user
         'address_line_1',
@@ -18,7 +18,7 @@ class ShippingAddress extends Model
         'country',
     ];
 
-    // Define the relationship between the ShippingAddress and User models
+     // relationship between the ShippingAddress and User models
     public function user()
     {
         return $this->belongsTo(User::class);

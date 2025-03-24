@@ -77,3 +77,14 @@ Route::get('/search', function () {
     $searchQuery = request('query');
     return view('search', compact('searchQuery'));
 });
+
+Route::delete('/basket/{itemId}/delete', [BasketController::class, 'deleteItem'])->name('basket.delete');
+
+// Route for confirming the order
+Route::post('/confirm-order', [BasketController::class, 'confirmOrder'])->name('order.confirm');
+
+// Route for the order confirmation page
+Route::get('/order-confirmation/{order}', function ($order) {
+    return view('UserUI.confirmation', ['order' => $order]);
+})->name('order.confirmation');
+
