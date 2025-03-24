@@ -534,3 +534,12 @@ document.addEventListener("DOMContentLoaded", function() {
         console.error("Hamburger menu or nav-links not found!");
     }
 });
+function toggleSidebar() {
+    var nav = document.getElementById("nav");
+    if (nav.className === "nav") {
+      nav.className += " responsive";
+    } else {
+      nav.className = "nav";
+    }
+  }
+  

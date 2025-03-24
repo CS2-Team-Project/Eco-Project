@@ -14,6 +14,8 @@
     <!-- Header Section -->
     <section id="header">
         <a href="#"><img src="img/logo1.png" class="logo" alt="CS2TP Logo"></a>
+        <a href="#"><img src="img/logo1.png" class="logo" alt=""></a>
+        <button class="menu-icon" onclick="toggleSidebar()">☰</button>
 
         <nav id="nav">
             <li><a href="{{ url('/home') }}">Home</a></li>
