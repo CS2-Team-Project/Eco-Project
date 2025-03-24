@@ -83,21 +83,22 @@
             <h3>Quick Links</h3>
             <ul class="list">
                 <li><a href="{{url('/home')}}">Home</a></li>
-                <li><a href="{{url('/products')}}">Products</a></li>
-                <li><a href="{{url('/contact')}}">Contact</a></li>
-                <li><a href="{{url('/about')}}">About Us</a></li>
-            </ul>
+          <li><a href="{{url('/products')}}">Products</a></li>
+          <li><a href="{{url('/contact')}}">Contact</a></li>
+          <li><a href="{{url('/about')}}">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-content">
+                <h3>Follow Us</h3>
+                <ul class="media-icons">
+                <li><a href="https://www.linkedin.com/in/concept-clothing-1b8536357/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+        <li><a href="https://x.com/Concept10_" target="_blank"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=61574613238016&sk=about" target="_blank"><i class="fab fa-facebook"></i></a></li>
+        <li><a href="https://www.instagram.com/conceptt___/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
         </div>
-        <div class="footer-content">
-            <h3>Follow Us</h3>
-            <ul class="media-icons">
-                <li><a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a></li>
-                <li><a href="https://twitter.com"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="https://facebook.com"><i class="fab fa-facebook"></i></a></li>
-                <li><a href="https://instagram.com"><i class="fab fa-instagram"></i></a></li>   
-            </ul>
-        </div>
-    </div>
+        
 </footer>
 
 <script src="{{ asset('script.js') }}"></script>
