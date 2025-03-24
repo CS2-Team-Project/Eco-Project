@@ -3315,86 +3315,90 @@ font-size: 30px;
       justify-content: center;
   }
   
-  /* Footer styles */
-  footer {
-      background: var(--navbar-color);
-      padding-top: 50px;
-      color: var(--base-color);
-      text-decoration: none;
-      border-top: 2px solid var(--accent-color);
-  }
-  
-  footer p {
-      color: var(--text-color);
-      padding-left: 80px;
-  }
-  
-  .container {
-      max-width: 80%; /* 80% width for all devices */
-      width: 100%;
-      margin: 0 auto;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-  }
-  
-  .footer-content {
-      width: 100%; /* Full width on smaller screens */
-      margin-bottom: 20px;
-      text-align: center;
-  }
-  
-  .footer-content ul {
-      text-align: center;
-  }
-  
-  .list {
-      padding: 0;
-  }
-  
-  .list li {
-      width: auto;
-      text-align: center;
-      list-style-type: none;
-      padding: 7px;
-      position: relative;
-  }
-  
-  .list li::before {
-      content: '';
-      position: absolute;
-      transform: translate(-50%, -50%);
-      left: 50%;
-      top: 100%;
-      width: 0;
-      height: 2px;
-      background: var(--accent-color);
-      transition-duration: .5s;
-      text-decoration: none;
-  }
-  
-  .list li:hover::before {
-      width: 20%;
-  }
-  
-  .media-icons {
-      text-align: center;
-      padding: 0;
-  }
-  
-  .media-icons li {
-      display: inline-block;
-      padding: 5px;
-  }
-  
-  .media-icons i {
-      color: var(--text-color);
-      font-size: 25px;
-  }
-  
-  .media-icons i:hover {
-      color: var(--accent-color);
-  }
+  /* Footer styles for Less than 768px*//* Footer styles */
+footer {
+    background: var(--navbar-color);
+    padding-top: 50px;
+    color: var(--base-color);
+    text-decoration: none;
+    border-top: 2px solid var(--accent-color);
+}
+
+footer p {
+    color: var(--text-color);
+    padding-left: 80px;
+}
+
+/* Apply styles only for screens with a width of 768px or smaller */
+@media (max-width: 768px) {
+    .container {
+        max-width: 80%; /* 80% width for smaller screens */
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .footer-content {
+        width: 100%; /* Full width for footer sections */
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .footer-content ul {
+        text-align: center;
+    }
+
+    .list {
+        padding: 0;
+    }
+
+    .list li {
+        width: auto;
+        text-align: center;
+        list-style-type: none;
+        padding: 7px;
+        position: relative;
+    }
+
+    .list li::before {
+        content: '';
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 100%;
+        width: 0;
+        height: 2px;
+        background: var(--accent-color);
+        transition-duration: .5s;
+        text-decoration: none;
+    }
+
+    .list li:hover::before {
+        width: 20%;
+    }
+
+    .media-icons {
+        text-align: center;
+        padding: 0;
+    }
+
+    .media-icons li {
+        display: inline-block;
+        padding: 5px;
+    }
+
+    .media-icons i {
+        color: var(--text-color);
+        font-size: 25px;
+    }
+
+    .media-icons i:hover {
+        color: var(--accent-color);
+    }
+}
+
   
   /* Ensure email is below social media icons */
   .footer-content:last-child p {
