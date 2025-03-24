@@ -147,16 +147,16 @@
         </ul>
       </div>
       <div class="footer-content">
-        <h3>Follow Us</h3>
-        <ul class="media-icons">
-          <li><a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a></li>
-          <li><a href="https://twitter.com"><i class="fab fa-twitter"></i></a></li>
-          <li><a href="https://facebook.com"><i class="fab fa-facebook"></i></a></li>
-          <li><a href="https://instagram.com"><i class="fab fa-instagram"></i></a></li>
-        </ul>
-      </div>
+      <h3>Follow Us</h3>
+      <ul class="media-icons">
+           <li><a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a></li>
+           <li><a href="https://twitter.com"><i class="fab fa-twitter"></i></a></li>
+           <li><a href="https://facebook.com"><i class="fab fa-facebook"></i></a></li>
+           <li><a href="https://instagram.com"><i class="fab fa-instagram"></i></a></li>   
+      </ul>
     </div>
-  </footer>
+  </div>
+  </div>
 
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -169,8 +169,11 @@ function googleTranslateElementInit() {
 
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-    </div>
 
+<<<<<<< HEAD
+
+
+=======
     <div class="footer-content">
       <h3>Quick Links</h3>
       <ul class="list">
@@ -183,13 +186,14 @@ function googleTranslateElementInit() {
     <div class="footer-content">
       <h3>Follow Us</h3>
       <ul class="media-icons">
-      <li><a href="https://www.linkedin.com/in/concept-clothing-1b8536357/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-        <li><a href="https://x.com/Concept10_" target="_blank"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="https://www.facebook.com/profile.php?id=61574613238016&sk=about" target="_blank"><i class="fab fa-facebook"></i></a></li>
-        <li><a href="https://www.instagram.com/conceptt___/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+           <li><a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a></li>
+           <li><a href="https://twitter.com"><i class="fab fa-twitter"></i></a></li>
+           <li><a href="https://facebook.com"><i class="fab fa-facebook"></i></a></li>
+           <li><a href="https://instagram.com"><i class="fab fa-instagram"></i></a></li>   
       </ul>
     </div>
   </div>
+>>>>>>> parent of 39b317fb (Updated social media links and final website edits)
 
   
 </footer>
