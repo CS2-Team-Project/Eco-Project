@@ -451,16 +451,17 @@ select.goog-te-combo:hover {
     border: none;
     background: transparent;
     padding: 8px;
-    outline:none;
-    width:150px;
+    outline: none;
+    width: 150px;
+    color: var(--text-color); /* Change the text color to white */
 }
 
 .search-btn{
-    border:none;
-    background:none;
-    cursor:pointer;
-    
+    border: none;
+    background: none;
+    cursor: pointer;
 }
+
 
 
 /* Hero banner */
